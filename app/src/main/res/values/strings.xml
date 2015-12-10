@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">qiweihospital</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- 主页 -->
+    <string name="setting_main_screenshot">科室医生</string>
+    <string name="setting_main_capture">预约挂号</string>
+    <string name="setting_main_capture1">查询系统</string>
+    <string name="setting_main_files">健康宣传</string>
+    <string name="setting_main_root">名医馆</string>
+    <string name="setting_main_root1">医院导航</string>
+    <string name="community_subactivity_kacha_douwo">主页</string>
+    <string name="community_subactivity_kacha_follow">个人中心</string>
+    <string name="community_main_publish">更多</string>
+    <string name="homepage_title">宁南县中医医院</string>
+    <string name="setting_main_open">点击打开</string>
+
+
+
+</resources>

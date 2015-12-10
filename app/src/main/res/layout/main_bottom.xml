@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  
+    tools:context="com.example.hospital.MainActivity" >
+    
+    <LinearLayout
+        android:id="@+id/buttomBar"
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:background="#271b00" >
+
+        <TextView
+            android:id="@+id/buttomTab1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/onclick_bottom_tab"
+            android:clickable="true"
+            android:drawablePadding="1dp"
+            android:drawableTop="@mipmap/ic_tab_kidding"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:paddingTop="8dp"
+            android:text="@string/community_subactivity_kacha_douwo"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/buttomTab2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/onclick_bottom_tab"
+            android:clickable="true"
+            android:drawablePadding="1dp"
+            android:drawableTop="@mipmap/ic_tab_follow"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:paddingTop="8dp"
+            android:text="@string/community_subactivity_kacha_follow"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/buttomTab3"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/onclick_bottom_tab"
+            android:clickable="true"
+            android:drawablePadding="1dp"
+            android:drawableTop="@mipmap/ic_tab_newpublish"
+            android:gravity="center"
+            android:paddingBottom="4dp"
+            android:paddingTop="8dp"
+            android:text="@string/community_main_publish"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+       
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/viewContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/buttomBar"
+        android:layout_alignParentTop="true" />
+
+</RelativeLayout>

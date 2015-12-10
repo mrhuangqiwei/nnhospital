@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <drawable name="onclick_black_shado">#33000000</drawable>
+    <drawable name="onclick_sure_shado">#00bfff</drawable>
+    <drawable name="onclick_sure_transparent">#00ffffff</drawable>
+    <drawable name="color_tab_nor">#271b00</drawable>
+    <drawable name="color_tab_pre">#ffba1a</drawable>
+</resources>
