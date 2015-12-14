@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class MainActivity extends Activity implements View.OnClickListener {
     public final static int PAGE_1 = 0;
     public final static int PAGE_2 = 1;
+    public final static int PAGE_3 = 2;
     private int mCurrentPage = -1;
 
     private boolean mShowAd = true;
@@ -56,6 +57,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
   private void initEnvironment(){
       mSubActivityList.add(new HomePageActivity(this));
       mSubActivityList.add(new t2Activity(this));
+      mSubActivityList.add(new more_mainActivity(this));
     }
 private  void initWindow(){
    requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -87,6 +89,11 @@ private  void initWindow(){
                 //showAd(false);
 
                 break;
+            case R.id.buttomTab3:
+                this.startSubActivity(PAGE_3);
+                //showAd(false);
+
+                break;
             default:
                 break;
         }
@@ -113,16 +120,29 @@ private  void initWindow(){
         if(viewId == PAGE_1){
             mPageText1.setSelected(true);
             mPageText2.setSelected(false);
-        }else{
+            mPageText3.setSelected(false);
+        }
+        else if(viewId == PAGE_2)
+        {
             mPageText1.setSelected(false);
             mPageText2.setSelected(true);
+            mPageText3.setSelected(false);
+        }
+
+        else{mPageText3.setSelected(true);
+            mPageText1.setSelected(false);
+            mPageText2.setSelected(false);
+
+
         }
 
 		/* stop the other subActivity*/
         mSubActivityList.get(viewId^1).onPause();
 //		mViewContainer.removeView(mSubActivityList.get(viewId^1).getMainView());
         mSubActivityList.get(viewId^1).getMainView().setVisibility(View.INVISIBLE);
-
+        mSubActivityList.get(viewId^2).onPause();
+//		mViewContainer.removeView(mSubActivityList.get(viewId^1).getMainView());
+        mSubActivityList.get(viewId^2).getMainView().setVisibility(View.INVISIBLE);
 		/* show the current subActivity*/
         mCurrentActivity = mSubActivityList.get(viewId);
         mCurrentActivity.onResume();

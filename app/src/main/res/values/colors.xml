@@ -6,4 +6,6 @@
     <drawable name="onclick_sure_transparent">#00ffffff</drawable>
     <drawable name="color_tab_nor">#271b00</drawable>
     <drawable name="color_tab_pre">#ffba1a</drawable>
+    <drawable name="toolsactivity_listview_normal">#ffffff</drawable>
+    <drawable name="toolsactivity_listview_press">#44000000</drawable>
 </resources>

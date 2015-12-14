@@ -14,7 +14,11 @@
     <string name="community_main_publish">更多</string>
     <string name="homepage_title">宁南县中医医院</string>
     <string name="setting_main_open">点击打开</string>
-
-
+    <!-- 更多-->
+    <string name="more_main_complaint">投诉</string>
+    <string name="more_main_current_version">当前版本</string>
+    <string name="more_main_feedbanck">意见反馈</string>
+    <string name="more_main_about_us">关于我们</string>
+    <string name="more_main_title">更多</string>
 
 </resources>
