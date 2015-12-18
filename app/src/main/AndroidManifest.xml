@@ -16,6 +16,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <activity android:name=".HomePageActivity"/>
+            <activity android:name=".more_mainActivity"/>
+            <activity android:name=".t2Activity"/>
         </activity>
     </application>
 

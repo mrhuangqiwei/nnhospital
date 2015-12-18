@@ -20,5 +20,16 @@
     <string name="more_main_feedbanck">意见反馈</string>
     <string name="more_main_about_us">关于我们</string>
     <string name="more_main_title">更多</string>
-
+    <!-- 个人中心-->
+    <string name="uc_land_in">登录</string>
+    <string name="uc_land_out">退出</string>
+    <string name="uc_land_account_number">账号</string>
+    <string name="uc_land_password">密码</string>
+    <string name="uc_land_new_user">新用户</string>
+    <string name="uc_land_retrieve_password">找回密码</string>
+    <string name="uc_land_rembember_password">记住密码</string>
+    <string name="uc_land_auto_landing">自动登录</string>
+    <string name="uc_land_user_prompt">请填写注册手机号</string>
+    <string name="uc_land_password_prompt">请输入密码</string>
+    <string name="uc_land_password_forget">忘记密码</string>
 </resources>

@@ -2,48 +2,30 @@ package com.qiwei.hospital;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.qiwei.hospital.ActivityHelper.SubActivity;
 
-public class t2Activity extends SubActivity {
+public class t2Activity extends Fragment {
 
-	public t2Activity(Activity activity) {
-		super(activity);
-		// TODO Auto-generated constructor stub
-	}
+
 
 
 
 	@Override
-	public void onCreate() {
-		// TODO Auto-generated method stub
-		setContentView(R.layout.t2_main);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+		return inflater.inflate(R.layout.t2_main, container, false);
+
+
+
 	}
 
-	@Override
-	public View onCreateView() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public void onResume() {
-		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public void onPause() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onDestory() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
