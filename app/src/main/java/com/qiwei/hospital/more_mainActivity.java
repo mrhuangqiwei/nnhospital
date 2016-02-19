@@ -10,16 +10,12 @@ import android.view.ViewGroup;
 public class more_mainActivity extends Fragment {
 
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        return inflater.inflate(R.layout.main_more, container, false);
 
 
-
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-		return inflater.inflate(R.layout.main_more, container, false);
-
-
-
-	}
+    }
 
 }

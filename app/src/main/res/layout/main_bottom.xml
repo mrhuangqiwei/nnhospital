@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.example.hospital.MainActivity" >
+    tools:context="com.example.hospital.MainActivity">
 
     <LinearLayout
         android:id="@+id/buttomBar"
         android:layout_width="fill_parent"
         android:layout_height="65dp"
         android:layout_alignParentBottom="true"
-        android:background="#271b00" >
+        android:background="#271b00">
 
         <TextView
             android:id="@+id/buttomTab1"
@@ -71,7 +71,6 @@
         android:layout_height="fill_parent"
         android:layout_above="@id/buttomBar"
         android:layout_alignParentTop="true" />
-
 
 
 </RelativeLayout>

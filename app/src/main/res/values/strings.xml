@@ -32,4 +32,6 @@
     <string name="uc_land_user_prompt">请填写注册手机号</string>
     <string name="uc_land_password_prompt">请输入密码</string>
     <string name="uc_land_password_forget">忘记密码</string>
+    <string name="title_activity_uclanding">UClandingActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

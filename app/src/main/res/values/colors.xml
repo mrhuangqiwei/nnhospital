@@ -8,4 +8,7 @@
     <drawable name="color_tab_pre">#ffba1a</drawable>
     <drawable name="toolsactivity_listview_normal">#ffffff</drawable>
     <drawable name="toolsactivity_listview_press">#44000000</drawable>
+    <drawable name="color_re_land_in">#6be4e7e9</drawable>
+    <drawable name="color_img_back_press">#ffba1a</drawable>
+    <drawable name="color_img_back_on">#FF8746</drawable>
 </resources>

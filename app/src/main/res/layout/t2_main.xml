@@ -2,13 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
- 
-    tools:context=".MainActivity" >
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
 
-    <TextView
+  <EditText
+        android:id="@+id/edit_t2_main"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+      android:lines="1"
+      android:inputType="textUri"
+      android:imeOptions="actionGo"
+      />
+    <Button
+        android:id="@+id/btn_t2_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="天下武功唯快不破" 
-        android:textSize="40sp"/>
-
+        android:text="go"/>
+<ImageView
+    android:id="@+id/img_t2_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" />
 </LinearLayout>
