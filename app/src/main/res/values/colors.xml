@@ -11,4 +11,8 @@
     <drawable name="color_re_land_in">#6be4e7e9</drawable>
     <drawable name="color_img_back_press">#ffba1a</drawable>
     <drawable name="color_img_back_on">#FF8746</drawable>
+    <color name="color_dddddd">#696969</color>
+    <color name="color_4da1ff">#4DA1FF</color>
+    <color name="color_1B75D9">#1B75D9</color>
+    <color name="red">#EE6363</color>
 </resources>

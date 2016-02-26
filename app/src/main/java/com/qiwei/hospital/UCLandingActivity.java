@@ -4,7 +4,6 @@ package com.qiwei.hospital;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -12,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.qiwei.hospital.ui.Main2Activity;
+import com.qiwei.hospital.ui.UCenterActivity;
 import com.qiwei.hospital.utils.NnApplication.NnApplication;
 import com.qiwei.hospital.utils.comprehensive.DBUtil;
 import com.qiwei.hospital.utils.comprehensive.PrefrenceUtils;
@@ -69,6 +68,7 @@ private  View mReLand;
             public void run() {
                 try {
                     crrayList = Soap.GetWebServre("getUserInfo", arrayList, brrayList);
+
                     app.setArrrList(crrayList);
                 } catch (Exception e) {
                 }
@@ -98,7 +98,7 @@ private  View mReLand;
 
                 break;
             case R.id.tv_uc_forget_pws:
-                Intent intent=new Intent(UCLandingActivity.this, Main2Activity.class);
+                Intent intent=new Intent(UCLandingActivity.this, UCenterActivity.class);
                 startActivity(intent);
                 break;
             default:
@@ -123,11 +123,13 @@ drrayList.clear();
 
     drrayList=app.getArrayList();
 
-    Log.e("66666", "------------>" + drrayList.toString());
     for(int j=0;j< drrayList.size();j+=2){
         if(user.equals( drrayList.get(j))){
             if(password.equals( drrayList.get(j+1))){
                 Istrue=true;
+                app.setuserid(drrayList.get(j));
+                Intent intent=new Intent(UCLandingActivity.this, UCenterActivity.class);
+                startActivity(intent);
                 break;
             }
         }else{ Istrue=false;}

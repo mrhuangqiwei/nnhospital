@@ -33,5 +33,29 @@
     <string name="uc_land_password_prompt">请输入密码</string>
     <string name="uc_land_password_forget">忘记密码</string>
     <string name="title_activity_uclanding">UClandingActivity</string>
+    <string name="tv_uc_center_title">个人中心</string>
+    <string name="tv_uc_center_yue">我的预约</string>
+    <string name="tv_uc_center_friend">常用就诊人</string>
+    <string name="img_uc_center_flush">清除缓存</string>
+    <string name="tv_uc_center_change">修改密码</string>
+    <string name="tv_uc_center_logout">退出登录</string>
+    <string name="tv_uc_center_info">个人信息</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_query_system">QuerySystemActivity</string>
+    <!--查询系统-->
+    <string name="tv_query_system_title">查询系统</string>
+    <string name="tv_query_system_fy">费用查询</string>
+    <string name="tv_query_system_zd">诊断查询</string>
+    <string name="tv_query_system_bg">报告查询</string>
+    <string name="tv_query_system_cf">处方查询</string>
+    <string name="tv_query_system_jg">价格查询</string>
+    <string name="title_activity_zyfy">ZYFYActivity</string>
+    <string name="tv_zyfy_title">住院费用</string>
+    <string name="zyfy_tv_yj">预交金额:</string>
+    <string name="zyfy_tv_ye">账户余额:</string>
+    <string name="zyfy_tv_yy">已用费用:</string>
+    <string name="zyfy_tv_jz">记账限额:</string>
+    <string name="zyfy_tv_br">病人姓名:</string>
+    <string name="zyfy_tv_sf">身份证号:</string>
+    <string name="zyfy_tv_gg">"     "尊敬的住院病人您好！输入您的身份证号，点击查询就可以查询您的费用信息了。 宁南县中医医院祝您早日康复!</string>
 </resources>

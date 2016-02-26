@@ -28,10 +28,13 @@ public class NnApplication extends Application {
 	/** User clip path */
 	private Path mUserClipPath = null;
 	
-/** ע���û��Ƚϵ�ArrayList**/
+/** 获取所有的用户名和密码**/
 	private ArrayList<String> kcrrayList=null;
 	private  ArrayList<String> crrayList;
-	
+/** 保存用户名**/
+	private String userid=null;
+
+
 	/******************************
 	 * InnerClass <br>
 	 ******************************/
@@ -62,6 +65,12 @@ public class NnApplication extends Application {
 		
 	}
 
+public void setuserid(String use){
+	this.userid=use;
+	/**获取用户名判断用户是否登录成功**/
+}   public  String getUserid(){
+	return userid;
+	}
 	public void setArrrList(ArrayList<String> crrayList2) {
 		// TODO Auto-generated method stub
 		this.crrayList=crrayList2;

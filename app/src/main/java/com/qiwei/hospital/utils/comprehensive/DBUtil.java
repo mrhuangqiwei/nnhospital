@@ -103,37 +103,11 @@ public class DBUtil {
 			}
 		}.start();
 
-		Log.e("+++++++++++++++++"+crrayList.size(),"yy");
+
 		return crrayList;
 	}
 
-	/**
-	 * 增加一条货物信息
-	 * 
-	 * @return
-	 */
-	public void insertCargoInfo(String Cname, String Cnum) { 
 
-		arrayList.clear(); 
-		brrayList.clear(); 
-
-		arrayList.add("Cname"); 
-		arrayList.add("Cnum"); 
-		brrayList.add(Cname); 
-		brrayList.add(Cnum); 
-
-		new Thread(){
-		public void run()
-		{
-		try{
-		Soap.GetWebServre("insertCargoInfo", arrayList, brrayList);
-		}
-		catch(Exception e) {
-		}
-		}
-		}.start(); 
-		//Soap.GetWebServre("insertCargoInfo", arrayList, brrayList); 
-		} 
 	/**
 	 * 注册用户账号和密码
 	 * @param phonenum

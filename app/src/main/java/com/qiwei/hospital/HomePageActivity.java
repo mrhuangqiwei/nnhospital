@@ -2,6 +2,7 @@ package com.qiwei.hospital;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -15,6 +16,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.qiwei.hospital.ui.QuerySystemActivity;
+import com.qiwei.hospital.ui.UCenterActivity;
+import com.qiwei.hospital.utils.NnApplication.NnApplication;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -24,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 public class HomePageActivity extends Fragment implements View.OnClickListener {
     private ViewPager viewPager; // android-support-v4中的滑动组件
     private List<ImageView> imageViews; // 滑动的图片集合
-
+    private NnApplication app;
     private String[] titles; // 图片标题
     private int[] imageResId; // 图片ID
     private List<View> dots; // 图片标题正文的那些点
@@ -71,6 +76,7 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
     }
 
     private void initevenment() {
+        app=NnApplication.getInstance();
         mTvquery= (LinearLayout) contextView.findViewById(R.id.setting_main_capture1);
         mTvquery.setOnClickListener(this);
 
@@ -130,6 +136,19 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.setting_main_capture1:
+                if(app.getUserid()!=null){
+                    Intent intent=new Intent(contex, QuerySystemActivity.class);
+                    startActivity(intent);
+
+                }
+                else {
+                    Intent intent=new Intent(contex, UCLandingActivity.class);
+                    startActivity(intent);
+                }
+                break;
+            default:
+                break;
 
         }
     }

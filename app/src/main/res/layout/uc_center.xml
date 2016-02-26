@@ -1,0 +1,272 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+   <RelativeLayout
+        android:id="@+id/uc_center_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF8746"
+
+        >
+        <ImageButton
+            android:paddingLeft="5dp"
+            android:id="@+id/img_uc_center_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/onclick_land_back"
+            android:src="@mipmap/uc_land_back"/>
+        <TextView
+
+            android:id="@+id/tv_uc_center_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/tv_uc_center_title"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+ </RelativeLayout>
+<RelativeLayout
+    android:id="@+id/re_uc_center_info"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="2dp"
+    android:paddingRight="10dp"
+   >
+    <ImageView
+        android:id="@+id/img_uc_center_info"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ico_user_logo"
+        android:layout_marginLeft="15dp"
+
+
+        />
+     <TextView
+         android:gravity="center_vertical"
+         android:id="@+id/tv_uc_center_info"
+         android:layout_width="wrap_content"
+         android:layout_height="match_parent"
+         android:text="@string/tv_uc_center_info"
+         android:layout_marginLeft="15dp"
+         android:paddingBottom="10dp"
+         android:textSize="25sp"
+        android:layout_toRightOf="@id/img_uc_center_info"
+         />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:background="@mipmap/actionbar_go_normal" />
+    <View
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_dddddd"
+        />
+</RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/re_uc_center_yue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        >
+        <ImageView
+            android:id="@+id/img_uc_center_yue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/icon_yue"
+            android:paddingLeft="15dp"
+
+
+            />
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/tv_uc_center_yue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/tv_uc_center_yue"
+            android:layout_marginLeft="15dp"
+            android:paddingBottom="10dp"
+            android:textSize="25sp"
+
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/img_uc_center_yue" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/actionbar_go_normal" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/re_uc_center_friend"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        >
+        <ImageView
+            android:id="@+id/img_uc_center_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/icon_myfriend"
+            android:layout_marginLeft="15dp"
+
+
+            />
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/tv_uc_center_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/tv_uc_center_friend"
+            android:paddingLeft="15dp"
+            android:paddingBottom="10dp"
+            android:textSize="25sp"
+            android:layout_toRightOf="@id/img_uc_center_friend"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/actionbar_go_normal" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/re_uc_center_flush"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        >
+        <ImageView
+            android:id="@+id/img_uc_center_flush"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/icon_delete_rom"
+            android:layout_marginLeft="15dp"
+
+
+            />
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/tv_uc_center_flush"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/img_uc_center_flush"
+            android:paddingLeft="15dp"
+            android:paddingBottom="10dp"
+            android:textSize="25sp"
+            android:layout_toRightOf="@id/img_uc_center_flush"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/actionbar_go_normal" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/re_uc_center_change"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        >
+        <ImageView
+            android:id="@+id/img_uc_center_change"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/icon_password_change"
+            android:layout_marginLeft="15dp"
+
+
+            />
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/tv_uc_center_change"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/tv_uc_center_change"
+            android:paddingLeft="15dp"
+            android:paddingBottom="10dp"
+            android:textSize="25sp"
+            android:layout_toRightOf="@id/img_uc_center_change"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/actionbar_go_normal" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+
+        android:id="@+id/re_uc_center_logout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="20dp"
+        >
+        <TextView
+            android:id="@+id/tv_uc_center_logout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:background="@color/red"
+            android:textColor="#ffff"
+            android:text="@string/tv_uc_center_logout"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
