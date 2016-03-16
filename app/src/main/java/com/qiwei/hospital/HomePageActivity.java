@@ -137,15 +137,16 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.setting_main_capture1:
-                if(app.getUserid()!=null){
+            // if(app.getUserid()!=null){
                     Intent intent=new Intent(contex, QuerySystemActivity.class);
                     startActivity(intent);
 
-                }
+              //  }
+            /**
                 else {
                     Intent intent=new Intent(contex, UCLandingActivity.class);
                     startActivity(intent);
-                }
+                }**/
                 break;
             default:
                 break;

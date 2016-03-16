@@ -44,6 +44,7 @@
     <string name="title_activity_query_system">QuerySystemActivity</string>
     <!--查询系统-->
     <string name="tv_query_system_title">查询系统</string>
+    <string name="tv_query_system_zyh">住院号:</string>
     <string name="tv_query_system_fy">费用查询</string>
     <string name="tv_query_system_zd">诊断查询</string>
     <string name="tv_query_system_bg">报告查询</string>
@@ -57,5 +58,42 @@
     <string name="zyfy_tv_jz">记账限额:</string>
     <string name="zyfy_tv_br">病人姓名:</string>
     <string name="zyfy_tv_sf">身份证号:</string>
-    <string name="zyfy_tv_gg">"     "尊敬的住院病人您好！输入您的身份证号，点击查询就可以查询您的费用信息了。 宁南县中医医院祝您早日康复!</string>
+    <string name="zyfy_tv_brzt">住院状态:</string>
+    <string name="cyzyfy_tv_zfy">总费用:</string>
+
+    <string name="cyzyfy_tv_zhylfwmc">综合医疗服务类:</string>
+    <string name="cyzyfy_tv_zdlmc">诊断类:</string>
+    <string name="cyzyfy_tv_zllmc">治疗类:</string>
+    <string name="cyzyfy_tv_kflmc">康复类:</string>
+    <string name="cyzyfy_tv_zylmc">中医类:</string>
+    <string name="cyzyfy_tv_xylmc">西药类:</string>
+    <string name="cyzyfy_tv_zylfmc">中药类:</string>
+    <string name="cyzyfy_tv_xyhlfmc">血液和血液制品类:</string>
+    <string name="cyzyfy_tv_hclfmc">耗材类:</string>
+    <string name="cyzyfy_tv_qtlfmc">其他类:</string>
+    <string name="tv_mzfycx_title">门诊费用查询</string>
+    <string name="mzfy_tv_jzrq">就诊日期:</string>
+    <string name="mzfy_tv_jtzj">家庭住址:</string>
+    <string name="mzfy_tv_ghys">挂号医生:</string>
+    <string name="mzfy_tv_zfy">总费用:</string>
+    <string name="mzfy_tv_ghf">挂号费:</string>
+    <string name="mzfy_tv_zcf">诊查费:</string>
+    <string name="mzfy_tv_qtf">其他费:</string>
+    <string name="mzfy_tv_ghxh">挂号序号:</string>
+    <string name="mzbl_tv_gh">挂号科室:</string>
+    <string name="tv_mzbl_title">门诊综合查询</string>
+    <string name="tv_mzbl_nl">年龄:</string>
+    <string name="tv_mzbl_jiben">基本信息</string>
+    <string name="tv_mzcf_zycf">中药处方</string>
+    <string name="mzzycf_tv_zd">临床诊断:</string>
+    <string name="mzzycf_tv_yf">用法:</string>
+    <string name="mzzycf_tv_fs">副数:</string>
+
+    <string name="mzfy_tv_ggxx">小提示：尊敬的患者您好！其他费用包括“西药费”、“成药费”、“成药费”、“草药费”、“检查费”、“化验费”、“治疗费”、“手术费”、“材料费”、“救护车费”、“护理费”、“麻醉费”、“放射费”、“放射费”.宁南县中医医院祝您早日康复!</string>
+    <string name="zyfy_tv_gg">"     "尊敬的住院病人您好！输入您的住院号，点击查询就可以查询您的费用信息了。 宁南县中医医院祝您早日康复!</string>
+
+
+    <!--提示框-->
+    <string name="common_loading_msg">正在加载...</string>
+
 </resources>

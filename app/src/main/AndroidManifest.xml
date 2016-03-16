@@ -36,8 +36,12 @@
             android:name=".ui.QuerySystemActivity"
             android:label="@string/title_activity_query_system" />
         <activity
-            android:name=".ui.ZYFYActivity"
-            android:label="@string/title_activity_zyfy"></activity>
+            android:name=".ui.ZYFYCXActivity"
+            android:label="@string/title_activity_zyfy" />
+        <activity android:name=".ui.ZYFYZYActivity" />
+        <activity android:name=".ui.ZYFYCYActivity" />
+        <activity android:name=".ui.MZFYCXActivity" />
+        <activity android:name=".ui.MzblActivity"></activity>
     </application>
 
 </manifest>

@@ -10,21 +10,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.qiwei.hospital.ActivityHelper.BaseActivity;
 import com.qiwei.hospital.R;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class UCenterActivity extends Activity {
+public class UCenterActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.uc_center);
+    protected void initEnvironment() {
 
+    }
 
+    @Override
+    protected void initViews() {
 
+    }
 
-
-}}
+    @Override
+    protected int getLayoutId() {
+        return (R.layout.uc_center);
+    }
+}

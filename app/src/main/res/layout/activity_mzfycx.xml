@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="vertical"
+    tools:context="com.qiwei.hospital.ui.MZFYCXActivity">
+
+    <RelativeLayout
+        android:id="@+id/zyfy_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF8746"
+
+        >
+        <ImageButton
+            android:paddingLeft="5dp"
+            android:id="@+id/img_mzfy_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/onclick_land_back"
+            android:src="@mipmap/uc_land_back"/>
+        <TextView
+
+            android:id="@+id/tv_mzfycx_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/tv_mzfycx_title"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/zyfy_ll_title"
+        android:background="@drawable/common_re_ly"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+       android:layout_marginTop="@dimen/activity_vertical_margin"
+        >
+        <RelativeLayout
+            android:visibility="visible"
+            android:id="@+id/re_mzfy_chx"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/common_re_ly"
+            >
+
+            <TextView
+                android:id="@+id/mzfy_tv_sf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:textSize="22sp"
+                android:text="@string/mzfy_tv_ghxh"
+
+                />
+
+            <EditText
+                android:id="@+id/mzfy_tv_brrygh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:textSize="18sp"
+
+                android:layout_marginBottom="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/mzfy_tv_sf"
+                android:layout_toLeftOf="@+id/zyfy_btn_ghxh"
+                />
+            <ImageButton
+                android:id="@+id/zyfy_btn_ghxh"
+                android:layout_width="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/img_chaxun"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/onclick_zyff_img"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/re_mzfy_chx"
+            android:id="@+id/re_mzfy_brxm"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/zyfy_tv_br"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/zyfy_tv_br"
+
+                />
+
+            <TextView
+                android:id="@+id/zyfy_tv_brxm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/zyfy_tv_br"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_below="@+id/re_mzfy_brxm"
+            android:id="@+id/re_mzfy_jzrq"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/mzfy_tv_jzrq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/mzfy_tv_jzrq"
+
+                />
+
+            <TextView
+                android:id="@+id/mzfy_tv_brjzrq"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/mzfy_tv_jzrq"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_below="@+id/re_mzfy_jzrq"
+            android:id="@+id/re_mzfy_jtzj"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/mzfy_tv_jtzj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/mzfy_tv_jtzj"
+
+                />
+
+            <TextView
+                android:id="@+id/mzfy_tv_brjtzj"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/mzfy_tv_jtzj"
+                />
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_below="@+id/re_mzfy_jtzj"
+            android:id="@+id/re_mzfy_ghys"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/mzfy_tv_ghys"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/mzfy_tv_ghys"
+
+                />
+
+            <TextView
+                android:id="@+id/mzfy_tv_brghys"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/mzfy_tv_ghys"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/re_mzfy_ghys"
+            android:id="@+id/re_mzfy_zfy"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/mzfy_tv_zfy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/mzfy_tv_zfy"
+
+                />
+
+            <TextView
+                android:id="@+id/mzfy_tv_brzfy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/mzfy_tv_zfy"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/re_mzfy_zfy"
+            android:id="@+id/re_mzfy_ghf"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/mzfy_tv_ghf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/mzfy_tv_ghf"
+
+                />
+
+            <TextView
+                android:id="@+id/mzfy_tv_brghf"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/mzfy_tv_ghf"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/re_mzfy_ghf"
+            android:id="@+id/re_mzfy_zcf"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/mzfy_tv_zcf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/mzfy_tv_zcf"
+
+                />
+
+            <TextView
+                android:id="@+id/mzfy_tv_brzcf"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/mzfy_tv_zcf"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/re_mzfy_zcf"
+            android:id="@+id/re_mzfy_qt"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/mzfy_tv_qtf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/mzfy_tv_qtf"
+
+                />
+
+            <TextView
+                android:id="@+id/mzfy_tv_brqtf"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/mzfy_tv_qtf"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/mzfy_tv_xts"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:ellipsize="marquee"
+            android:scrollHorizontally="true"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:textColor="@color/violet"
+            android:visibility="gone"
+            android:singleLine="true"
+            android:text="@string/mzfy_tv_ggxx"
+
+            />
+    </RelativeLayout>
+</LinearLayout>

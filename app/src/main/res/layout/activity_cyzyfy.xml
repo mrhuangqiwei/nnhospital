@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF8746"
+    android:orientation="vertical"
+    tools:context=".ui.ZYFYCXActivity">
+    <RelativeLayout
+        android:id="@+id/zyfy_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF8746"
+
+        >
+        <ImageButton
+            android:paddingLeft="5dp"
+            android:id="@+id/img_zyfy_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/onclick_land_back"
+            android:src="@mipmap/uc_land_back"/>
+        <TextView
+
+            android:id="@+id/tv_zyfyr_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/tv_zyfy_title"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/zyfy_ll_title"
+        android:background="@drawable/common_re_ly"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="25dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/zyfy_tv_br"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textSize="25sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/zyfy_tv_br"
+
+                />
+
+            <TextView
+                android:id="@+id/zyfy_tv_brxm"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="25sp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/zyfy_tv_br"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zfymc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_zfy"
+
+                />
+
+            <TextView
+                android:id="@+id/zyfy_tv_zfy"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_zfymc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zhylfwmc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_zhylfwmc"
+
+                />
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zhylfw"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_zhylfwmc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zdlmc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_zdlmc"
+
+                />
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zdl"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_zdlmc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zllmc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_zllmc"
+
+                />
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zll"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_zllmc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_kflmc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_kflmc"
+
+                />
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_kfl"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_kflmc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zylmc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_zylmc"
+
+                />
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zyl"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_zylmc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_xylmc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_xylmc"
+
+                />
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_xyl"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_xylmc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zylfmc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_zylfmc"
+
+                />
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_zylf"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_zylfmc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_xyhlfmc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_xyhlfmc"
+
+                />
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_xyhlf"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_xyhlfmc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_hclfmc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_hclfmc"
+
+                />
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_hclf"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_hclfmc"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginLeft="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_qtlfmc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:text="@string/cyzyfy_tv_qtlfmc"
+
+                />
+
+            <TextView
+                android:id="@+id/cyzyfy_tv_qtlf"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerVertical="true"
+                android:textSize="15sp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/cyzyfy_tv_qtlfmc"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_gravity="right" />
+
+</LinearLayout>

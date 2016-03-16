@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.qiwei.hospital.ActivityHelper.BaseActivity;
 import com.qiwei.hospital.ui.UCenterActivity;
 import com.qiwei.hospital.utils.NnApplication.NnApplication;
 import com.qiwei.hospital.utils.comprehensive.DBUtil;
@@ -23,7 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class UCLandingActivity extends Activity implements View.OnClickListener {
+public class UCLandingActivity extends BaseActivity implements View.OnClickListener {
 
 private  View mReLand;
     private EditText mUserId;
@@ -38,18 +39,14 @@ private  View mReLand;
     List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
     private NnApplication app;
     private HttpConnSoap Soap = new HttpConnSoap();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-
-        this.initWindow();
-        this.initEnvironment();
-
+    protected void initEnvironment() {
 
     }
 
-    private void initEnvironment() {
+    @Override
+    protected void initViews() {
         mUserId=(EditText)findViewById(R.id.edt_uc_land_user);
         mUserpassword=(EditText)findViewById(R.id.edt_uc_land_pass);
         mForgetpassword=(TextView)findViewById(R.id.tv_uc_forget_pws);
@@ -74,12 +71,17 @@ private  View mReLand;
                 }
             }
         }.start();
+
+
     }
 
-    private void initWindow() {
+    @Override
+    protected int getLayoutId() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.uc_land);
+        return (R.layout.uc_land);
     }
+
+
 
     @Override
     public void onClick(View v) {
@@ -94,7 +96,7 @@ private  View mReLand;
                 }
                 else{
                     Toast.makeText(UCLandingActivity.this, "账号或密码不对请重新检查", Toast.LENGTH_SHORT).show();
-                }
+                    return;                }
 
                 break;
             case R.id.tv_uc_forget_pws:

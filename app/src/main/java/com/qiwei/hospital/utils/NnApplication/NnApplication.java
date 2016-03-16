@@ -33,7 +33,8 @@ public class NnApplication extends Application {
 	private  ArrayList<String> crrayList;
 /** 保存用户名**/
 	private String userid=null;
-
+/** 住院费用**/
+	private ArrayList<String> zyfyList=null;
 
 	/******************************
 	 * InnerClass <br>
@@ -112,6 +113,11 @@ public ArrayList<String> getArrayList(){
 		}
 		System.exit(0);
 	}
-	
-	
+	public  void setZyfyArrrList(ArrayList<String> crrayList2) {
+		// TODO Auto-generated method stub
+		this.zyfyList=crrayList2;
+	}
+	public ArrayList<String>  getZyfyList(){
+		return zyfyList;
+	}
 }
