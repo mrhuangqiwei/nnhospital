@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/tan"
+    tools:context="com.qiwei.hospital.ui.MyyyghMxActivity">
+    <RelativeLayout
+        android:id="@+id/uc_center_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF8746"
+
+        >
+        <ImageButton
+            android:paddingLeft="5dp"
+            android:id="@+id/img_uc_center_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/onclick_land_back"
+            android:src="@mipmap/uc_land_back"/>
+        <TextView
+
+            android:id="@+id/tv_uc_center_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/tv_uc_center_yue"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_margin="16dp"
+        android:id="@+id/ll_myyyinfo_list"
+        android:background="@drawable/common_re_ly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="match_parent"
+                android:text="@string/tv_myyyinfo_hzxm"
+                />
+            <TextView
+                android:id="@+id/tv_item_myyyinfo_brxm"
+                android:gravity="center_vertical"
+                android:textColor="@color/mblue"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:text="张三丰"
+                />
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="match_parent"
+                android:text="@string/tv_Yyyd_title"
+                />
+            <TextView
+                android:id="@+id/item_tv_myyinfo_ys"
+                android:gravity="center_vertical"
+                android:textColor="@color/mblue"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:text="胡义正"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:gravity="center_vertical"
+                android:text="@string/tv_yygh_yy_jzrq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/id_tv_yyjzsj"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/mblue"
+                android:text="2016-4-20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:gravity="center_vertical"
+                android:text="@string/tv_yygh_ks_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/id_tv_yykswz"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/mblue"
+                android:text="门诊五楼"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:gravity="center_vertical"
+                android:text="@string/tv_myyyinfo_mx_ph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/id_tv_hzdh"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/mblue"
+                android:text="13825461224"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:gravity="center_vertical"
+                android:text="@string/tv_Yyks_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/id_tv_ghks"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/mblue"
+                android:text="门诊"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+            <TextView
+                android:gravity="center_vertical"
+                android:text="@string/tv_myyyinfo_day_work"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/id_tv_yssbsj"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/mblue"
+                android:text="08:30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+
+                android:gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/mblue"
+                android:text="----"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/id_tv_ysxbsj"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/mblue"
+                android:text="12:00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+</LinearLayout>
+    <RelativeLayout
+        android:background="@color/tan"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
+        <Button
+            android:id="@+id/login_button_cancle"
+            style="@style/commonLargeButtonBlue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_large_button_height"
+            android:text="@string/tv_myyyinfo_qxyy"
+            android:layout_marginLeft="@dimen/common_layout_padding"
+            android:layout_marginRight="@dimen/common_layout_padding"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</LinearLayout>

@@ -5,4 +5,14 @@
         <item>住院费用</item>
         <item>门诊费用</item>
        </string-array>
+    <string-array name="dag1">
+        <item>中药查询</item>
+        <item>西药查询</item>
+        <item>治疗查询</item>
+    </string-array>
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+
+    </string-array>
 </resources>

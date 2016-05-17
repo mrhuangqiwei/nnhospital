@@ -91,9 +91,48 @@
 
     <string name="mzfy_tv_ggxx">小提示：尊敬的患者您好！其他费用包括“西药费”、“成药费”、“成药费”、“草药费”、“检查费”、“化验费”、“治疗费”、“手术费”、“材料费”、“救护车费”、“护理费”、“麻醉费”、“放射费”、“放射费”.宁南县中医医院祝您早日康复!</string>
     <string name="zyfy_tv_gg">"     "尊敬的住院病人您好！输入您的住院号，点击查询就可以查询您的费用信息了。 宁南县中医医院祝您早日康复!</string>
-
-
+    <!--西药处方-->
+    <string name="tv_mzxy_title">西药处方</string>
+    <string name="tv_xycf_fb">费别:</string>
+    <!--治疗处置-->
+    <string name="tv_mzzlcz_title">治疗处置</string>
+    <string name="tv_mzzlcz_sqxm">申请项目</string>
+    <string name="tv_mzzlcz_sqsl">数量</string>
+    <string name="tv_mzzlcz_je">金额</string>
+    <string name="tv_mzzlcz_dj">单价</string>
     <!--提示框-->
     <string name="common_loading_msg">正在加载...</string>
+    <!--个人信息-->
+    <string name="uc_info_usname">真实姓名:</string>
+    <string name="uc_info_hint_xm">请输入您的真实姓名:</string>
+    <string name="uc_info_hint_sh">请输入您的身份证号</string>
+    <string name="uc_info_hint_jtzz">请输入您的家庭住址</string>
+    <string name="uc_info_hint_tj">提交</string>
+    <string name="uc_info_xiugai">修改</string>
+    <string name="uc_insert_jiuzhenren">添加就诊人</string>
+    <string name="uc_infome_phone">电话号码：</string>
+    <string name="uc_friend_manage">就诊人管理</string>
+    <string name="tv_Yyks_title">挂号科室</string>
+    <string name="tv_Yyyd_title">挂号医生</string>
+    <string name="tv_yygh_ks_location">科室位置</string>
+    <string name="tv_yygh_yy_jzrq">预约就诊日期</string>
+    <string name="tv_yygh_yy_ghf">挂号费</string>
+    <string name="tv_yygh_yy_sbxx">上班信息</string>
+    <string name="tv_yygh_yy_brxb">性别</string>
+    <string name="tv_myyyinfo_title">我的预约信息</string>
+    <string name="tv_myyyinfo_hzxm">患者姓名</string>
+    <string name="tv_myyyinfo_qxyy">取消预约</string>
+    <string name="tv_myyyinfo_mx_ph">患者电话</string>
+    <string name="tv_myyyinfo_click">点击查看详情</string>
+    <string name="tv_myyyinfo_day_work">当日医生上下班时间</string>
+    <string name="net_contact_false">亲，当前无网络连接请检查！</string>
+    <string name="tv_yygh_yy_ghfy">%1$s元</string>
+    <string name="uc_info_hint">    &#160;&#160;&#160;&#160;&#160;&#160;尊敬的app用户您好，为了给您更好的服务希望您能把信息填完整而且必须填写真实信息，这样我们才能将您的健康信息正确的反馈给您！否则系统无法查询您的信息！</string>
+   <!--就诊人详情-->
 
+    <string name="tv_uc_myfriend_mx">常用就诊人详情</string>
+    <string name="tv_uc_myfriend_hzxm">姓名</string>
+    <string name="tv_uc_myfriend_old">年龄</string>
+    <string name="tv_uc_myfriend_phone">电话号码</string>
+    <string name="tv_uc_myfriend_delete">删除就诊人</string>
 </resources>

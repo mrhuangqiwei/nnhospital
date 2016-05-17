@@ -3,6 +3,7 @@ package com.qiwei.hospital.AdapterManger;
 import java.util.List;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,7 +67,7 @@ public class MListItemAdapter extends BaseAdapter
        holder.mYpmc.setText(bean.getMzzyyp1());
         holder.mYpsl.setText(bean.getMzzycfsl1());
 
-         
+
 
       
         return convertView;

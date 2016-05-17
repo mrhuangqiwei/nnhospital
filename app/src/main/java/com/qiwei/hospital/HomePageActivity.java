@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.qiwei.hospital.ui.QuerySystemActivity;
 import com.qiwei.hospital.ui.UCenterActivity;
+import com.qiwei.hospital.ui.YyKsActivity;
 import com.qiwei.hospital.utils.NnApplication.NnApplication;
 
 import java.util.ArrayList;
@@ -37,6 +38,8 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
     private TextView tv_title;
     /**  查询**/
     private LinearLayout mTvquery;
+    /**预约挂号**/
+    private LinearLayout mYygh;
     private int currentItem = 0; // 当前图片的索引号
 
     private View contextView;
@@ -79,6 +82,8 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
         app=NnApplication.getInstance();
         mTvquery= (LinearLayout) contextView.findViewById(R.id.setting_main_capture1);
         mTvquery.setOnClickListener(this);
+        mYygh=(LinearLayout)contextView.findViewById(R.id.setting_main_capture);
+        mYygh.setOnClickListener(this);
 
     }
 
@@ -140,8 +145,12 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
             // if(app.getUserid()!=null){
                     Intent intent=new Intent(contex, QuerySystemActivity.class);
                     startActivity(intent);
-
+                break;
+            case  R.id.setting_main_capture:
+                Intent intent1=new Intent(contex,YyKsActivity.class);
+                startActivity(intent1);
               //  }
+
             /**
                 else {
                     Intent intent=new Intent(contex, UCLandingActivity.class);

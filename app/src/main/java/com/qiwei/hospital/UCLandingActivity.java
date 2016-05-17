@@ -4,6 +4,8 @@ package com.qiwei.hospital;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -13,11 +15,13 @@ import android.widget.Toast;
 
 import com.qiwei.hospital.ActivityHelper.BaseActivity;
 import com.qiwei.hospital.ui.UCenterActivity;
+import com.qiwei.hospital.utils.NetUtil.NetBool;
 import com.qiwei.hospital.utils.NnApplication.NnApplication;
 import com.qiwei.hospital.utils.comprehensive.DBUtil;
 import com.qiwei.hospital.utils.comprehensive.PrefrenceUtils;
 import com.qiwei.hospital.utils.comprehensive.checkutils;
 import com.qiwei.hospital.utils.httplelper.HttpConnSoap;
+import com.qiwei.hospital.utils.httplelper.NetUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +36,7 @@ private  View mReLand;
     private TextView mForgetpassword;
     private TextView mNewUser;
     private DBUtil dbUtil;
+    private NetUtil netUtil;
     private ArrayList<String> arrayList = new ArrayList<String>();
     private ArrayList<String> brrayList = new ArrayList<String>();
     private ArrayList<String> crrayList = new ArrayList<String>();
@@ -39,9 +44,35 @@ private  View mReLand;
     List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
     private NnApplication app;
     private HttpConnSoap Soap = new HttpConnSoap();
+private Handler myHandler=new Handler(){
+    @Override
+    public void handleMessage(Message msg) {
+        super.handleMessage(msg);
+        crrayList=(ArrayList<String>)msg.obj;
+        Log.e("-----------crry",crrayList.toString());
+        if(crrayList.size()>1){
+            app.setArrrList(crrayList);
+            if (!checkInputValid()) {
+                return;
+            }
+            if (checkuserinfo(mUserId.getText().toString(), mUserpassword.getText().toString())) {
+                Toast.makeText(UCLandingActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(UCLandingActivity.this, "账号或密码不对请重新检查", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+        else{
 
+        }
+    }
+};
     @Override
     protected void initEnvironment() {
+        arrayList.size();
+        brrayList.clear();
+        crrayList.clear();
+
 
     }
 
@@ -55,23 +86,20 @@ private  View mReLand;
         mReLand.setOnClickListener(this);
         mForgetpassword.setOnClickListener(this);
         mNewUser.setOnClickListener(this);
-        String Userid = PrefrenceUtils.getString(this, PrefrenceUtils.LAST_USER_NAME, "");
-        mUserId.setText(Userid);
         dbUtil = new DBUtil();
         app=(NnApplication)getApplication();
 
-        new Thread() {
-            @Override
-            public void run() {
-                try {
-                    crrayList = Soap.GetWebServre("getUserInfo", arrayList, brrayList);
 
-                    app.setArrrList(crrayList);
-                } catch (Exception e) {
-                }
-            }
-        }.start();
 
+
+    }
+
+    private void initdata() {
+        arrayList.clear();
+        brrayList.clear();
+        String name="getUserInfo";
+
+        netUtil=new NetUtil(name,myHandler,arrayList,brrayList);
 
     }
 
@@ -87,21 +115,26 @@ private  View mReLand;
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.re_ucland_langding:
-                mReLand.setBackgroundResource(R.mipmap.btn_press);
-                if (!checkInputValid()) {
-                    return;
-                }
-                if(checkuserinfo(mUserId.getText().toString(), mUserpassword.getText().toString())){
-                    Toast.makeText(UCLandingActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(UCLandingActivity.this, "账号或密码不对请重新检查", Toast.LENGTH_SHORT).show();
-                    return;                }
 
+
+                    mReLand.setBackgroundResource(R.mipmap.btn_press);
+                Log.e("----->",""+NetBool.isNetworkAvailable(UCLandingActivity.this));
+                if(!NetBool.isNetworkAvailable(UCLandingActivity.this)){
+                    Toast.makeText(UCLandingActivity.this,R.string.net_contact_false,Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    initdata();
+
+
+                }
                 break;
             case R.id.tv_uc_forget_pws:
                 Intent intent=new Intent(UCLandingActivity.this, UCenterActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.tv_uc_new_user:
+                Intent intent1=new Intent(UCLandingActivity.this, UCenterActivity.class);
+                startActivity(intent1);
                 break;
             default:
                 break;
@@ -120,11 +153,10 @@ private  View mReLand;
         return true;
     }
 private boolean checkuserinfo(String user,String password){
-drrayList.clear();
+
     boolean Istrue=false;
-
     drrayList=app.getArrayList();
-
+   Log.e("drr----->",drrayList.toString());
     for(int j=0;j< drrayList.size();j+=2){
         if(user.equals( drrayList.get(j))){
             if(password.equals( drrayList.get(j+1))){

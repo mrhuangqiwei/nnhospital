@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="vertical"
+    android:background="@color/tan"
+    tools:context="com.qiwei.hospital.ui.MyFriendMxActivity">
+    <RelativeLayout
+        android:id="@+id/uc_center_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF8746"
+
+        >
+        <ImageButton
+            android:paddingLeft="5dp"
+            android:id="@+id/img_uc_center_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/onclick_land_back"
+            android:src="@mipmap/uc_land_back"/>
+        <TextView
+
+            android:id="@+id/tv_uc_center_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/tv_uc_myfriend_mx"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/uc_info_xiugai"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/white"
+            android:layout_alignBaseline="@+id/tv_uc_center_title"
+            android:layout_alignBottom="@+id/tv_uc_center_title"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp" />
+
+    </RelativeLayout>
+ <FrameLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:orientation="vertical">
+         <LinearLayout
+            android:visibility="visible"
+             android:id="@+id/myfriend_ll_delete"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             >
+
+
+    <LinearLayout
+        android:id="@+id/zyfy_ll_title"
+        android:background="@drawable/common_re_ly"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        >
+
+
+
+        <LinearLayout
+            android:paddingTop="20dp"
+            android:id="@+id/re_mzbl_jbxx"
+            android:layout_width="match_parent"
+            android:layout_height="227dp"
+
+            android:orientation="vertical">
+            <RelativeLayout
+
+                android:id="@+id/re_myfreind_mx"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:id="@+id/myfriend_tv_br"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/tv_uc_myfriend_hzxm"
+
+                    />
+
+                <TextView
+                    android:id="@+id/myfriend_tv_brxm"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:textSize="15sp"
+
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/myfriend_tv_br"
+                    android:text="张三丰" />
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/myfriend_tv_ghk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_yygh_yy_brxb"
+                    android:textSize="15sp"
+                    android:layout_toRightOf="@+id/myfriend_tv_brxm"
+                    android:layout_marginLeft="15dp"
+
+                    />
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/myfriend_tv_ghks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="男"
+                    android:layout_toRightOf="@+id/myfriend_tv_ghk"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="5dp"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+
+                android:id="@+id/re_mzbl_jz"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:id="@+id/mzbl_tv_ys"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/tv_uc_myfriend_old"
+
+                    />
+
+                <TextView
+                    android:id="@+id/mzbl_tv_jzys"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:textSize="15sp"
+
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/mzbl_tv_ys"
+                    android:text="23" />
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/mzbl_tv_jz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_uc_myfriend_phone"
+                    android:textSize="15sp"
+                    android:layout_toRightOf="@+id/mzbl_tv_jzys"
+                    android:layout_marginLeft="15dp"
+
+                    />
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/mzbl_tv_jzsj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="18989267780"
+                    android:layout_toRightOf="@+id/mzbl_tv_jz"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="5dp"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+
+                android:id="@+id/re_mzbl_nl"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/mzbl_tv_sf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zyfy_tv_sf"
+                    android:textSize="15sp"
+                    />
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/mzbl_tv_sfzh"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/mzbl_tv_sf"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="15dp"
+                    android:text="513427199309232815" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_below="@+id/re_mzbl_jzrq"
+                android:id="@+id/re_mzfy_jtzj"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="15dp">
+
+                <TextView
+                    android:id="@+id/mzfy_tv_mzbl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/mzfy_tv_jtzj"
+
+                    />
+
+                <TextView
+                    android:id="@+id/mzbl_tv_brjtzj"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:textSize="15sp"
+
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/mzfy_tv_mzbl"
+                    android:text="四川省宁南县松林乡七组2号" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <RelativeLayout
+        android:background="@color/tan"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        >
+        <Button
+            android:id="@+id/login_button_cancle"
+            style="@style/commonLargeButtonBlue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_large_button_height"
+            android:text="@string/tv_uc_myfriend_delete"
+            android:layout_marginLeft="@dimen/common_layout_padding"
+            android:layout_marginRight="@dimen/common_layout_padding"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+     </LinearLayout>
+         <!--修改时候的界面-->
+         <LinearLayout
+             android:visibility="gone"
+             android:id="@+id/myfriend_ll_update"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="vertical">
+
+
+             <LinearLayout
+                 android:id="@+id/myfriend_ll_title"
+                 android:background="@drawable/common_re_ly"
+                 android:layout_width="match_parent"
+                 android:layout_height="200dp"
+                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                 android:layout_marginRight="@dimen/activity_horizontal_margin"
+                 android:layout_marginTop="@dimen/activity_vertical_margin"
+                 android:orientation="vertical"
+                 >
+
+                 <LinearLayout
+                     android:paddingTop="20dp"
+                     android:id="@+id/re_myfreind_update"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+
+                     android:orientation="vertical">
+                     <RelativeLayout
+
+                         android:id="@+id/re_myfreind_update_mx"
+                         android:layout_width="match_parent"
+                         android:layout_height="35dp"
+                         android:layout_marginTop="5dp"
+                         android:layout_marginLeft="15dp">
+
+                         <TextView
+                             android:id="@+id/myfreind_update_tv_br"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerVertical="true"
+                             android:textSize="15sp"
+                             android:layout_marginLeft="5dp"
+                             android:text="@string/tv_uc_myfriend_hzxm"
+
+                             />
+
+                         <EditText
+                             android:id="@+id/myfreind_update_tv_brxm"
+                             android:layout_width="80dp"
+                             android:layout_height="match_parent"
+                             android:textSize="15sp"
+                             android:text="张三"
+                             android:layout_marginLeft="10dp"
+                             android:layout_toRightOf="@+id/myfreind_update_tv_br"
+                             android:layout_alignParentTop="true" />
+                         <TextView
+                             android:layout_centerVertical="true"
+                             android:id="@+id/myfreind_update_tv_ghk"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/tv_yygh_yy_brxb"
+                             android:textSize="15sp"
+                             android:layout_toRightOf="@+id/myfreind_update_tv_brxm"
+                             android:layout_marginLeft="15dp"
+
+                             />
+
+                       <EditText
+                             android:layout_centerVertical="true"
+                           android:text="男"
+                             android:id="@+id/myfreind_update_tv_ghks"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_toRightOf="@+id/myfreind_update_tv_ghk"
+                             android:textSize="15sp"
+                             android:layout_marginLeft="5dp"
+                             />
+                     </RelativeLayout>
+
+
+                     <RelativeLayout
+
+                         android:id="@+id/re_myfreind_update_jz"
+                         android:layout_width="match_parent"
+                         android:layout_height="40dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginLeft="15dp">
+
+                         <TextView
+                             android:id="@+id/myfreind_update_tv_ys"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerVertical="true"
+                             android:textSize="15sp"
+                             android:layout_marginLeft="5dp"
+                             android:text="@string/tv_uc_myfriend_old"
+
+                             />
+
+                       <EditText
+                             android:id="@+id/myfreind_update_tv_jzys"
+                             android:layout_width="80dp"
+                             android:text="23"
+                             android:layout_height="match_parent"
+                           android:textSize="15sp"
+
+                           android:layout_marginLeft="10dp"
+                           android:layout_alignParentBottom="true"
+                           android:layout_toEndOf="@+id/myfreind_update_tv_ys"
+                           android:layout_marginStart="24dp" />
+                         <TextView
+                             android:layout_centerVertical="true"
+                             android:id="@+id/myfreind_update_tv_jz"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/tv_uc_myfriend_phone"
+                             android:textSize="15sp"
+                             android:layout_toRightOf="@+id/myfreind_update_tv_jzys"
+                             android:layout_marginLeft="15dp"
+
+                             />
+
+                        <EditText
+                             android:layout_centerVertical="true"
+                             android:id="@+id/myfreind_update_tv_jzsj"
+                             android:layout_width="wrap_content"
+                            android:text="13118018365"
+                             android:layout_height="wrap_content"
+                             android:layout_toRightOf="@+id/myfreind_update_tv_jz"
+                             android:textSize="15sp"
+                             android:layout_marginLeft="5dp"
+                             />
+                     </RelativeLayout>
+
+
+                     <RelativeLayout
+
+                         android:id="@+id/re_myfreind_update_nl"
+                         android:layout_width="match_parent"
+                         android:layout_height="40dp"
+                         android:layout_marginTop="10dp"
+                         android:layout_marginLeft="15dp">
+
+                         <TextView
+                             android:layout_marginLeft="5dp"
+                             android:id="@+id/myfreind_update_tv_sf"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="@string/zyfy_tv_sf"
+                             android:textSize="15sp"
+                             />
+
+                      <EditText
+                             android:layout_centerVertical="true"
+                             android:id="@+id/myfreind_update_tv_sfzh"
+                             android:layout_width="120dp"
+                          android:text="513427199309232814"
+                             android:layout_height="wrap_content"
+                             android:layout_toRightOf="@+id/myfreind_update_tv_sf"
+                             android:textSize="12sp"
+                             android:layout_marginLeft="15dp"
+                          android:layout_alignParentEnd="true" />
+
+                     </RelativeLayout>
+
+                     <RelativeLayout
+                         android:layout_below="@+id/re_myfreind_update_jzrq"
+                         android:id="@+id/re_myfreind_update_jtzj"
+                         android:layout_width="match_parent"
+                         android:layout_height="45dp"
+                         android:layout_marginTop="3dp"
+                         android:layout_marginLeft="15dp">
+
+                         <TextView
+                             android:id="@+id/myfreind_update_tv_mzbl"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_centerVertical="true"
+                             android:textSize="15sp"
+                             android:layout_marginLeft="5dp"
+                             android:text="@string/mzfy_tv_jtzj"
+
+                             />
+
+                    <EditText
+                             android:id="@+id/myfreind_update_tv_brjtzj"
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             android:layout_centerVertical="true"
+                             android:textSize="15sp"
+
+                             android:layout_marginTop="12dp"
+                             android:layout_marginLeft="10dp"
+                             android:layout_toRightOf="@+id/myfreind_update_tv_mzbl"
+                        android:text="四川省宁南县松林乡幸福村2组7号" />
+                     </RelativeLayout>
+
+                 </LinearLayout>
+
+
+             </LinearLayout>
+             <RelativeLayout
+                 android:background="@color/tan"
+                 android:layout_width="match_parent"
+                 android:layout_height="fill_parent"
+                 android:orientation="vertical"
+                 >
+                 <Button
+                     android:id="@+id/login_button_update"
+                     style="@style/commonLargeButtonBlue"
+                     android:layout_width="match_parent"
+                     android:layout_height="@dimen/common_large_button_height"
+                     android:text="@string/uc_info_hint_tj"
+                     android:layout_marginLeft="@dimen/common_layout_padding"
+                     android:layout_marginRight="@dimen/common_layout_padding"
+                     android:layout_centerVertical="true"
+                     android:layout_centerHorizontal="true" />
+             </RelativeLayout>
+         </LinearLayout>
+
+         </LinearLayout>
+</FrameLayout>
+     </LinearLayout>
+

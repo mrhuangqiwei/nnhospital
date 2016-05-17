@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".utils.NnApplication.NnApplication"
@@ -41,7 +42,17 @@
         <activity android:name=".ui.ZYFYZYActivity" />
         <activity android:name=".ui.ZYFYCYActivity" />
         <activity android:name=".ui.MZFYCXActivity" />
-        <activity android:name=".ui.MzblActivity"></activity>
+        <activity android:name=".ui.MzblActivity" />
+        <activity android:name=".ui.MzXyCfActivity" />
+        <activity android:name=".ui.MzZlczActivity" />
+        <activity android:name=".ui.UccenterFriend" />
+        <activity android:name=".ui.UcInformation" />
+        <activity android:name=".ui.YyKsActivity" />
+        <activity android:name=".ui.YyysActivity" />
+        <activity android:name=".ui.Yygh_ysxx" />
+        <activity android:name=".ui.MyYYInfoActivity" />
+        <activity android:name=".ui.MyyyghMxActivity" />
+        <activity android:name=".ui.MyFriendMxActivity"></activity>
     </application>
 
 </manifest>

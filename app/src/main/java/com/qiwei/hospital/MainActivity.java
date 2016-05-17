@@ -13,6 +13,9 @@ import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.qiwei.hospital.ui.UCenterActivity;
+import com.qiwei.hospital.utils.NnApplication.NnApplication;
+
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
@@ -29,7 +32,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private Fragment mTab01;
     private Fragment mTab02;
     private Fragment mTab03;
-
+    private NnApplication app;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -72,8 +75,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setselect(0);
                 break;
             case R.id.buttomTab2:
+                app=(NnApplication)getApplication();
+                if(app.getUserid()!=null){
+                    Intent intent = new Intent(MainActivity.this, UCenterActivity.class);
+                    startActivity(intent);
+                }
+                else {
                 Intent intent = new Intent(MainActivity.this, UCLandingActivity.class);
-                startActivity(intent);
+                startActivity(intent);}
                 break;
             case R.id.buttomTab3:
                 mViewContainer.invalidate();

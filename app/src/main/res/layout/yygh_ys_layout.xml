@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/zyfy_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF8746"
+
+        >
+        <ImageButton
+            android:paddingLeft="5dp"
+            android:id="@+id/img_mzfy_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/onclick_land_back"
+            android:src="@mipmap/uc_land_back"/>
+        <TextView
+
+            android:id="@+id/tv_Yyks_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/tv_Yyks_title"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4523f6"
+        android:orientation="horizontal">
+    <RelativeLayout
+  android:layout_width="0dp"
+        android:layout_height="wrap_content"
+             android:padding="2dp"
+                android:layout_weight="1"
+        >
+        <TextView
+            android:id="@+id/tv_ysgh_ys_layout1"
+            android:textSize="12sp"
+            android:textColor="#ffff"
+            android:text="星期一"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:paddingTop="10dp"
+            android:id="@+id/tv_ysgh_ys_layout_rq1"
+            android:textSize="12sp"
+            android:textColor="#ffff"
+            android:text="04/04"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_ysgh_ys_layout1"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_weight="1"
+      >
+            <TextView
+                android:id="@+id/tv_ysgh_ys_layout2"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="星期一"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/tv_ysgh_ys_layout_rq2"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="04/04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_ysgh_ys_layout2"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_weight="1"
+           >
+            <TextView
+                android:id="@+id/tv_ysgh_ys_layout3"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="星期一"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/tv_ysgh_ys_layout_rq3"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="04/04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_ysgh_ys_layout3"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+
+            android:layout_weight="1"
+       >
+            <TextView
+                android:id="@+id/tv_ysgh_ys_layout4"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="星期一"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/tv_ysgh_ys_layout_rq4"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="04/04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_ysgh_ys_layout4"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_weight="1"
+        >
+            <TextView
+                android:id="@+id/tv_ysgh_ys_layout5"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="星期一"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/tv_ysgh_ys_layout_rq5"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="04/04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_ysgh_ys_layout5"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_weight="1"
+       >
+            <TextView
+                android:id="@+id/tv_ysgh_ys_layout6"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="星期一"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/tv_ysgh_ys_layout_rq6"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="04/04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_ysgh_ys_layout6"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_weight="1"
+     >
+            <TextView
+                android:id="@+id/tv_ysgh_ys_layout7"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="星期一"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:paddingTop="10dp"
+                android:id="@+id/tv_ysgh_ys_layout_rq7"
+                android:textSize="12sp"
+                android:textColor="#ffff"
+                android:text="04/04"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_ysgh_ys_layout7"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:textSize="12dp"
+                android:background="@color/magenta"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/tv_yygh_ys_layout_title"
+                android:textColor="@color/orange"
+                android:text="上午挂号  （点击医生即可预约）"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <GridView
+                android:id="@+id/yspb_gride"
+                android:numColumns="7"
+                android:horizontalSpacing="2dp"
+                android:verticalSpacing="2dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </GridView>
+        </LinearLayout>
+
+    <TextView
+        android:textSize="12dp"
+        android:background="@color/magenta"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/tv_yygh_ys_layout_xiwu_title"
+        android:textColor="@color/orange"
+        android:text="下午挂号（点击医生即可预约）"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <GridView
+        android:id="@+id/yspb_gride1"
+        android:numColumns="7"
+        android:horizontalSpacing="2dp"
+        android:verticalSpacing="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </GridView>
+
+</LinearLayout>

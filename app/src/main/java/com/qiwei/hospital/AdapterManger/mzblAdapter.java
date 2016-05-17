@@ -1,6 +1,7 @@
 package com.qiwei.hospital.AdapterManger;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,7 +78,9 @@ else
                 MzzycfBean bean =new MzzycfBean(mzblBean.getListdata().get(i),mzblBean.getListdata().get(i+1),mzblBean.getListdata().get(i+2));
                 mDatas.add(bean);
             }
+            //Log.e("这是mData",mDatas.toString());
             MListItemAdapter adapter = new MListItemAdapter(c, mDatas);
+
             holder.mZylist.setAdapter(adapter);
             Utility.setListViewHeightBasedOnChildren(holder.mZylist);
         }

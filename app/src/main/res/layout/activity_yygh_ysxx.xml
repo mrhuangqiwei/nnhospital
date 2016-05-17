@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical"
+    tools:context="com.qiwei.hospital.ui.Yygh_ysxx">
+
+    <RelativeLayout
+        android:id="@+id/zyfy_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF8746"
+
+        >
+        <ImageButton
+            android:paddingLeft="5dp"
+            android:id="@+id/img_mzfy_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/onclick_land_back"
+            android:src="@mipmap/uc_land_back"/>
+        <TextView
+
+            android:id="@+id/tv_Yyks_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="预约挂号"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+
+        android:id="@+id/ln_yygh_ysxx_is"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textSize="16sp"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_horizontal"
+        android:text="预约信息："
+        android:background="@color/lemonchiffon"
+        android:textColor="@color/title_blue"
+
+        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+            <RelativeLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:layout_height="40dp">
+                <TextView
+                    style="@style/commonTextViewBlue"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_Yyks_title"
+                    />
+
+                    <TextView
+                        style="@style/commonTextViewBlue"
+                        android:id="@+id/tv_yygh_ysxx_ghks"
+                        android:layout_width="90dp"
+                        android:layout_alignParentRight="true"
+                        android:text="外科"
+                        android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft= "15dp"
+                android:background="@color/color_dddddd" />
+
+            <RelativeLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:layout_height="40dp">
+                <TextView
+                    style="@style/commonTextViewBlue"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_Yyyd_title"
+                    />
+
+                <TextView
+                    style="@style/commonTextViewBlue"
+                    android:id="@+id/tv_yygh_ysxx_ghys"
+                    android:layout_width="90dp"
+                    android:layout_alignParentRight="true"
+                    android:text="胡义正"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft= "15dp"
+                android:background="@color/color_dddddd" />
+
+            <RelativeLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:layout_height="40dp">
+                <TextView
+                    style="@style/commonTextViewBlue"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_yygh_ks_location"
+                    />
+
+                <TextView
+                    style="@style/commonTextViewBlue"
+                    android:id="@+id/tv_yygh_ysxx_kswz"
+                    android:layout_width="90dp"
+                    android:layout_alignParentRight="true"
+                    android:text="门诊五楼"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft= "15dp"
+                android:background="@color/color_dddddd" />
+
+
+            <RelativeLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:layout_height="40dp">
+                <TextView
+                    style="@style/commonTextViewBlue"
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_yygh_yy_jzrq"
+                    />
+
+                <TextView
+                    style="@style/commonTextViewBlue"
+                    android:id="@+id/tv_yygh_ysxx_jzrq"
+                    android:layout_width="90dp"
+                    android:layout_alignParentRight="true"
+                    android:text="2016-4-7"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft= "15dp"
+                android:background="@color/color_dddddd" />
+
+
+
+            <RelativeLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:paddingLeft="15dp"
+                android:layout_height="40dp">
+                <TextView
+                    android:id="@+id/tv_yygh_ysxx_shxx"
+                    style="@style/commonTextViewBlue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_yygh_yy_sbxx"
+                    />
+                <TextView
+                    android:layout_toRightOf="@id/tv_yygh_ysxx_shxx"
+                    android:id="@+id/tv_yygh_ysxx_sb"
+                    style="@style/commonTextViewBlue"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="上班时间："
+                    />
+                <TextView
+                    android:layout_toRightOf="@id/tv_yygh_ysxx_sb"
+                    android:id="@+id/tv_yygh_ysxx_sbsj"
+                    style="@style/commonTextViewBlue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="08:30"
+                    />
+                <TextView
+                    android:layout_toRightOf="@id/tv_yygh_ysxx_sbsj"
+                    android:id="@+id/tv_yygh_ysxx_xb"
+                    android:layout_marginLeft="25dp"
+                    style="@style/commonTextViewBlue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="下班时间："
+                    />
+                <TextView
+                    style="@style/commonTextViewBlue"
+                    android:id="@+id/tv_yygh_ysxx_xbsj"
+                    android:layout_width="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true"
+                    android:text="12：00"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_dddddd" />
+           <TextView
+               android:textSize="13sp"
+               android:paddingLeft="15dp"
+               android:background="@color/color_999999"
+               android:gravity="center_vertical"
+               android:text="就诊人："
+               android:textColor="@color/black"
+               android:layout_gravity="center_horizontal"
+               android:layout_width="match_parent"
+               android:layout_height="28dp" />
+
+<RelativeLayout
+    android:id="@+id/re_yygh_ysxx"
+    android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:layout_height="50dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="选择就诊人"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView2" />
+    <ImageView
+        android:id="@+id/img_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:background="@mipmap/actionbar_go_normal"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="22dp" />
+</RelativeLayout>
+
+</LinearLayout>
+        <RelativeLayout
+            android:background="@color/darkslategray"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            >
+            <Button
+                android:id="@+id/login_button_login"
+                style="@style/commonLargeButtonBlue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_large_button_height"
+                android:text="@string/setting_main_capture"
+                android:layout_marginLeft="@dimen/common_layout_padding"
+                android:layout_marginRight="@dimen/common_layout_padding"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+        </LinearLayout>
+   <RelativeLayout
+
+          android:visibility="gone"
+         android:id="@+id/ll_yygh_jzrxx"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+
+        >
+       <RelativeLayout
+           android:id="@+id/re_list_view"
+           android:background="@drawable/common_friend_ly"
+           android:layout_gravity="center"
+           android:gravity="center_horizontal"
+           android:layout_marginTop="138dp"
+           android:layout_alignParentTop="true"
+           android:layout_alignParentStart="true"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+        <TextView
+
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+
+            android:id="@+id/tv_item_jzr"
+            android:textColor="@color/blueviolet"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="常用就诊人:"
+            android:textSize="20sp"
+           />
+    <ListView
+
+
+        android:layout_below="@+id/tv_item_jzr"
+        android:textColor="@color/title_blue"
+        android:id="@+id/list_yygh_cyjzr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </ListView>
+           </RelativeLayout>
+   </RelativeLayout>
+
+
+    </FrameLayout>
+</LinearLayout>

@@ -15,6 +15,7 @@ import com.qiwei.hospital.R;
 public class QuerySystemActivity extends BaseActivity implements View.OnClickListener{
     //按钮1
     private static final int dialog1 = 1;
+    private static final int dialog2 = 2;
     private View mQueryFy;
     private  View mZDCX;
 
@@ -51,8 +52,8 @@ public class QuerySystemActivity extends BaseActivity implements View.OnClickLis
                showDialog(dialog1);
                 break;
             case R.id.re_query_system_zd:
-                Intent intent=new Intent(QuerySystemActivity.this,MzblActivity.class);
-                startActivity(intent);
+                showDialog(dialog2);
+
                 break;
 
             default:
@@ -89,6 +90,32 @@ public class QuerySystemActivity extends BaseActivity implements View.OnClickLis
                         });
                 dialog=b.create();
                 break;
+
+            case  dialog2:
+                b.setIcon(R.mipmap.img_zl);
+                b.setTitle("综合查询");
+                b.setItems(R.array.dag1,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(which==0){
+                                    Intent intent=new Intent(QuerySystemActivity.this, MzblActivity.class);
+                                    startActivity(intent);
+                                }
+                                else if(which==1){
+                                    Intent intent=new Intent(QuerySystemActivity.this, MzXyCfActivity.class);
+                                    startActivity(intent);
+                                }
+                                else if (which==2){
+                                    Intent intent=new Intent(QuerySystemActivity.this, MzZlczActivity.class);
+                                    startActivity(intent);
+                                }
+                                else {
+                                    return;
+                                }
+                            }
+                        });
+                dialog=b.create();
             default:
                 break;
         }

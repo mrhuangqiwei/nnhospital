@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/uc_center_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF8746"
+
+        >
+        <ImageButton
+            android:paddingLeft="5dp"
+            android:id="@+id/img_uc_center_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/onclick_land_back"
+            android:src="@mipmap/uc_land_back"/>
+        <TextView
+
+            android:id="@+id/tv_uc_center_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/uc_friend_manage"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/uc_inseret_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal"
+            android:paddingRight="10dp"
+            android:text="@string/uc_insert_jiuzhenren"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_ucenter_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/common_layout_padding"
+        android:paddingRight="@dimen/common_layout_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/uc_info_usname" />
+
+            <EditText
+                android:id="@+id/login_edittext_account"
+                style="@style/commonEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_xm"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="电话号码" />
+
+            <EditText
+                android:id="@+id/login_edittext_dhhm"
+                style="@style/commonPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入您的电话号码" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/zyfy_tv_sf" />
+
+            <EditText
+                android:id="@+id/login_edittext_password"
+                style="@style/commonPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_sh" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height">
+           <TextView
+               android:id="@+id/tv_user_friend_xb"
+               style="@style/commonTextViewBlue"
+               android:text="@string/tv_yygh_yy_brxb"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_user_friend_brxm"
+                android:layout_toRightOf="@+id/tv_user_friend_xb"
+                android:layout_marginLeft="20dp"
+                style="@style/commonTextViewBlue"
+                android:background="@color/lime"
+                android:text="男"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_toRightOf="@+id/tv_user_friend_brxm"
+                android:id="@+id/tv_uc_center_friend_nl"
+                style="@style/commonTextViewBlue"
+                android:layout_marginLeft="20dp"
+                android:text="@string/tv_mzbl_nl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+         <EditText
+             android:layout_toRightOf="@+id/tv_uc_center_friend_nl"
+             android:id="@+id/edt_ucenter_friend_nl"
+             android:layout_marginLeft="20dp"
+               style="@style/commonPasswordInput"
+               android:hint="请输入您的年龄"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/mzfy_tv_jtzj" />
+
+            <EditText
+                android:id="@+id/uc_info_edit_jtzz"
+                style="@style/commonPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_jtzz" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="22dp"
+            >
+
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/login_button_login"
+            style="@style/commonLargeButtonBlue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_large_button_height"
+            android:layout_margin="@dimen/common_layout_padding"
+            android:text="@string/uc_info_hint_tj" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/re_list_view"
+        android:background="@drawable/common_friend_ly"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="138dp"
+        android:layout_margin="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+
+            android:id="@+id/tv_item_jzr"
+            android:textColor="@color/blueviolet"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="常用就诊人:"
+            android:textSize="20sp"
+            />
+        <ListView
+
+
+            android:layout_below="@+id/tv_item_jzr"
+            android:textColor="@color/title_blue"
+            android:id="@+id/uc_friend_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </ListView>
+    </RelativeLayout>
+</LinearLayout>

@@ -69,7 +69,7 @@ public class HttpConnSoap {
 			//data=parser(inStream);
 			//System.out.print("11");
 			Values= inputStreamtovaluelist(inStream,methodName);
-			Log.e("这里是valuews",Values.toString());
+		//	Log.e("这里是valuews",Values.toString());
 			//System.out.println(Values.size());
 			return Values;
 
@@ -161,7 +161,7 @@ public class HttpConnSoap {
 			}
 
 		}
-Log.e("后面一个Values",Values.toString());
+//Log.e("后面一个Values",Values.toString());
 		return   Values;
 	}
 

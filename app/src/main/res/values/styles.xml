@@ -17,4 +17,32 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:backgroundDimAmount">0.5</item>
     </style>
+
+    <style name="commonTextViewBlue" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/color_1B75D9</item>
+        <item name="android:textSize">@dimen/common_text_size</item>
+    </style>
+
+    <style name="commonEditText" parent="android:Widget.EditText">
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/color_666666</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textCursorDrawable">@drawable/common_text_cursor_drawable</item>
+    </style>
+
+    <style name="commonPasswordInput" parent="commonEditText">
+
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLength">@integer/common_password_max_length</item>
+    </style>
+    <style name="commonTextViewWhite" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHighlight">@color/color_1B75D9</item>
+        <item name="android:textSize">@dimen/common_text_size</item>
+    </style>
+    <style name="commonLargeButtonBlue" parent="android:Widget.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/common_btn_round_blue</item>
+        <item name="android:textSize">@dimen/common_text_size</item>
+    </style>
 </resources>

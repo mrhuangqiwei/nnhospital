@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/uc_center_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF8746"
+
+        >
+        <ImageButton
+            android:paddingLeft="5dp"
+            android:id="@+id/img_uc_center_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/onclick_land_back"
+            android:src="@mipmap/uc_land_back"/>
+        <TextView
+
+            android:id="@+id/tv_uc_center_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/tv_uc_center_title"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+        <TextView
+
+            android:id="@+id/uc_inseret_friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center_horizontal"
+            android:paddingRight="10dp"
+            android:text="@string/uc_info_xiugai"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+
+    </LinearLayout>
+    <LinearLayout
+android:visibility="gone"
+        android:id="@+id/Ll_ucinfo_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/common_layout_padding"
+        android:paddingRight="@dimen/common_layout_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/uc_info_usname" />
+
+            <EditText
+                android:id="@+id/login_edittext_account"
+                style="@style/commonEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_xm"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/zyfy_tv_sf" />
+
+            <EditText
+                android:id="@+id/login_edittext_password"
+                style="@style/commonPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_sh" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/mzfy_tv_jtzj" />
+
+            <EditText
+                android:id="@+id/uc_info_edit_jtzz"
+                style="@style/commonPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_jtzz" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/uc_infome_phone" />
+
+            <EditText
+                android:id="@+id/uc_info_edit_dhhm"
+                style="@style/commonPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_jtzz" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            >
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/login_button_login"
+            style="@style/commonLargeButtonBlue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_large_button_height"
+            android:layout_margin="@dimen/common_layout_padding"
+            android:text="@string/uc_info_hint_tj" />
+        <TextView
+            android:paddingTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/violet"
+            android:text="@string/uc_info_hint"
+            />
+
+
+</LinearLayout>
+
+
+    <LinearLayout
+
+        android:id="@+id/Ll_ucinfo_old"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/common_layout_padding"
+        android:paddingRight="@dimen/common_layout_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/uc_info_usname" />
+
+           <TextView
+                android:id="@+id/tv_ucinfo_name"
+                style="@style/commonEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_xm"
+                android:singleLine="true" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/zyfy_tv_sf" />
+
+        <TextView
+                android:id="@+id/tv_ucinfo_sfzh"
+                style="@style/commonPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_sh" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/mzfy_tv_jtzj" />
+
+        <TextView
+                android:id="@+id/uc_info_tv_jtzz"
+                style="@style/commonPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_jtzz" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/uc_infome_phone" />
+
+           <TextView
+                android:id="@+id/uc_info_edit_dh"
+                style="@style/commonPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_jtzz" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

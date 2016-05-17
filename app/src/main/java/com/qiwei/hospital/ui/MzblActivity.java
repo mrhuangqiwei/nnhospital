@@ -19,9 +19,11 @@ import android.widget.Toast;
 import com.qiwei.hospital.ActivityHelper.BaseActivity;
 import com.qiwei.hospital.AdapterManger.MzZyCfAdapter;
 import com.qiwei.hospital.AdapterManger.mzblAdapter;
+
 import com.qiwei.hospital.R;
 import com.qiwei.hospital.utils.Bean.MzblBean;
 import com.qiwei.hospital.utils.Bean.MzzycfBean;
+import com.qiwei.hospital.utils.Bean.TeamBean;
 import com.qiwei.hospital.utils.comprehensive.LoadingDialogManager;
 import com.qiwei.hospital.utils.httplelper.HttpConnSoap;
 
@@ -40,7 +42,7 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
             case R.id.mzbl_btn_ghxh:
 
                 function();
-                functongetinfo();
+               // functongetinfo();
                 break;
             default:
                 break;
@@ -60,7 +62,7 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
                 case MSG_GET_MZJBXX:
                     crrayList=(ArrayList<String>) msg.obj;
                     Log.d("JBXX------------>", crrayList.toString());
-                    Log.d("JBXX------------>", "  " + crrayList.size());
+
 
                     if(crrayList.size()>2){
                     mZjbxx.setVisibility(View.GONE);
@@ -72,182 +74,45 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
                     mBrnl.setText(crrayList.get(4));
                     mJtzz.setText(crrayList.get(5));
                     mSfzh.setText(crrayList.get(6));
+                        mdatas = new ArrayList<MzblBean>();
+                        mTeamdata=new ArrayList<TeamBean>();
+                        for (int i = 0; i < crrayList.size(); i++) {
+                            if (crrayList.get(i).equals("mzzycf")) {
+                                listd.add(i);
+                            }
+                        }
+                   for(int j=0;j<listd.size()-1;j++){
+                       drrayList.clear();
+
+                       for(int k=listd.get(j)+1;k<listd.get(j + 1);k++){
+                       drrayList.add(crrayList.get(k));
+
+                       }
+
+                       //Log.e("这是drrlist", drrayList.toString());
+                    ArrayList<String> frrayList = new ArrayList<String>();
+                       for(int h=3;h<drrayList.size();h++){
+                           frrayList.add(drrayList.get(h));
+
+                       }
+                       Log.e("这是Frrlist", frrayList.toString());
+                       MzblBean mzblbean = new MzblBean(drrayList.get(0), drrayList.get(1), drrayList.get(2), frrayList);
+                       mdatas.add(mzblbean);
+
+
+                      // Log.e("这是Frrlist", frrayList.toString());
+
+
+                   }
+
+
+                        mzblAdapter1 = new mzblAdapter(MzblActivity.this, mdatas);
+                        mzblList.setAdapter(mzblAdapter1);
                  }
-                    else {
-                        return;
-                    }
 
                     break;
 
                 case MSG_GET_MZZYCF:
-                drrayList=(ArrayList<String>)msg.obj;
-
-                Log.e("!!!!!!!!!!", "0000" + drrayList.size());
-                    if(drrayList.size()!=0) {
-                        arrayList.clear();
-                        brrayList.clear();
-                        frrayList.clear();
-                        grrayList.clear();
-                        hrrayList.clear();
-                        jrrayList.clear();
-                        krrayList.clear();
-                        for (int i = 0; i < drrayList.size(); i++) {
-                            if (drrayList.get(i).equals("mzzycf")) {
-                                listd.add(i);
-                            }
-                        }
-                        Log.e("位置-----》", listd.toString());
-                        mdatas = new ArrayList<MzblBean>();
-                        if (listd.size() == 0) {
-                            grrayList = drrayList;
-
-                            Log.e("2222222222222", grrayList.toString());
-
-                            for (int j = 3; j < grrayList.size(); j++) {
-                                hrrayList.add(grrayList.get(j));
-                            }
-                            MzblBean mzblbean = new MzblBean(grrayList.get(0), grrayList.get(1), grrayList.get(2), hrrayList);
-                            mdatas.add(mzblbean);
-                        }
-
-
-                        if (listd.size() == 1) {
-                            grrayList.clear();
-                            hrrayList.clear();
-                            for (int j = 0; j < listd.get(0); j++) {
-                                grrayList.add(drrayList.get(j));
-
-                            }
-                            Log.e("测试中断位置", grrayList.toString());
-                            for (int k = 3; k < grrayList.size(); k++) {
-                                hrrayList.add(grrayList.get(k));
-                            }
-                            MzblBean mzblbean = new MzblBean(grrayList.get(0), grrayList.get(1), grrayList.get(2), hrrayList);
-                            mdatas.add(mzblbean);
-
-
-                            for (int k = listd.get(0) + 1; k < drrayList.size(); k++) {
-                                frrayList.add(drrayList.get(k));
-                            }
-
-                            for (int j = 3; j < frrayList.size(); j++) {
-                                jrrayList.add(frrayList.get(j));
-                            }
-                            Log.e("这里是jrraylist",jrrayList.toString());
-                            mzblbean = new MzblBean(frrayList.get(0), frrayList.get(1), frrayList.get(2), jrrayList);
-                            mdatas.add(mzblbean);
-
-
-                        }
-                        mzblAdapter1 = new mzblAdapter(MzblActivity.this, mdatas);
-
-                        mzblList.setAdapter(mzblAdapter1);
-                    }
-/**
-                        int i;
-                        for ( i=0;i<drrayList.size();i++){
-                         in=(LinearLayout)findViewById(R.id.mzbl_ll_cfd);
-                         layout = (LinearLayout) inflater.inflate(R.layout.activity_mzzycf, null).findViewById(R.id.mzzycf_ll_title);
-                            layout.setTag(i);
-                            in.addView(layout);
-                            mLczd=(TextView)findViewById(R.id.zycf_tv_lczd);
-                            mLczd.setTag(i);
-                            mZyyf=(TextView)findViewById(R.id.mzzycf_tv_zyyf);
-                            mZyyf.setTag(i);
-                            mZyfs=(TextView)findViewById(R.id.mzzycf_tv_zyfs);
-                            mZyfs.setTag(i);
-                            mListView=(ListView)findViewById(R.id.mzzycf_list_cf);
-**/
-/**                         arrayList.clear();
-                            brrayList.clear();
-                            grrayList.clear();
-                            arrayList.add("cfh");
-                           brrayList.add(drrayList.get(i));
-                            Log.e("第几次运行",drrayList.get(i));
-                            new Thread() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        try {
-
-                                            frrayList= Soap.GetWebServre("getusermzzyyfyzdxx", arrayList, brrayList);
-
-
-
-                                            Log.e("000000000000000--->", frrayList.toString());
-                                            if (frrayList.size() == 0) {
-
-                                                return;
-
-                                            }
-
-                                            Message textmessage = mMainHandler.obtainMessage(MainHandler.Msg_ZYCFSY);
-
-                                            textmessage.obj=frrayList;
-
-
-                                            MzblActivity.this.mMainHandler.sendMessage(textmessage);
-
-
-
-                                        }
-                                        catch (Exception e){
-
-                                        }
-
-                                    } catch (Exception e) {
-                                    }
-                                }
-                            }.start();
-
-
-                        }}
-**/
-
-
-/**
-
-                            hrrayList.clear();
-                            jrrayList.clear();
-                            hrrayList.add("cfh");
-                            jrrayList.add(drrayList.get(i));
-                            Log.e("drraylis---------------", drrayList.get(i));
-                            new Thread() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        try {
-
-                                            grrayList= Soap.GetWebServre("getusermzzycfxx", hrrayList, jrrayList);
-                                            Log.e("List2222---------------",""+grrayList.size());
-                                            Log.e("List2222---------------",grrayList.toString());
-                                            if(grrayList.size()==0){
-                                                return;
-                                            }
-
-
-                                            Message itemmessage = mMainHandler.obtainMessage(MainHandler.MSG_ZYCF_LIST);
-
-                                              itemmessage.obj=mDatas;
-                                            MzblActivity.this.mMainHandler.sendMessage(itemmessage);
-
-                                        }
-                                        catch (Exception e){
-
-                                        }
-
-                                    } catch (Exception e) {
-                                    }
-                                }
-                            }.start();
-
-                        }**/
-
-
-
-
-
-
 
 
                     break;
@@ -282,6 +147,7 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
     private LinearLayout in;
     private List<MzzycfBean> mDatas;
     private List<MzblBean>mdatas;
+    private  List<TeamBean> mTeamdata;
     private    LinearLayout layout;
     private ListView mListView;
     private ListView mzblList;
@@ -290,7 +156,7 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
     private ArrayList<String> brrayList = new ArrayList<String>();
     private ArrayList<String> crrayList = new ArrayList<String>();
     private ArrayList<String> drrayList = new ArrayList<String>();
-    private ArrayList<String> frrayList = new ArrayList<String>();
+
     private ArrayList<String> grrayList = new ArrayList<String>();
     private ArrayList<String> hrrayList = new ArrayList<String>();
     private ArrayList<String> jrrayList = new ArrayList<String>();
@@ -342,7 +208,7 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
         String ghxh = mGhxh.getText().toString();
 
 
-        listclear();
+      //  listclear();
         crrayList.clear();
 
         arrayList.add("ghxh");
@@ -354,7 +220,7 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
                 try {
 
                     crrayList = Soap.GetWebServre("getusermzjbxx", arrayList, brrayList);
-                    Log.e("JBXX2------------>", crrayList.toString());
+                  //  Log.e("JBXX2------------>", crrayList.toString());
 
                Message successMsg = mMainHandler.obtainMessage(MainHandler.MSG_GET_MZJBXX);
 
@@ -377,7 +243,7 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
           brrayList.clear();
 
            drrayList.clear();
-            frrayList.clear();
+
             grrayList.clear();
             hrrayList.clear();
             krrayList.clear();
@@ -407,7 +273,7 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
 
                            Message message= mMainHandler.obtainMessage(MainHandler.MSG_GET_MZZYCF);
                     message.obj= mrrayList;
-                    Log.e("门诊中药处方号---->",mrrayList.toString());
+                 //   Log.e("门诊中药处方号---->",mrrayList.toString());
                     MzblActivity.this.mMainHandler.sendMessage(message);
 
 
