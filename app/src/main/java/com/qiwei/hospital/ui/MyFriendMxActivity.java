@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -48,6 +49,8 @@ public class MyFriendMxActivity extends BaseActivity implements View.OnClickList
             switch (msg.what) {
                 case MSG_GET_MY_FR_MX:
                     crrayList=(ArrayList<String>)msg.obj;
+                    Log.e("----->", "handleMessage: "+crrayList.toString() );
+
                     if(crrayList==null){
                         Toast.makeText(MyFriendMxActivity.this, "您没有预约信息", Toast.LENGTH_LONG).show();
                         return;}
@@ -58,7 +61,10 @@ public class MyFriendMxActivity extends BaseActivity implements View.OnClickList
                         mTvbrdh.setText(crrayList.get(6));
                         mTvbrjtzz.setText(crrayList.get(4));
                         userid=crrayList.get(5);
-                        if(crrayList.get(3).equals("1")){
+                        String ss=crrayList.get(3);
+                        ss=TrimRight(crrayList.get(3));
+                        Log.e("-----1111>",crrayList.get(3));
+                        if( ss.equals("1")){
                             mTvbrxb.setText("男");
                         }
                         else {
@@ -69,7 +75,8 @@ public class MyFriendMxActivity extends BaseActivity implements View.OnClickList
                     break;
                 case MSG_DELETE_MY_FR_MX:
                     drrayList=(ArrayList<String>)msg.obj;
-                    if (crrayList.get(0).equals("true")){
+                   // Log.e("ddddddddddddddd", "handleMessage: "+drrayList.toString() );
+                    if (drrayList.get(0).equals("true")){
                         Toast.makeText(MyFriendMxActivity.this,"删除成功",Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(MyFriendMxActivity.this, UCenterActivity.class);
                     startActivity(intent);}
@@ -147,10 +154,24 @@ public class MyFriendMxActivity extends BaseActivity implements View.OnClickList
         arrayList.add("userid");
         arrayList.add("sfzh");
         brrayList.add(userid);
+        sfzh= TrimRight(sfzh);
         brrayList.add(sfzh);
         mMainHandler=new MainHandler();
 
         msgNetUtil=new MsgNetUtil("deletefriend",mMainHandler,arrayList,brrayList,106);
 
     }
+//删除右侧空格
+    private  String TrimRight(String sString){
+        String sResult = "";
+
+        if (sString.startsWith(" ")){
+            sResult = sString.substring(0,sString.indexOf(sString.trim().substring(0, 1))
+                    +sString.trim().length());
+        }
+        else	sResult = sString.trim();
+
+        return sResult;
+    }
+
 }

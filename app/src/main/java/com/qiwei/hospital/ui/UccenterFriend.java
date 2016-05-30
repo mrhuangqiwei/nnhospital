@@ -58,7 +58,7 @@ public class UccenterFriend extends BaseActivity implements View.OnClickListener
     private Button mYygh;
     private ImageButton mBack;
     private List<FriendBean> mdatas;
-    private String sex;
+    private String    sex;
     private TextView mBrxb;
     private ArrayList<String> arrayList = new ArrayList<String>();
     private ArrayList<String> brrayList = new ArrayList<String>();
@@ -247,8 +247,8 @@ AlertDialog.Builder b =new AlertDialog.Builder(this);
         String dhhm=mdhhm.getText().toString();
         String brnl=mbrnl.getText().toString();
 
-        String xb;
-        if(sex=="男"){
+        String xb="1";
+        if(sex.equals("男")){
             xb="1";
         }
         else {
