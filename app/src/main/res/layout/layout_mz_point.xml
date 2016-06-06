@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:paddingTop="50dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:textSize="25sp"
+    android:textColor="@color/title_blue"
+    android:id="@+id/mzcf_null_point"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="@string/tv_mz_null_point"/>
+
+</LinearLayout>

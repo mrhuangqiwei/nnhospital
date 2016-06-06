@@ -36,6 +36,13 @@
             android:layout_centerHorizontal="true" />
 
     </RelativeLayout>
+<LinearLayout
+    android:visibility="gone"
+    android:id="@+id/mzfy_ll_jbxx"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
 
     <RelativeLayout
         android:id="@+id/zyfy_ll_title"
@@ -365,4 +372,27 @@
 
             />
     </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/mzfy_ll_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <include
+
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            layout="@layout/layout_list_options"
+          />
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            layout="@layout/layout_mz_point"
+            />
+    </LinearLayout>
 </LinearLayout>

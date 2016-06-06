@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -17,20 +18,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qiwei.hospital.ActivityHelper.BaseActivity;
+import com.qiwei.hospital.AdapterManger.FriendAdapter;
 import com.qiwei.hospital.AdapterManger.MzZyCfAdapter;
+import com.qiwei.hospital.AdapterManger.MzsjAdapter;
+import com.qiwei.hospital.AdapterManger.RysjAdapter;
 import com.qiwei.hospital.AdapterManger.mzblAdapter;
 
 import com.qiwei.hospital.R;
+import com.qiwei.hospital.utils.Bean.FriendBean;
 import com.qiwei.hospital.utils.Bean.MzblBean;
+import com.qiwei.hospital.utils.Bean.MzsjBean;
 import com.qiwei.hospital.utils.Bean.MzzycfBean;
+import com.qiwei.hospital.utils.Bean.RysjBean;
 import com.qiwei.hospital.utils.Bean.TeamBean;
+import com.qiwei.hospital.utils.NnApplication.NnApplication;
 import com.qiwei.hospital.utils.comprehensive.LoadingDialogManager;
 import com.qiwei.hospital.utils.httplelper.HttpConnSoap;
+import com.qiwei.hospital.utils.httplelper.MsgNetUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MzblActivity extends BaseActivity implements  View.OnClickListener{
+    private   MainHandler mainHandler;
+    private FriendAdapter friendAdapter;
 
     @Override
     public void onClick(View v) {
@@ -53,12 +64,13 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
     class MainHandler extends Handler {
         static final int MSG_GET_MZJBXX = 100;
         static final int MSG_GET_MZZYCF= 101;
-        static final int Msg_ZYCFSY= 102;
-        static final int MSG_ZYCF_LIST = 103;
+        static final int Msg_GETFRIENDLIST= 102;
+        static final int MSG_GETTIMELIST= 103;
 
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
+                /**获取门诊基本信息**/
                 case MSG_GET_MZJBXX:
                     crrayList=(ArrayList<String>) msg.obj;
                     Log.d("JBXX------------>", crrayList.toString());
@@ -117,9 +129,51 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
 
                     break;
 
+                case Msg_GETFRIENDLIST:
+                    crrayList=(ArrayList<String>)msg.obj;
+
+                    Log.e("crrls------", crrayList.toString());
+                    if(crrayList.size()>6){
+                        mfrienddatas=new ArrayList<FriendBean>();
+                        for(int k=0;k<crrayList.size();k=k+7){
+                            FriendBean friendBean=new FriendBean(crrayList.get(k),
+                                    crrayList.get(k+1),crrayList.get(k+2),crrayList.get(k+3),crrayList.get(k+4),crrayList.get(k+5),crrayList.get(k+6));
+                            mfrienddatas.add(friendBean);
+                        }
+                        friendAdapter=new FriendAdapter(MzblActivity.this,mfrienddatas);
+                        //mLlList.setVisibility(View.VISIBLE);
+                        mListFriend.setAdapter(friendAdapter);
+                        mListFriend.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                rysjdj=mfrienddatas.get(position).getSfzh();
+                               inintdata2();
+                            }
+                        });
 
 
-
+                    }
+                    break;
+                case  MSG_GETTIMELIST:
+                    drrayList=(ArrayList<String>)msg.obj;
+                    Log.e("drry----",drrayList.toString());
+                    if(drrayList.size()>1){
+                        mSJdatas=new  ArrayList<MzsjBean>();
+                        for(int i=0;i<drrayList.size();i=i+3){
+                           MzsjBean mzsjBean=new MzsjBean(drrayList.get(i),drrayList.get(i+1),drrayList.get(i+2));
+                            mSJdatas.add(mzsjBean);
+                        }
+                        mzsjAdapter=new MzsjAdapter(MzblActivity.this,mSJdatas);
+                        mListTime.setAdapter(mzsjAdapter);
+                        mListTime.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                zyh1=mSJdatas.get(position).getGhxh();
+                                function();
+                            }
+                        });
+                    }
+                    break;
 
                 default:
                     break;
@@ -141,22 +195,27 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
     private  TextView mBrnl;
     private  TextView mSfzh;
     private  TextView mJtzz;
+    private  LinearLayout mMzzyJbxx;
     private  TextView mLczd;
     private TextView mZyyf;
     private TextView mZyfs;
     private LinearLayout in;
     private List<MzzycfBean> mDatas;
     private List<MzblBean>mdatas;
+    private List<FriendBean> mfrienddatas;
     private  List<TeamBean> mTeamdata;
     private    LinearLayout layout;
     private ListView mListView;
     private ListView mzblList;
+    private NnApplication app;
+    private List<MzsjBean> mSJdatas;
+    private String  rysjdj;
     private mzblAdapter mzblAdapter1;
     private ArrayList<String> arrayList = new ArrayList<String>();
     private ArrayList<String> brrayList = new ArrayList<String>();
     private ArrayList<String> crrayList = new ArrayList<String>();
     private ArrayList<String> drrayList = new ArrayList<String>();
-
+    private MsgNetUtil msgNetUtil;
     private ArrayList<String> grrayList = new ArrayList<String>();
     private ArrayList<String> hrrayList = new ArrayList<String>();
     private ArrayList<String> jrrayList = new ArrayList<String>();
@@ -167,6 +226,14 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
     private ArrayList<String[]> yrrayList = new ArrayList<String[]>();
     private HttpConnSoap Soap = new HttpConnSoap();
     private   LayoutInflater inflater;
+    private  LinearLayout  mLlfriendlist;
+    private  LinearLayout mLlfriendtime;
+    private LinearLayout mLzyList;
+    private MzsjAdapter mzsjAdapter;
+    private  LinearLayout mMzzyLl;
+    private  ListView mListFriend;
+    private ListView  mListTime;
+    private  String zyh1;
     //加载数据Adapter
     private MzZyCfAdapter mzZyCfAdapter;
     @Override
@@ -180,6 +247,11 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
         return (R.layout.activity_mzbl);
 
     }
+
+
+
+
+
     @Override
     protected void initViews() {
         inflater = LayoutInflater.from(this);
@@ -201,18 +273,30 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
         mrrayList.clear();
         mImgback.setOnClickListener(this);
         mChaxun.setOnClickListener(this);
+        app=(NnApplication)getApplication();
+        mLlfriendlist=(LinearLayout)findViewById(R.id.zyfy_list_friend);
+        mListFriend=(ListView)findViewById(R.id.list_yygh_cyjzr);
+        mLlfriendtime=(LinearLayout)findViewById(R.id.zyfy_list_yime);
+        mListTime=(ListView)findViewById(R.id.list_ryrq);
+        mMzzyJbxx=(LinearLayout)findViewById(R.id.mzzy_ll_list);
+        /**选择列表**/
+        mLzyList=(LinearLayout)findViewById(R.id.mzzy_ll_list);
+        /**基本信息**/
+        mMzzyLl=(LinearLayout)findViewById(R.id.mzzy_ll_cf);
+        initdata();
 
     }
 
     private void function() {
-        String ghxh = mGhxh.getText().toString();
-
+       // String ghxh = mGhxh.getText().toString();
+        mLzyList.setVisibility(View.GONE);
+        mMzzyLl.setVisibility(View.VISIBLE);
 
       //  listclear();
         crrayList.clear();
 
         arrayList.add("ghxh");
-        brrayList.add(ghxh);
+        brrayList.add(zyh1);
         LoadingDialogManager.getInstance().showDialog();
         new Thread() {
             @Override
@@ -254,6 +338,20 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
     /**
      * 通过挂号序号获取处方号
      */
+    private void inintdata2() {
+        mLlfriendlist.setVisibility(View.VISIBLE);
+        mLlfriendtime.setVisibility(View.VISIBLE);
+        arrayList.clear();
+        brrayList.clear();
+        crrayList.clear();
+        arrayList.add("sfzh");
+        brrayList.add(rysjdj);
+        Log.e("yyyyy___", rysjdj);
+        String name1="getghxhbysfzg";
+       // mainHandler1=new MainHandler();
+        msgNetUtil=new MsgNetUtil(name1,  mainHandler,arrayList,brrayList,103);
+
+    }
     private void functongetinfo(){
         String ghxh = mGhxh.getText().toString();
         InputMethodManager imm = (InputMethodManager) getSystemService(MzblActivity.this.INPUT_METHOD_SERVICE);
@@ -285,6 +383,21 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
             }
         }.start();
 
+    }
+/**获取常用就诊人列表**/
+    private void initdata() {
+        mLlfriendlist.setVisibility(View.VISIBLE);
+        mLlfriendtime.setVisibility(View.GONE);
+
+        arrayList.clear();
+        brrayList.clear();
+        crrayList.clear();
+        arrayList.add("manageid");
+        app=(NnApplication)getApplication();
+        brrayList.add(app.getUserid());
+        String name="getuserfriendinfo";
+        mainHandler=new MainHandler();
+        msgNetUtil=new MsgNetUtil(name, mainHandler,arrayList,brrayList, 102);
     }
 
     @Override

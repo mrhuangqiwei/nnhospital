@@ -135,4 +135,6 @@
     <string name="tv_uc_myfriend_old">年龄</string>
     <string name="tv_uc_myfriend_phone">电话号码</string>
     <string name="tv_uc_myfriend_delete">删除就诊人</string>
+    <!--门诊提示-->
+    <string name="tv_mz_null_point">  &#160;&#160;&#160;&#160;&#160;亲，数据查询的这种方式没有找到您需要的数据，请直接与医院病案室联系查询。可能是您诊断时基本信息没有输入完全，也可能是您根本就没有开此处方。</string>
 </resources>
