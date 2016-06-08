@@ -72,7 +72,7 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
      */
     private RelativeLayout mReMzFriend, mRemzTime;
     /**
-     * mListFriend: 常用就诊人列表
+     * mListFriend: 常用就诊人列 表
      * mListTime: 选择就诊时间LIST
      */
     private ListView mListFriend, mListTime;
@@ -90,6 +90,10 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
     private List<MzsjBean> mSJdatas = null;
     private HttpConnSoap Soap = null;
     private NnApplication app;
+    //回调handler
+    //回调handler.
+
+    private  MainHandler mainHandler;
 
     private MzsjAdapter mzsjAdapter;
     public void  MZFYCXActivity(){
