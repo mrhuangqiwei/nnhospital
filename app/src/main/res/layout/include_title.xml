@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/zyfy_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#FF8746"
+
+        >
+        <ImageButton
+            android:paddingLeft="5dp"
+            android:id="@+id/img_title_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/onclick_land_back"
+            android:src="@mipmap/uc_land_back"/>
+        <TextView
+
+            android:id="@+id/tv_include_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/tv_mzfycx_title"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

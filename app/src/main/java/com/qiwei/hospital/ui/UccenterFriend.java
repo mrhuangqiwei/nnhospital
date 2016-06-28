@@ -73,12 +73,13 @@ public class UccenterFriend extends BaseActivity implements View.OnClickListener
             super.handleMessage(msg);
             crrayList=(ArrayList<String>)msg.obj;
             if(crrayList==null){
+                mInsertLxr.setVisibility(View.VISIBLE);
                 Toast.makeText(UccenterFriend.this,"亲您当前没有就诊人请添加！",Toast.LENGTH_LONG).show();
-                return;
+
             }
 
-            Log.e("crrls------",crrayList.toString());
-            if(crrayList.size()>6){
+          //  Log.e("crrls------",crrayList.toString());
+           else if(crrayList.size()>6){
                 if (crrayList.size()<15){
                     mInsertLxr.setVisibility(View.VISIBLE);
                 }
@@ -108,7 +109,8 @@ public class UccenterFriend extends BaseActivity implements View.OnClickListener
                 });
 
             }
-            else {  Toast.makeText(UccenterFriend.this,"还没有就诊人请添加",Toast.LENGTH_LONG).show();}
+            else {
+                Toast.makeText(UccenterFriend.this,"还没有就诊人请添加",Toast.LENGTH_LONG).show();}
 
         }
     };

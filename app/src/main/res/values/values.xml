@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="common_password_min_length">6</integer>
-    <integer name="common_password_max_length">16</integer>
+    <integer name="common_password_max_length">18</integer>
 
 
 </resources>

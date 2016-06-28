@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qiwei.hospital.ui.UserRegisterActivity">
+    <include
+        android:id="@+id/register_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        layout="@layout/include_title"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_dddddd" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/common_layout_padding"
+        android:paddingRight="@dimen/common_layout_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/register_uc_myfriend_hzxm" />
+
+            <EditText
+                android:id="@+id/register_edittext_name"
+                style="@style/commonEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_xm"
+                android:singleLine="true" />
+        </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_dddddd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_text_field_height"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/commonTextViewBlue"
+            android:layout_width="@dimen/common_login_tip_width"
+            android:layout_height="wrap_content"
+            android:text="@string/uc_infome_phone" />
+
+        <EditText
+            android:id="@+id/register_edittext_phone"
+            style="@style/commonEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/uc_land_user_prompt" />
+    </LinearLayout>
+
+
+<View
+android:layout_width="match_parent"
+android:layout_height="1dp"
+android:background="@color/color_dddddd" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/zyfy_tv_sf" />
+
+            <EditText
+                android:id="@+id/register_edittext_sfzh"
+                style="@style/commonEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_sh" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/mzfy_tv_jtzj" />
+
+            <EditText
+                android:id="@+id/uc_info_hint_jtzz"
+                style="@style/commonEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_jtzz" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/register_uc_myfriend_pass" />
+
+            <EditText
+                android:id="@+id/uc_info_hint_mm"
+                style="@style/commonEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_land_password_prompt" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/register_button_login"
+        style="@style/commonLargeButtonBlue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_large_button_height"
+        android:layout_margin="@dimen/common_layout_padding"
+        android:text="@string/uc_info_hint_tj" />
+
+
+</LinearLayout>

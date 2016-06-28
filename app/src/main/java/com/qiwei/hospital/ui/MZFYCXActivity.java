@@ -62,6 +62,10 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
      * mLmzfyListt: 两个list的父容器
      */
     private LinearLayout mIncude,mLmzfyListt;
+    /** mIncludeList:列表
+     * mIncludeFriend：提示
+     */
+    private LinearLayout mIncludeList,mIncludeFriend;
     // 基本信息父容器
     private LinearLayout mLzfyjbxx;
     // 当获取到的数据为空时显示的提示
@@ -69,8 +73,9 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
     /**
      * mReMzFriend: 常用就诊人
      * mRemzTime: 选择就诊时间
+     * mReEditGhxh:输入挂号序号窗口
      */
-    private RelativeLayout mReMzFriend, mRemzTime;
+    private RelativeLayout mReMzFriend, mRemzTime,mReEditGhxh;
     /**
      * mListFriend: 常用就诊人列 表
      * mListTime: 选择就诊时间LIST
@@ -79,7 +84,13 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
     // handler
     private List<FriendBean> mfrienddatas;
     //
-    private ArrayList<String> arrayList = null;
+
+    private ArrayList<String> arrayList = new ArrayList<String>();
+    private ArrayList<String>brrayList = new ArrayList<String>();
+    private ArrayList<String> drrayList = new ArrayList<String>();
+    private ArrayList<String> crrayList = new ArrayList<String>();
+
+    /**
     //
     private ArrayList<String> brrayList = null;
     //
@@ -87,22 +98,32 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
     //
     private ArrayList<String> drrayList = null;
     //
+    **/
+    private HttpConnSoap Soap = new HttpConnSoap();
     private List<MzsjBean> mSJdatas = null;
-    private HttpConnSoap Soap = null;
+
+   //  private HttpConnSoap Soap = null;
     private NnApplication app;
+    //回调MSG
+    private MsgNetUtil msgNetUtil;
     //回调handler
     //回调handler.
 
     private  MainHandler mainHandler;
 
     private MzsjAdapter mzsjAdapter;
+    /**
     public void  MZFYCXActivity(){
-        arrayList = new ArrayList<String>();
+        // arrayList = new ArrayList<String>();
         brrayList = new ArrayList<String>();
         crrayList = new ArrayList<String>();
         drrayList = new ArrayList<String>();
         Soap =  new HttpConnSoap();
-    }
+    }**/
+    //身份证号
+      private String  rysjdj;
+    //挂号序号
+    private  String zyh1;
     private Handler myhandler = new Handler(){
         @SuppressWarnings("unchecked")
         @Override
@@ -111,6 +132,12 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
             //crrayList.clear();
             //ArrayList<String> crrayList=(ArrayList<String>) msg.obj;
             crrayList = (ArrayList<String>) msg.obj;
+            Log.e("--------crrr",crrayList.toString());
+            if (crrayList==null){
+                mIncludeList.setVisibility(View.GONE);
+                mLzfyjbxx.setVisibility(View.GONE);
+                mIncludeFriend.setVisibility(View.VISIBLE);
+            }
             if(crrayList.size() > 1) {
                 mBrxm.setText(crrayList.get(0));
                 mBrjzrq.setText(crrayList.get(1));
@@ -137,7 +164,7 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
         static final int MSG_GET_MZFRIEND = 90;
         //
         static final int MSG_GET_MZTIME= 91;
-
+        static final int Msg_GETFRIENDLIST= 92;
         /**
          * 功能：更新网络数据
          * @param msg：
@@ -150,10 +177,41 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
                     break;
                 // 获取就诊时间
                 case MSG_GET_MZTIME:
+                    drrayList = (ArrayList<String>)msg.obj;
+                  //  Log.e("222222222222222","yyyy"+drrayList.toString());
+                    if (drrayList==null){
+                        mIncludeList.setVisibility(View.GONE);
+                        mLzfyjbxx.setVisibility(View.GONE);
+                        mIncludeFriend.setVisibility(View.VISIBLE);
+                    }
+                    else if( drrayList.size() > 1) {
+
+
+                        mSJdatas = new  ArrayList<MzsjBean>();
+                        for(int i = 0;i < drrayList.size();i = i+3){
+                            MzsjBean mzsjBean = new MzsjBean(drrayList.get(i), drrayList.get(i+1), drrayList.get(i+2));
+                            mSJdatas.add(mzsjBean);
+                        }
+                        mzsjAdapter = new MzsjAdapter(MZFYCXActivity.this,mSJdatas);
+                        mListTime.setAdapter(mzsjAdapter);
+                        mListTime.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                zyh1 = mSJdatas.get(position).getGhxh();
+                                function();
+                            }
+                        });
+                    }
+
                     break;
                 //
                 case Msg_GETFRIENDLIST:
                     crrayList = (ArrayList<String>)msg.obj;
+                   if (crrayList==null){
+                       mIncludeList.setVisibility(View.GONE);
+                       mLzfyjbxx.setVisibility(View.GONE);
+                       mIncludeFriend.setVisibility(View.VISIBLE);
+                   }
                     if( crrayList.size() > 6 ) {
                          mfrienddatas = new ArrayList<FriendBean>();
                         for( int k = 0;k < crrayList.size();k = k+7){
@@ -173,31 +231,28 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
                         });
                     }
                     break;
-                //
-                case  MSG_GETTIMELIST:
-                    drrayList = (ArrayList<String>)msg.obj;
-                    if( drrayList.size() > 1) {
-                        mSJdatas = new  ArrayList<MzsjBean>();
-                        for(int i = 0;i < drrayList.size();i = i+3){
-                            MzsjBean mzsjBean = new MzsjBean(drrayList.get(i), drrayList.get(i+1), drrayList.get(i+2));
-                            mSJdatas.add(mzsjBean);
-                        }
-                        mzsjAdapter = new MzsjAdapter(MZFYCXActivity.this,mSJdatas);
-                        mListTime.setAdapter(mzsjAdapter);
-                        mListTime.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                zyh1 = mSJdatas.get(position).getGhxh();
-                                function();
-                            }
-                        });
-                    }
-                    break;
+
                 default:
                     break;
             }
         }
     }
+//获取用户就诊时间
+    private void inintdata2() {
+        mReMzFriend.setVisibility(View.VISIBLE);
+
+        arrayList.clear();
+        brrayList.clear();
+        crrayList.clear();
+        arrayList.add("sfzh");
+        brrayList.add(rysjdj);
+        Log.e("yyyyy___", rysjdj);
+        String name1="getghxhbysfzg";
+        // mainHandler1=new MainHandler();
+        msgNetUtil=new MsgNetUtil(name1,  mainHandler,arrayList,brrayList,91);
+
+    }
+
     @Override
     protected void initEnvironment() {
 
@@ -217,12 +272,25 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
         mZcf=(TextView)findViewById(R.id.mzfy_tv_brzcf);
         mQtf=(TextView)findViewById(R.id.mzfy_tv_brqtf);
         mXts=(TextView)findViewById(R.id.mzfy_tv_xts);
+        //包含列表布局
+        mIncludeList=(LinearLayout)findViewById(R.id.mzfycx_ll_list);
+        //包含提示布局
+        mIncludeFriend=(LinearLayout)findViewById(R.id.mzfycx_ll_point);
+        //最外层基本信息
+        mLzfyjbxx=(LinearLayout)findViewById(R.id.mzfy_ll_jbxx);
+        //输入挂号序号窗口
+        mReEditGhxh=(RelativeLayout)findViewById(R.id.re_mzfy_chx);
         mIncude=(LinearLayout)findViewById(R.id.mzfy_ll_list);
         mChaxun.setOnClickListener(this);
-        mReMzFriend=(RelativeLayout)findViewById(R.id.ll_yygh_jzrxx);
-        mRemzTime=(RelativeLayout)findViewById(R.id.ll_yygh_jzrq);
+        //常用就诊人布局
+        mReMzFriend=(RelativeLayout)mIncludeList.findViewById(R.id.ll_yygh_jzrxx);
+        //就诊时间布局
+        mRemzTime=(RelativeLayout)mIncludeList.findViewById(R.id.ll_yygh_jzrq);
+        //常用就诊人列表
         mListFriend=(ListView)findViewById(R.id.list_yygh_cyjzr);
+        //就诊时间
         mListTime=(ListView)findViewById(R.id.list_ryrq);
+        initdata();
     }
 
     @Override
@@ -242,16 +310,24 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
                 break;
         }
     }
+
+    /**
+     * 获取门诊病人基本信息
+     */
     private void function(){
+        mReMzFriend.setVisibility(View.GONE);
+        mRemzTime.setVisibility(View.GONE);
+        mLzfyjbxx.setVisibility(View.VISIBLE);
+
         InputMethodManager imm= (InputMethodManager)getSystemService(MZFYCXActivity.this.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow( mBrghxh.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(mBrghxh.getWindowToken(), 0);
         arrayList.clear();
         brrayList.clear();
         crrayList.clear();
-        String zyhl= mBrghxh.getText().toString();
+       // String zyhl= mBrghxh.getText().toString();
         arrayList.add("mzh");
-        brrayList.add(zyhl);
-        LoadingDialogManager.getInstance().showDialog();
+        brrayList.add(zyh1);
+       // LoadingDialogManager.getInstance().showDialog();
         new Thread() {
             @Override
             public void run() {
@@ -265,7 +341,7 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
                     message.obj=crrayList;
 
                     MZFYCXActivity.this.myhandler.sendMessage(message);
-                    LoadingDialogManager.getInstance().dismissDialog();
+                    //LoadingDialogManager.getInstance().dismissDialog();
 
                 } catch (Exception e) {
                 }
@@ -279,7 +355,7 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
     /**获取常用就诊人列表**/
     private void initdata() {
         mReMzFriend.setVisibility(View.VISIBLE);
-        mRemzTime.setVisibility(View.GONE);
+        mRemzTime.setVisibility(View.VISIBLE);
         arrayList.clear();
         brrayList.clear();
         crrayList.clear();
@@ -288,7 +364,7 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
         brrayList.add(app.getUserid());
         String name="getuserfriendinfo";
         mainHandler=new MainHandler();
-        msgNetUtil=new MsgNetUtil(name, mainHandler,arrayList,brrayList, 102);
+        msgNetUtil=new MsgNetUtil(name, mainHandler,arrayList,brrayList,92);
     }
 
 

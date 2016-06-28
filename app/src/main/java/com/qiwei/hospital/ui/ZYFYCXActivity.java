@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -43,6 +44,12 @@ private EditText mEditSf;
     private  RysjAdapter rysjAdapter;
     private LinearLayout mLlfriendlist;
     private LinearLayout mLlfriendtime;
+    /**
+     * 包含提示布局
+     */
+    private  LinearLayout mIncludePoint;
+    //保函两个List的布局
+    private FrameLayout mFrameList;
     private LinearLayout mMzzyLin;
     private String  rysjdj;
     private  String zyh1;
@@ -68,11 +75,18 @@ private EditText mEditSf;
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
+                //获取常用就诊人列表
                 case  MSG_ZYFY:
 
                     crrayList=(ArrayList<String>)msg.obj;
+                    if(crrayList==null){
+                        mIncludePoint.setVisibility(View.VISIBLE);
+                        mLlfriendlist.setVisibility(View.GONE);
+                        mLlfriendtime.setVisibility(View.GONE);
+                        mFrameList.setVisibility(View.GONE);
+                    }
 
-                    Log.e("crrls------", crrayList.toString());
+                  //  Log.e("crrls------", crrayList.toString());
                     if(crrayList.size()>6){
                         mdatas=new ArrayList<FriendBean>();
                         for(int k=0;k<crrayList.size();k=k+7){
@@ -100,8 +114,15 @@ private EditText mEditSf;
 
                 case  MSG_RYRQ:
                     drrayList=(ArrayList<String>)msg.obj;
-                    Log.e("drry----",drrayList.toString());
-                    if(drrayList.size()>1){
+
+                  //  Log.e("drry----",drrayList.toString());
+                    if(drrayList==null){
+                        mIncludePoint.setVisibility(View.VISIBLE);
+                        mFrameList.setVisibility(View.GONE);
+                        mLlfriendlist.setVisibility(View.GONE);
+                        mLlfriendtime.setVisibility(View.GONE);
+                    }
+                  else  if(drrayList.size()>1){
                         mSJdatas=new  ArrayList<RysjBean>();
                         for(int i=0;i<drrayList.size();i=i+2){
                             RysjBean rysjBean=new RysjBean(drrayList.get(i),drrayList.get(i+1));
@@ -177,7 +198,10 @@ private EditText mEditSf;
         mListFriend=(ListView)findViewById(R.id.list_yygh_cyjzr);
         mLlfriendtime=(LinearLayout)findViewById(R.id.zyfy_list_yime);
         mListTime=(ListView)findViewById(R.id.list_ryrq);
-
+        //提示无内容布局
+        mIncludePoint=(LinearLayout)findViewById(R.id.zyfy_ll_point);
+        //包含两个列表的布局
+        mFrameList=(FrameLayout)findViewById(R.id.zyfy_Fr_LIST);
         app=(NnApplication)getApplication();
         initdata();
     }

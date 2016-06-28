@@ -131,7 +131,7 @@ private GridView  mGride;
             for(int i1=listd1.get(6)+1;i1<listd1.get(7);i1++){
                 grrayList7.add(drrayList.get(i1));
             }
-            int[] arry={grrayList1.size(),grrayList2.size(),grrayList3.size(),grrayList4.size(),grrayList5.size(),grrayList6.size(),grrayList7.size()};
+            int[]                                                 arry={grrayList1.size(),grrayList2.size(),grrayList3.size(),grrayList4.size(),grrayList5.size(),grrayList6.size(),grrayList7.size()};
 
             int max = arry[0];
             for(int i=0;i<arry.length;i++){
@@ -268,6 +268,30 @@ private GridView  mGride;
 
             yspbAdapter adapter1=new yspbAdapter(YyysActivity.this,mdatas1);
             mGride1.setAdapter(adapter1);
+            mGride1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent= new Intent();
+                    intent.setClass(YyysActivity.this, Yygh_ysxx.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("yszh", mdatas1.get(position).getYszh());
+                    bundle.putString("djrq", mdatas1.get(position).getYydjrq());
+                    bundle.putString("ghrq", mdatas1.get(position).getYyghrq());
+                    bundle.putString("yxrq", mdatas1.get(position).getYyyxrq());
+                    bundle.putString("ysxm", mdatas1.get(position).getYsxm());
+                    //Log.e("--->",mdatas1.get(position).getYsxm());
+                    bundle.putString("yszh", mdatas1.get(position).getYszh());
+                    bundle.putString("sbsj", mdatas1.get(position).getSbsj());
+                    bundle.putString("xbsj", mdatas1.get(position).getXbsj());
+                    bundle.putString("sbrq", mdatas1.get(position).getSbrq());
+                    bundle.putString("xq", mdatas1.get(position).getXq());
+                    bundle.putString("dd", mdatas1.get(position).getSbdd());
+                    bundle.putString("ksmc", mdatas1.get(position).getKsmc());
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+
+                }
+            });
 
         }
     };

@@ -10,11 +10,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qiwei.hospital.ActivityHelper.BaseActivity;
 import com.qiwei.hospital.ui.UCenterActivity;
+import com.qiwei.hospital.ui.UserRegisterActivity;
 import com.qiwei.hospital.utils.NetUtil.NetBool;
 import com.qiwei.hospital.utils.NnApplication.NnApplication;
 import com.qiwei.hospital.utils.comprehensive.DBUtil;
@@ -29,8 +31,9 @@ import java.util.List;
 
 
 public class UCLandingActivity extends BaseActivity implements View.OnClickListener {
-
-private  View mReLand;
+//返回按钮
+private ImageButton mImgBackBtn;
+    private  View mReLand;
     private EditText mUserId;
     private EditText mUserpassword;
     private TextView mForgetpassword;
@@ -79,10 +82,14 @@ private Handler myHandler=new Handler(){
     @Override
     protected void initViews() {
         mUserId=(EditText)findViewById(R.id.edt_uc_land_user);
+
         mUserpassword=(EditText)findViewById(R.id.edt_uc_land_pass);
         mForgetpassword=(TextView)findViewById(R.id.tv_uc_forget_pws);
         mNewUser=(TextView)findViewById(R.id.tv_uc_new_user);
         mReLand=findViewById(R.id.re_ucland_langding);
+        mImgBackBtn=(ImageButton)findViewById(R.id.img_uc_land_back);
+        mImgBackBtn.setOnClickListener(this);
+
         mReLand.setOnClickListener(this);
         mForgetpassword.setOnClickListener(this);
         mNewUser.setOnClickListener(this);
@@ -133,9 +140,11 @@ private Handler myHandler=new Handler(){
                 startActivity(intent);
                 break;
             case R.id.tv_uc_new_user:
-                Intent intent1=new Intent(UCLandingActivity.this, UCenterActivity.class);
+                Intent intent1=new Intent(UCLandingActivity.this, UserRegisterActivity.class);
                 startActivity(intent1);
                 break;
+            case R.id.img_uc_land_back:
+                finish();
             default:
                 break;
         }

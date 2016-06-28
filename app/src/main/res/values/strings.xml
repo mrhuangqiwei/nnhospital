@@ -104,7 +104,7 @@
     <string name="common_loading_msg">正在加载...</string>
     <!--个人信息-->
     <string name="uc_info_usname">真实姓名:</string>
-    <string name="uc_info_hint_xm">请输入您的真实姓名:</string>
+    <string name="uc_info_hint_xm">请输入您的真实姓名</string>
     <string name="uc_info_hint_sh">请输入您的身份证号</string>
     <string name="uc_info_hint_jtzz">请输入您的家庭住址</string>
     <string name="uc_info_hint_tj">提交</string>
@@ -128,7 +128,7 @@
     <string name="net_contact_false">亲，当前无网络连接请检查！</string>
     <string name="tv_yygh_yy_ghfy">%1$s元</string>
     <string name="uc_info_hint">    &#160;&#160;&#160;&#160;&#160;&#160;尊敬的app用户您好，为了给您更好的服务希望您能把信息填完整而且必须填写真实信息，这样我们才能将您的健康信息正确的反馈给您！否则系统无法查询您的信息！</string>
-   <!--就诊人详情-->
+    <!--就诊人详情-->
 
     <string name="tv_uc_myfriend_mx">常用就诊人详情</string>
     <string name="tv_uc_myfriend_hzxm">姓名</string>
@@ -137,4 +137,8 @@
     <string name="tv_uc_myfriend_delete">删除就诊人</string>
     <!--门诊提示-->
     <string name="tv_mz_null_point">  &#160;&#160;&#160;&#160;&#160;亲，数据查询的这种方式没有找到您需要的数据，请直接与医院病案室联系查询。可能是您诊断时基本信息没有输入完全，也可能是您根本就没有开此处方。</string>
+<!--病人注册-->
+    <string name="register_uc_myfriend_hzxm">姓名:</string>
+    <string name="register_uc_myfriend_title">用户注册</string>
+    <string name="register_uc_myfriend_pass">密码：</string>
 </resources>

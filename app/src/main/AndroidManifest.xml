@@ -52,7 +52,8 @@
         <activity android:name=".ui.Yygh_ysxx" />
         <activity android:name=".ui.MyYYInfoActivity" />
         <activity android:name=".ui.MyyyghMxActivity" />
-        <activity android:name=".ui.MyFriendMxActivity"></activity>
+        <activity android:name=".ui.MyFriendMxActivity" />
+        <activity android:name=".ui.UserRegisterActivity"></activity>
     </application>
 
 </manifest>
