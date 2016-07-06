@@ -124,6 +124,7 @@ public class MyyyghMxActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     protected void initViews() {
+
         imgback=(ImageButton)findViewById(R.id.img_uc_center_back);
         mBrxm=(TextView)findViewById(R.id.tv_item_myyyinfo_brxm);
         mYsxm=(TextView)findViewById(R.id.item_tv_myyinfo_ys);

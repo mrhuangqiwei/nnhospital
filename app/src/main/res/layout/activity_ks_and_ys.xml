@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.qiwei.hospital.ui.KsAndYsActivity"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/ks_and_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        layout="@layout/include_title"
+        />
+    <LinearLayout
+        android:layout_weight="1"
+        android:id="@+id/ks_and_ys_yy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/ks_and_ys_btn_yy"
+            android:layout_gravity="center"
+            style="@style/commonLargeButtonRed"
+            android:text="@string/ks_and_ys_yyjs"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="30dp"
+        android:layout_weight="1"
+        android:id="@+id/ks_and_ys_ks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/ks_and_ys_btn_ks"
+            android:layout_gravity="center"
+            style="@style/commonLargeButtonRed"
+
+            android:layout_width="match_parent"
+           android:padding="30dp"
+            android:text="@string/ks_and_ys_yyks"
+            android:layout_height="80dp"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="30dp"
+        android:layout_weight="1"
+        android:id="@+id/ks_and_ys_ys"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/ks_and_ys_btn_ys"
+            android:layout_gravity="center"
+            android:text="@string/ks_and_ys_yyys"
+            style="@style/commonLargeButtonRed"
+
+            android:layout_width="match_parent"
+            android:padding="30dp"
+            android:layout_height="80dp"
+          />
+    </LinearLayout>
+</LinearLayout>

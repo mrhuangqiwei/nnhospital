@@ -1,7 +1,9 @@
 package com.qiwei.hospital;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.qiwei.hospital.ui.KsAndYsActivity;
 import com.qiwei.hospital.ui.QuerySystemActivity;
 import com.qiwei.hospital.ui.UCenterActivity;
 import com.qiwei.hospital.ui.YyKsActivity;
@@ -34,12 +37,17 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
     private String[] titles; // 图片标题
     private int[] imageResId; // 图片ID
     private List<View> dots; // 图片标题正文的那些点
-
+    /**
+     *
+     */
+    private static final int dialog1 = 1;
     private TextView tv_title;
     /**  查询**/
     private LinearLayout mTvquery;
     /**预约挂号**/
     private LinearLayout mYygh;
+    //科室医生
+    private LinearLayout mKsandYs;
     private int currentItem = 0; // 当前图片的索引号
 
     private View contextView;
@@ -84,7 +92,8 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
         mTvquery.setOnClickListener(this);
         mYygh=(LinearLayout)contextView.findViewById(R.id.setting_main_capture);
         mYygh.setOnClickListener(this);
-
+        mKsandYs=(LinearLayout)contextView.findViewById(R.id.setting_main_screenshot);
+        mKsandYs.setOnClickListener(this);
     }
 
     @Override
@@ -142,13 +151,23 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.setting_main_capture1:
-            // if(app.getUserid()!=null){
+             if(app.getUserid()!=null){
                     Intent intent=new Intent(contex, QuerySystemActivity.class);
-                    startActivity(intent);
+                    startActivity(intent);}
+                else{
+                 dialog();
+
+             }
                 break;
             case  R.id.setting_main_capture:
-                Intent intent1=new Intent(contex,YyKsActivity.class);
-                startActivity(intent1);
+
+                if(app.getUserid()!=null){
+                    Intent intent1=new Intent(contex,YyKsActivity.class);
+                    startActivity(intent1);}
+                else{
+                    dialog();
+
+                }
               //  }
 
             /**
@@ -157,6 +176,12 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
                     startActivity(intent);
                 }**/
                 break;
+            case R.id.setting_main_screenshot:
+                Intent intent2=new Intent(contex,KsAndYsActivity.class);
+                startActivity(intent2);
+                break;
+
+
             default:
                 break;
 
@@ -259,6 +284,31 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
 
         }
     }
+    protected void dialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(contex);
+        builder.setMessage("您没有登录！确认前去登录吗？");
 
+        builder.setTitle("提示");
+
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Intent intent2=new Intent(contex,UCLandingActivity.class);
+                startActivity(intent2);
+            }
+        });
+
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.create().show();
+    }
 
 }

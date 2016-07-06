@@ -52,7 +52,7 @@ private Handler myHandler=new Handler(){
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
         crrayList=(ArrayList<String>)msg.obj;
-        Log.e("-----------crry",crrayList.toString());
+      //  Log.e("-----------crry",crrayList.toString());
         if(crrayList.size()>1){
             app.setArrrList(crrayList);
             if (!checkInputValid()) {

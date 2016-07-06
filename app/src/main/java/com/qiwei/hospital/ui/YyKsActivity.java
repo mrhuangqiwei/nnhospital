@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ import com.qiwei.hospital.utils.httplelper.NetUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class YyKsActivity extends BaseActivity {
+public class YyKsActivity extends BaseActivity implements View.OnClickListener {
 private ListView mListview;
     private ArrayList<String> arrayList = new ArrayList<String>();
     private ArrayList<String> brrayList = new ArrayList<String>();
@@ -30,6 +31,10 @@ private ListView mListview;
     private NetUtil netUtil;
     private List<item_yy_ksBean> mdatas;
     private YyksAdapter yyksAdapter;
+    /**
+     * 返回按钮
+     */
+    private ImageButton mImgBack;
     private Handler myhandler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -69,6 +74,8 @@ private ListView mListview;
     protected void initViews() {
         mListview=(ListView)findViewById(R.id.list_yy_ks);
         inintdatas();
+        mImgBack=(ImageButton)findViewById(R.id.img_mzfy_back);
+        mImgBack.setOnClickListener(this);
     }
 
     private void inintdatas() {
@@ -84,4 +91,13 @@ private ListView mListview;
         return (R.layout.activity_yy_ks);
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.img_mzfy_back:
+                finish();
+                break;
+            default:break;
+        }
+    }
 }

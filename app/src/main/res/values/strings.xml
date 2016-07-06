@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">qiweihospital</string>
+    <string name="app_name">宁南中医医院</string>
     <string name="action_settings">Settings</string>
 
     <!-- 主页 -->
@@ -137,8 +137,17 @@
     <string name="tv_uc_myfriend_delete">删除就诊人</string>
     <!--门诊提示-->
     <string name="tv_mz_null_point">  &#160;&#160;&#160;&#160;&#160;亲，数据查询的这种方式没有找到您需要的数据，请直接与医院病案室联系查询。可能是您诊断时基本信息没有输入完全，也可能是您根本就没有开此处方。</string>
-<!--病人注册-->
+    <!--病人注册-->
     <string name="register_uc_myfriend_hzxm">姓名:</string>
     <string name="register_uc_myfriend_title">用户注册</string>
     <string name="register_uc_myfriend_pass">密码：</string>
+    <!--医院介绍-->
+    <string name="ks_and_ys_yyjs">医院介绍</string>
+    <string name="ks_and_ys_yyks">科室介绍</string>
+    <string name="ks_and_ys_yyys">医生介绍</string>
+    <string name="title_activity_yy_js">YyJs</string>
+    <string name="developming_wait">开发者敬请期待！</string>
+    <string name="yy_js">&#160;&#160;&#160;&#160;&#160;宁南县中医医院创办于1985年，经过多年发展，现已成为一所集医疗、教学、康复、预防为一体的综合性二级甲等中医医院。是我县城镇职工基本医疗、居民医保、财产保险、人寿保险、农村合作医疗、计划生育免费手术等定点医疗单位。属政府举办的非营利性单位。
+宁南县新中医医院总投入8000余万元，业务用房23000㎡，开放床位300张。医院现有职工201人，其中，专业技术人员160人（高级职称8人，中级职称38人）；新中医医院科室布局合理、设施设备齐全，已开设了肛肠科、针灸科、内一科、内二科、外科、妇产科、治未病、急诊科、口腔科、中医名医馆等科室，科室内病房环境优美，根据各科室特色，推出家庭式格局病房，内设空调、家居必备用品等设施，让患者在治疗的同时能有温馨舒适的感觉。目前，宁南县中医医院已经建设“省级重点专科”肛肠科，“州级重点专科”针灸科,“州级在建重点专科”妇产科，诊疗水平已达到了省内同级医疗机构的领先水平。我院是成都市第一人民医院对口支援合作单位，常年有省级各科专家在我院坐诊指导。
+</string>
 </resources>

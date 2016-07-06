@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical"
+    tools:context="com.qiwei.hospital.ui.YyJs">
+    <include
+        android:id="@+id/yy_js_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        layout="@layout/include_title"
+        />
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="45dp"
+        android:layout_width="wrap_content"
+        android:src="@mipmap/imc_yysy"
+        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textSize="20sp"
+                android:text="@string/yy_js"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

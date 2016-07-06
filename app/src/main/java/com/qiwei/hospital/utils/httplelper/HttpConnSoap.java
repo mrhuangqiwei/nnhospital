@@ -20,7 +20,7 @@ public class HttpConnSoap {
 	public ArrayList<String> GetWebServre(String methodName,ArrayList<String> Parameters,ArrayList<String>ParValues)
 	{
 		ArrayList<String> Values=new ArrayList<String>();
-		String ServerUrl="http://192.168.101.112:8929/Service1.asmx";
+		String ServerUrl="http://192.168.101.250:8998/Service1.asmx";
 		//String soapAction="http://tempuri.org/LongUserId1";
 		String soapAction="http://tempuri.org/"+methodName;
 		String data="";
@@ -65,10 +65,12 @@ public class HttpConnSoap {
 			outStream.flush();
 			outStream.close();
 			InputStream inStream=con.getInputStream();
+			//Log.e("------------>",inStream.toString());
 
 			//data=parser(inStream);
 			//System.out.print("11");
 			Values= inputStreamtovaluelist(inStream,methodName);
+
 		//	Log.e("这里是valuews",Values.toString());
 			//System.out.println(Values.size());
 			return Values;
@@ -99,7 +101,7 @@ public class HttpConnSoap {
 
 		//Log.e("这是s1", s1);
 		System.out.println(out);
-		//Log.e("这里是out值", out.toString());
+		// Log.e("这里是out值", out.toString());
 		String s23=String.format(out.toString());
 	//	Log.e("这是s23",s23);
 		//Log.e("这里是out值", out.toString());

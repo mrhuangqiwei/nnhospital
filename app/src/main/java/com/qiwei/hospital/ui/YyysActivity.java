@@ -90,7 +90,7 @@ private GridView  mGride;
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             crrayList=(ArrayList<String>)msg.obj;
-
+    Log.e("------------->",crrayList.toString());
             for (int i = 0; i < crrayList.size(); i++) {
                 if (crrayList.get(i).equals("shangban")) {
                     listd.add(i);

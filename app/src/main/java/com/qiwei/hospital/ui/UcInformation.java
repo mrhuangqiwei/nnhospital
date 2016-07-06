@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.qiwei.hospital.ActivityHelper.BaseActivity;
 import com.qiwei.hospital.R;
@@ -44,14 +45,19 @@ public class UcInformation extends BaseActivity implements View.OnClickListener{
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             crrayList=(ArrayList<String>)msg.obj;
-            Log.e("crr---->",crrayList.toString());
-            if(crrayList.size()!=0){
+           // Log.e("crr---->",crrayList.toString());
+            if (crrayList==null){
+                Toast.makeText(UcInformation.this,"亲，没有查找到数据！请与医院信息科联系。",Toast.LENGTH_SHORT).show();
+            }
+
+        else{
                 mUsername.setText(crrayList.get(0));
                 mUserSf.setText(crrayList.get(1));
                 mUserJtzhuzhi.setText(crrayList.get(2));
                 mUserPhone.setText(crrayList.get(3));
 
             }
+
         }
     };
     @Override
@@ -81,6 +87,7 @@ public class UcInformation extends BaseActivity implements View.OnClickListener{
 
     private void CheckuserInfo() {
         app=(NnApplication)getApplication();
+        Log.e("------app","++++"+app.getUserid());
         if(app.getUserid()!=null){
        mLUserOld.setVisibility(View.VISIBLE);
          setvisibleview(

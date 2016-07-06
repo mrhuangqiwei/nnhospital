@@ -5,11 +5,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageButton;
 
 import com.qiwei.hospital.ActivityHelper.BaseActivity;
+import com.qiwei.hospital.MainActivity;
 import com.qiwei.hospital.R;
 
 public class QuerySystemActivity extends BaseActivity implements View.OnClickListener{
@@ -18,7 +21,8 @@ public class QuerySystemActivity extends BaseActivity implements View.OnClickLis
     private static final int dialog2 = 2;
     private View mQueryFy;
     private  View mZDCX;
-
+    //返回
+private ImageButton imgback;
     @Override
     protected void initEnvironment() {
 
@@ -30,6 +34,8 @@ public class QuerySystemActivity extends BaseActivity implements View.OnClickLis
         mQueryFy.setOnClickListener(this);
         mZDCX=(View)findViewById(R.id.re_query_system_zd);
         mZDCX.setOnClickListener(this);
+        imgback=(ImageButton)findViewById(R.id.img_query_system_back);
+        imgback.setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +60,10 @@ public class QuerySystemActivity extends BaseActivity implements View.OnClickLis
             case R.id.re_query_system_zd:
                 showDialog(dialog2);
 
+                break;
+            case R.id.img_query_system_back:
+                Intent intent=new Intent(QuerySystemActivity.this, MainActivity.class);
+                startActivity(intent);
                 break;
 
             default:
