@@ -13,6 +13,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.qiwei.hospital.ActivityHelper.BaseActivity;
 import com.qiwei.hospital.AdapterManger.CommonAdapter;
@@ -90,7 +91,13 @@ private GridView  mGride;
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             crrayList=(ArrayList<String>)msg.obj;
-    Log.e("------------->",crrayList.toString());
+            Log.e("--------->",crrayList.toString());
+            if(crrayList.size()<19){
+                Toast.makeText(YyysActivity.this,"亲，没有找到您需要的数据！",Toast.LENGTH_SHORT).show();
+                finish();
+            }
+            else{
+               // Log.e("------------->",crrayList.toString());
             for (int i = 0; i < crrayList.size(); i++) {
                 if (crrayList.get(i).equals("shangban")) {
                     listd.add(i);
@@ -216,7 +223,7 @@ private GridView  mGride;
                     bundle.putString("ghrq", mdatas.get(position).getYyghrq());
                     bundle.putString("yxrq", mdatas.get(position).getYyyxrq());
                     bundle.putString("ysxm", mdatas.get(position).getYsxm());
-                    Log.e("--->",mdatas.get(position).getYsxm());
+                  //  Log.e("--->",mdatas.get(position).getYsxm());
                     bundle.putString("yszh", mdatas.get(position).getYszh());
                     bundle.putString("sbsj", mdatas.get(position).getSbsj());
                     bundle.putString("xbsj", mdatas.get(position).getXbsj());
@@ -293,7 +300,7 @@ private GridView  mGride;
                 }
             });
 
-        }
+        }}
     };
 
     private void initaf(ArrayList<String> krray, List<YspbBean> mdatas1,int i) {

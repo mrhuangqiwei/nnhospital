@@ -135,10 +135,10 @@ private Handler myHandler=new Handler(){
 
                 }
                 break;
-            case R.id.tv_uc_forget_pws:
-                Intent intent=new Intent(UCLandingActivity.this, UCenterActivity.class);
-                startActivity(intent);
-                break;
+            //case R.id.tv_uc_forget_pws:
+               // Intent intent=new Intent(UCLandingActivity.this, UCenterActivity.class);
+               // startActivity(intent);
+              //  break;
             case R.id.tv_uc_new_user:
                 Intent intent1=new Intent(UCLandingActivity.this, UserRegisterActivity.class);
                 startActivity(intent1);

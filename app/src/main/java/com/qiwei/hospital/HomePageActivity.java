@@ -18,7 +18,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.qiwei.hospital.ui.HospitalLocationActivity;
 import com.qiwei.hospital.ui.KsAndYsActivity;
+import com.qiwei.hospital.ui.MingYiActivity;
+import com.qiwei.hospital.ui.MyddcxmActivity;
 import com.qiwei.hospital.ui.QuerySystemActivity;
 import com.qiwei.hospital.ui.UCenterActivity;
 import com.qiwei.hospital.ui.YyKsActivity;
@@ -48,6 +51,12 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
     private LinearLayout mYygh;
     //科室医生
     private LinearLayout mKsandYs;
+    /**满意度调查**/
+    private LinearLayout mMyddc;
+    /**名医馆**/
+    private LinearLayout mMyg;
+    /**医院导航**/
+    private LinearLayout mYydh;
     private int currentItem = 0; // 当前图片的索引号
 
     private View contextView;
@@ -94,6 +103,12 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
         mYygh.setOnClickListener(this);
         mKsandYs=(LinearLayout)contextView.findViewById(R.id.setting_main_screenshot);
         mKsandYs.setOnClickListener(this);
+        mMyddc=(LinearLayout)contextView.findViewById(R.id.setting_main_file);
+        mMyddc.setOnClickListener(this);
+        mMyg=(LinearLayout)contextView.findViewById(R.id.setting_main_root);
+        mMyg.setOnClickListener(this);
+        mYydh=(LinearLayout)contextView.findViewById(R.id.setting_main_root1);
+        mYydh.setOnClickListener(this);
     }
 
     @Override
@@ -180,8 +195,18 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
                 Intent intent2=new Intent(contex,KsAndYsActivity.class);
                 startActivity(intent2);
                 break;
-
-
+            case R.id.setting_main_file:
+                    Intent intent3=new Intent(contex,MyddcxmActivity.class);
+                startActivity(intent3);
+                break;
+            case  R.id.setting_main_root:
+                Intent intent4 =new Intent(contex, MingYiActivity.class);
+                startActivity(intent4);
+                break;
+            case R.id.setting_main_root1:
+                Intent intent5=new Intent(contex, HospitalLocationActivity.class);
+                startActivity(intent5);
+                break;
             default:
                 break;
 

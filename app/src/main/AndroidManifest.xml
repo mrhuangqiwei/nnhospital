@@ -57,14 +57,17 @@
         <activity android:name=".ui.KsjsActivity" />
         <activity
             android:name=".ui.YyJs"
-            android:label="@string/title_activity_yy_js"
-            >
+            android:label="@string/title_activity_yy_js">
+
             <!--
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.qiwei.hospital.ActivityHelper.BaseActivity" />
-                -->
+            -->
         </activity>
+        <activity android:name=".ui.MyddcxmActivity" />
+        <activity android:name=".ui.MingYiActivity" />
+        <activity android:name=".ui.HospitalLocationActivity"></activity>
     </application>
 
 </manifest>

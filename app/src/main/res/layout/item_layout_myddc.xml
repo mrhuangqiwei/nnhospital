@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <View
+        android:layout_width="wrap_content"
+        android:background="#6be4e7e9"
+        android:layout_height="20dp"/>
+    <LinearLayout
+        android:id="@+id/myddc_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+    <EditText
+       android:background="@color/white"
+        android:id="@+id/myddc_tv_suggest"
+        android:layout_width="match_parent"
+        android:hint="@string/tv_myddc_hint"
+        android:textSize="10sp"
+        android:layout_height="60dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+    <Button
+        android:id="@+id/login_button_cancle"
+        style="@style/commonLargeButtonBlue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_large_button_height"
+        android:text="@string/uc_info_hint_tj"
+        android:layout_marginLeft="@dimen/common_layout_padding"
+        android:layout_marginRight="@dimen/common_layout_padding"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="30dp"/>
+</LinearLayout>

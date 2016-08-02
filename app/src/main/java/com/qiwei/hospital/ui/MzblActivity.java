@@ -73,10 +73,13 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
                 /**获取门诊基本信息**/
                 case MSG_GET_MZJBXX:
                     crrayList=(ArrayList<String>) msg.obj;
-                    Log.d("JBXX------------>", crrayList.toString());
+                    if(crrayList==null){
+                        Toast.makeText(MzblActivity.this,"没有查到相关数据！",Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
 
 
-                    if(crrayList.size()>2){
+                  else   if(crrayList.size()>2){
                     mZjbxx.setVisibility(View.GONE);
                     mTvjb.setVisibility(View.VISIBLE);
                     mBrxm.setText(crrayList.get(0));
@@ -131,9 +134,12 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
 
                 case Msg_GETFRIENDLIST:
                     crrayList=(ArrayList<String>)msg.obj;
-
-                    Log.e("crrls------", crrayList.toString());
-                    if(crrayList.size()>6){
+  if(crrayList.size()<6){
+                      Toast.makeText(MzblActivity.this,"没有查到相关数据！",Toast.LENGTH_SHORT).show();
+                        finish();
+}
+                 //   Log.e("crrls------", crrayList.toString());
+                  else    if(crrayList.size()>6){
                         mfrienddatas=new ArrayList<FriendBean>();
                         for(int k=0;k<crrayList.size();k=k+7){
                             FriendBean friendBean=new FriendBean(crrayList.get(k),
@@ -156,7 +162,7 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
                     break;
                 case  MSG_GETTIMELIST:
                     drrayList=(ArrayList<String>)msg.obj;
-                    Log.e("drry----",drrayList.toString());
+                 //   Log.e("drry----",drrayList.toString());
                     if(drrayList.size()>1){
                         mSJdatas=new  ArrayList<MzsjBean>();
                         for(int i=0;i<drrayList.size();i=i+3){
@@ -172,6 +178,10 @@ public class MzblActivity extends BaseActivity implements  View.OnClickListener{
                                 function();
                             }
                         });
+                    }
+                    else {
+                        Toast.makeText(MzblActivity.this,"没有查到相关数据！",Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                     break;
 

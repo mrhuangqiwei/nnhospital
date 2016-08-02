@@ -34,13 +34,8 @@ public class NetUtilBool {
               try {
 
                   crrayList = Soap.GetWebServre(funname, arrayList, brrayList);
-                  //  Log.e("JBXX2------------>", crrayList.toString());
-
-
                   Message successMsg=new Message();
-
-
-                  successMsg.obj = crrayList;
+                   successMsg.obj = crrayList;
                   LoadingDialogManager.getInstance().dismissDialog();
 
               } catch (Exception e) {

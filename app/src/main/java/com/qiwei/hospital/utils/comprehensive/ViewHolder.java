@@ -92,5 +92,21 @@ public class ViewHolder {
         return this;
     }
 
+    /**
+     * 通过resource 获取图片
+     * @param viewId
+     *
+     * @return
+     */
+    public ViewHolder setImageResource(int viewId,int resId){
+        ImageView view=getView(viewId);
+        //Imageloader.getInstance.load(view,url);view.setImageResource(resId);
+        view.setImageResource(resId);
+        return this;
+    }
+
+    public int getmPosition() {
+        return mPosition;
+    }
 
 }

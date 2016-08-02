@@ -136,7 +136,6 @@ public class Yygh_ysxx extends BaseActivity implements View.OnClickListener{
     private void inintdata1() {
         arrayList.clear();
         brrayList.clear();
-
         arrayList.add("yyghrq");
         arrayList.add("brxm");
         arrayList.add("brxb");
@@ -159,16 +158,9 @@ public class Yygh_ysxx extends BaseActivity implements View.OnClickListener{
         brrayList.add(ksbm1);
         brrayList.add(djrq);
         brrayList.add(yxrq);
+      //  Log.e("-------------->", brrayList.toString());
            mainHandler=new MainHandler();
-
-                    msgNetUtil=new MsgNetUtil("appointment ",mainHandler,arrayList,brrayList,105);
-
-
-
-
-
-
-
+        msgNetUtil=new MsgNetUtil("appointment",mainHandler,arrayList,brrayList,105);
 
     }
 
@@ -198,7 +190,7 @@ public class Yygh_ysxx extends BaseActivity implements View.OnClickListener{
               drrayList=(ArrayList<String>)msg.obj;
 
                Log.e("dr----->",drrayList.toString());
-                    Toast.makeText(Yygh_ysxx.this,"预约成功",Toast.LENGTH_LONG).show();
+                     Toast.makeText(Yygh_ysxx.this,"预约成功",Toast.LENGTH_LONG).show();
 
                     Intent intent=new Intent(Yygh_ysxx.this,MyYYInfoActivity.class);
                     startActivity(intent);

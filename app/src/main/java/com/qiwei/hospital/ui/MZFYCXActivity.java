@@ -132,13 +132,14 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
             //crrayList.clear();
             //ArrayList<String> crrayList=(ArrayList<String>) msg.obj;
             crrayList = (ArrayList<String>) msg.obj;
-            Log.e("--------crrr",crrayList.toString());
+          //                                                                                                                          Log.e("--------crrr",crrayList.toString());
             if (crrayList==null){
                 mIncludeList.setVisibility(View.GONE);
                 mLzfyjbxx.setVisibility(View.GONE);
                 mIncludeFriend.setVisibility(View.VISIBLE);
             }
-            if(crrayList.size() > 1) {
+           else if(crrayList.size() > 1) {
+                Log.e("--------------------->","2222"+crrayList.toString());
                 mBrxm.setText(crrayList.get(0));
                 mBrjzrq.setText(crrayList.get(1));
                 mJtzz.setText(crrayList.get(2));
@@ -151,7 +152,7 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
                 mRechx.setVisibility(View.GONE);
             }
             else {
-                Toast.makeText(MZFYCXActivity.this, "住院号不正确或网络连接失败，请检查！", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MZFYCXActivity.this, "网络连接失败，请检查！", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -197,7 +198,7 @@ public class MZFYCXActivity extends BaseActivity implements View.OnClickListener
                         mListTime.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                zyh1 = mSJdatas.get(position).getGhxh();
+                                zyh1 = mSJdatas.get(position).getBrid();
                                 function();
                             }
                         });
