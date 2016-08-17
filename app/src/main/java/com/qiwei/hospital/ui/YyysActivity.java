@@ -138,7 +138,7 @@ private GridView  mGride;
             for(int i1=listd1.get(6)+1;i1<listd1.get(7);i1++){
                 grrayList7.add(drrayList.get(i1));
             }
-            int[]                                                 arry={grrayList1.size(),grrayList2.size(),grrayList3.size(),grrayList4.size(),grrayList5.size(),grrayList6.size(),grrayList7.size()};
+            int[]     arry={grrayList1.size(),grrayList2.size(),grrayList3.size(),grrayList4.size(),grrayList5.size(),grrayList6.size(),grrayList7.size()};
 
             int max = arry[0];
             for(int i=0;i<arry.length;i++){
