@@ -17,7 +17,14 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:backgroundDimAmount">0.5</item>
     </style>
-
+    <style name="CustomDialog_1" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
     <style name="commonTextViewBlue" parent="android:Widget.TextView">
         <item name="android:textColor">@color/color_1B75D9</item>
         <item name="android:textSize">@dimen/common_text_size</item>

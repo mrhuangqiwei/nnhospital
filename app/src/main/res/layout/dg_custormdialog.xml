@@ -10,16 +10,17 @@
 
     <TextView
         android:id="@+id/title"
+        android:gravity="center"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/notification_version_name"
+        android:text="@string/custorm_dialog_title"
         android:textSize="18sp" />
 
     <View
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:layout_marginTop="10dip"
-        android:background="@drawable/cmb_list_separator_line" />
+        android:background="@mipmap/line" />
 
     <TextView
         android:id="@+id/tv_content"
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dip"
         android:gravity="center_horizontal"
-        android:text="@string/version_isup"
+        android:text="@string/custorm_dialog_have_card"
         android:textSize="18sp" />
 
     <LinearLayout
@@ -41,13 +42,13 @@
             android:id="@+id/sure"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/ok"
-            android:textSize="@dimen/main_content_text_size" />
+            android:text="@string/custorm_dialog_ok"
+            android:textSize="18sp" />
         <Button
             android:id="@+id/cancel"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="@string/cancel"
-            android:textSize="@dimen/main_content_text_size" />
+            android:text="@string/custorm_dialog_cancle"
+            android:textSize="18sp" />
     </LinearLayout>
 </LinearLayout> 
