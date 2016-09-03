@@ -14,14 +14,12 @@ import com.qiwei.hospital.R;
 /**
  * Created by Administrator on 2016/8/17.
  */
-
 public class CustormDialog extends Dialog implements DialogInterface {
 
     private String title;
     private String content;
     private DialogCallBack callback;
     private int index;
-
     /***
      * @param context
      * @param title 对话框标题
@@ -52,7 +50,6 @@ public class CustormDialog extends Dialog implements DialogInterface {
         this.callback = dialogcallback;
         this.index = index;
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
