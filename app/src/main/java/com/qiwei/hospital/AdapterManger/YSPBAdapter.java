@@ -14,7 +14,7 @@ import java.util.List;
  * 开发人：黄启位
  * 功能描述：adapter 网格显示医生排班信息
  */
-class YSPBAdapter extends CommonAdapter<YSBCBean> {
+public class YSPBAdapter extends CommonAdapter<YSBCBean> {
     public YSPBAdapter(Context context, List<YSBCBean> datas) {
         super(context, datas, R.layout.item_grideview);
     }

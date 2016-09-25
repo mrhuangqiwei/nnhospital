@@ -53,7 +53,7 @@ private ListView mListview;
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                        // Toast.makeText(YyKsActivity.this,mdatas.get(position).getKsmc(),Toast.LENGTH_LONG).show();
                         Intent intent= new Intent();
-                        intent.setClass(YyKsActivity.this, YyysActivity.class);
+                        intent.setClass(YyKsActivity.this, Yyys_Activity.class);
                         Bundle bundle = new Bundle();
 
                         bundle.putString("ksbm", mdatas.get(position).getKsbm());

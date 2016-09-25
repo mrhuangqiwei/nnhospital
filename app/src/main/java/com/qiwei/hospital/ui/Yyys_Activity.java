@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.qiwei.hospital.ActivityHelper.BaseActivity;
 import com.qiwei.hospital.AdapterManger.KSjjAdapter;
+
+import com.qiwei.hospital.AdapterManger.YSPBAdapter;
 import com.qiwei.hospital.R;
 import com.qiwei.hospital.utils.Bean.KsandysBean;
 import com.qiwei.hospital.utils.Bean.YSBCBean;
@@ -43,7 +45,7 @@ public class Yyys_Activity extends BaseActivity {
     private ArrayList<String> arrayList = new ArrayList<String>(), brrayList = new ArrayList<String>(),crrayList = new ArrayList<String>(),drrayList = new ArrayList<String>();
     //handler
     private MainHandler mainHandler;
-
+    private YSPBAdapter yspbAdapter;
 
 
     private class MainHandler extends Handler {
@@ -66,7 +68,7 @@ public class Yyys_Activity extends BaseActivity {
                     }
 
                     break;
-
+/**
                 case  MSG_YYXXMX:
                     drrayList=(ArrayList<String>)msg.obj;
                     if(drrayList.get(0).equals("true")){
@@ -80,7 +82,7 @@ public class Yyys_Activity extends BaseActivity {
                     }
 
                     break;
-
+**/
                 case MSG_XQARQ:
                     crrayList=(ArrayList<String>)msg.obj;
                     if(crrayList==null){
@@ -177,7 +179,7 @@ public class Yyys_Activity extends BaseActivity {
                 String yydjsj=ysbc.getString("yydjsj");
                 String yyghsj=ysbc.getString("yyghsj");
                 String yyyxsj=ysbc.getString("yyyxsj");
-                String Kabm=ksjs.getString("Kabm");
+               // String Kabm=ksjs.getString("Kabm");
                 ysbccbeanobject.setYzrq(Yzrq);
                 ysbccbeanobject.setSbsj(sbsj);
                 ysbccbeanobject.setXbsj(xbsj);
@@ -185,11 +187,20 @@ public class Yyys_Activity extends BaseActivity {
                 ysbccbeanobject.setXyzs(xyzs);
                 ysbccbeanobject.setCzybm(czybm);
                 ysbccbeanobject.setCzyxm(czyxm);
-                ksandysbeanobject.setKabm(Kabm);
-                ksandysbeanobject.setKsmc(Ksmc);
-                ksandysbeanobject.setKsjjmx(Ksjjmx);
-                ksjjs.add(ksandysbeanobject);
+                ysbccbeanobject.setZcmc(zcmc);
+                ysbccbeanobject.setXq(xq);
+                ysbccbeanobject.setMzsbdd(mzsbdd);
+                ysbccbeanobject.setKsmc(ksmc);
+                ysbccbeanobject.setKsbm(ksbm);
+                ysbccbeanobject.setYydjsj(yydjsj);
+                ysbccbeanobject.setYyghsj(yyghsj);
+                ysbccbeanobject.setYyyxsj(yyyxsj);
+                ysbcBeans.add(ysbccbeanobject);
+
             }
+            yspbAdapter=new YSPBAdapter(Yyys_Activity.this,ysbcBeans);
+            mGride.setAdapter(yspbAdapter);
+            /**
             ksjsadapter=new KSjjAdapter(KsjsActivity.this,ksjjs);
             mListKsjs.setAdapter(ksjsadapter);
             mListKsjs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -199,7 +210,7 @@ public class Yyys_Activity extends BaseActivity {
                     mIncludeKSjs.setVisibility(View.VISIBLE);
                     mTextKsjs.setText("   "+ksjjs.get(position).getKsjjmx());
                 }
-            });
+            });**/
         }
         catch (Exception e){
 

@@ -20,7 +20,7 @@ public class HttpConnSoap {
 	public ArrayList<String> GetWebServre(String methodName,ArrayList<String> Parameters,ArrayList<String>ParValues)
 	{
 		ArrayList<String> Values=new ArrayList<String>();
-		String ServerUrl="http://192.168.101.250:8998/Service1.asmx";
+		String ServerUrl="http://182.141.186.113:8998/Service1.asmx";
 		//String soapAction="http://tempuri.org/LongUserId1";
 		String soapAction="http://tempuri.org/"+methodName;
 		String data="";
