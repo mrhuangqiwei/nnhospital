@@ -16,12 +16,13 @@ import com.qiwei.hospital.R;
  * 功能通用dialog
  * 开发人：黄启位
  */
-public class CustormDialog extends Dialog implements DialogInterface {
+public class CustormListDialog extends Dialog implements DialogInterface {
 
     private String title;
     private String content;
     private DialogCallBack callback;
     private int index;
+    private int view;
     /***
      * @param context
      * @param title 对话框标题
@@ -45,17 +46,18 @@ public class CustormDialog extends Dialog implements DialogInterface {
      *            //这里放取消按钮响应
      *          } },2);
      */
-    public CustormDialog(Context context,String title,String content,int theme,DialogCallBack dialogcallback,int index) {
+    public CustormListDialog(Context context, String title, String content, int theme, DialogCallBack dialogcallback, int index,int view) {
         super(context, theme);
         this.title = title;
         this.content = content;
         this.callback = dialogcallback;
         this.index = index;
+        this.view=view;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dg_custormdialog);
+        setContentView(view);
         TextView titl = (TextView) findViewById(R.id.title);
         TextView cont = (TextView) findViewById(R.id.tv_content);
 
@@ -67,17 +69,17 @@ public class CustormDialog extends Dialog implements DialogInterface {
         if(index == 1){
             cancel.setVisibility(View.GONE);
         }else{
-            cancel.setOnClickListener(new android.view.View.OnClickListener() {
+            cancel.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    CustormDialog.this.dismiss();
+                    CustormListDialog.this.dismiss();
                     callback.CancleDown();
                 }
             });
         }
-        ok.setOnClickListener(new android.view.View.OnClickListener() {
+        ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustormDialog.this.dismiss();
+                CustormListDialog.this.dismiss();
                 callback.OkDown();
             }
         });

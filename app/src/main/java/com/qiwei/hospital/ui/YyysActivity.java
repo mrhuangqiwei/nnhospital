@@ -338,7 +338,6 @@ private GridView  mGride;
         rq6=(TextView)findViewById(R.id.tv_ysgh_ys_layout_rq6);
         rq7=(TextView)findViewById(R.id.tv_ysgh_ys_layout_rq7);
         mGride1=(GridView)findViewById(R.id.yspb_gride1);
-
         inintdata();
     }
 

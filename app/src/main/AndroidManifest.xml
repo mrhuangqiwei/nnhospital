@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.qiwei.hospital" >
+    package="com.qiwei.hospital">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -16,10 +16,10 @@
         android:icon="@mipmap/img_yw"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,7 +57,7 @@
         <activity android:name=".ui.KsjsActivity" />
         <activity
             android:name=".ui.YyJs"
-            android:label="@string/title_activity_yy_js" >
+            android:label="@string/title_activity_yy_js">
 
             <!--
             <meta-data
@@ -68,8 +68,8 @@
         <activity android:name=".ui.MyddcxmActivity" />
         <activity android:name=".ui.MingYiActivity" />
         <activity android:name=".ui.HospitalLocationActivity" />
-        <activity android:name=".ui.Bagl_BasyActivity" >
-        </activity>
+        <activity android:name=".ui.Bagl_BasyActivity"></activity>
+        <activity android:name=".ui.Yyys_Activity"></activity>
     </application>
 
 </manifest>

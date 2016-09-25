@@ -16,10 +16,7 @@ public class FriendAdapter extends CommonAdapter<FriendBean>{
 public FriendAdapter(Context context, List<FriendBean> datas){
     super(context,datas, R.layout.item_freind);
 }
-
-
-
-    @Override
+ @Override
     public void convert(ViewHolder holder,FriendBean friendBean) {
    holder.setText(R.id.tv_item_friend,friendBean.getBrxm());
 

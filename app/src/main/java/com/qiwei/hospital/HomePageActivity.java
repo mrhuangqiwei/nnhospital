@@ -143,8 +143,6 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageViews.add(imageView);
         }
-
-
         dots = new ArrayList<View>();
         dots.add(contextView.findViewById(R.id.v_dot0));
         dots.add(contextView.findViewById(R.id.v_dot1));

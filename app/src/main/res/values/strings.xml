@@ -176,7 +176,7 @@
     <string name="bagl_basy_lxrdh">联系人电话：</string>
     <string name="bagl_basy_gdrq">归档日期：</string>
 
-<!--自定义dialog-->
+    <!--自定义dialog-->
     <string name="custorm_dialog_title">提示</string>
     <string name="custorm_dialog_have_card">亲，是否有医疗卡，医疗卡是目前医院患者信息标志，若不用医疗卡可能查询到的数据不够完善！</string>
     <string name="custorm_dialog_ok">是</string>
