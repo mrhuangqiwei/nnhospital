@@ -42,29 +42,33 @@ public class Yyys_Activity extends BaseActivity {
     //回传消息
     private MsgNetUtil msgNetUtil;
     /**arraylist 数组**/
-    private ArrayList<String> arrayList = new ArrayList<String>(), brrayList = new ArrayList<String>(),crrayList = new ArrayList<String>(),drrayList = new ArrayList<String>();
+    private ArrayList<String> arrayList = new ArrayList<String>(), brrayList = new ArrayList<String>(),crrayList = new ArrayList<String>(),drrayList = new ArrayList<String>(),errayList = new ArrayList<String>();
     //handler
     private MainHandler mainHandler;
+    private MainHandler mainHandler1;
+    private MainHandler mainHandler2;
     private YSPBAdapter yspbAdapter;
 
 
     private class MainHandler extends Handler {
         static final int MSG_YYSWPB=124;
-        static final int MSG_YYXPB=125;
+        static final int MSG_YYXWPB=125;
         static final int MSG_XQARQ=126;
        @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MSG_YYSWPB:
-                    crrayList=(ArrayList<String>)msg.obj;
-                    if(crrayList==null){
+                  drrayList=(ArrayList<String>)msg.obj;
+                    if(drrayList==null){
                         Toast.makeText(Yyys_Activity.this,"亲没有获取到网络数据，请重试",Toast.LENGTH_SHORT).show();
                     }
-                    else { //Log.e("--------->", crrayList.toString());
-                        String str=crrayList.toString();
+                    else { Log.e("--------->", drrayList.toString());
+                        String str=drrayList.toString();
                         String  json=str.substring(1, str.length() - 1);
-                        Log.e("--------->1111", json);
+                     //   Log.e("--------->1111", json);
                         parseJson(json);
+
+                        inintdata2();
                     }
 
                     break;
@@ -83,12 +87,27 @@ public class Yyys_Activity extends BaseActivity {
 
                     break;
 **/
+
+                case MSG_YYXWPB:
+                    errayList=(ArrayList<String>)msg.obj;
+                    if(errayList==null){
+                        Toast.makeText(Yyys_Activity.this,"亲没有获取到网络数据，请重试",Toast.LENGTH_SHORT).show();
+                    }
+                    else { Log.e("--------->",errayList.toString());
+                        String str=errayList.toString();
+                        String  json=str.substring(1, str.length() - 1);
+                        //   Log.e("--------->1111", json);
+                        parseJson1(json);
+                    }
+
+                    break;
                 case MSG_XQARQ:
                     crrayList=(ArrayList<String>)msg.obj;
                     if(crrayList==null){
                         Toast.makeText(Yyys_Activity.this,"亲没有获取到网络数据，请重试",Toast.LENGTH_SHORT).show();
                     }
                     else {
+                      //  Log.e( "handleMessage: ",crrayList.toString() );
                         rq1.setText(crrayList.get(0)); mTvxq1.setText(crrayList.get(1));
                         rq2.setText(crrayList.get(2)); mTvxq2.setText(crrayList.get(3));
                         rq3.setText(crrayList.get(4)); mTvxq3.setText(crrayList.get(5));
@@ -96,6 +115,7 @@ public class Yyys_Activity extends BaseActivity {
                         rq5.setText(crrayList.get(8)); mTvxq5.setText(crrayList.get(9));
                         rq6.setText(crrayList.get(10)); mTvxq6.setText(crrayList.get(11));
                         rq7.setText(crrayList.get(12)); mTvxq7.setText(crrayList.get(13));
+                        inintdata();
                     }
                     break;
                 default:
@@ -127,14 +147,28 @@ public class Yyys_Activity extends BaseActivity {
         rq7=(TextView)findViewById(R.id.tv_ysgh_ys_layout_rq7);
         mGride1=(GridView)findViewById(R.id.yspb_gride1);
         initdata1();
-        inintdata();
+       // inintdata();
+       // inintdata2();
+    }
+
+    /**获取下午医生排班信息**/
+    private void inintdata2() {
+        Bundle bundle = this.getIntent().getExtras();
+        String name = bundle.getString("ksbm");
+        arrayList.clear();
+        brrayList.clear();
+        arrayList.add("ksbm");
+        brrayList.add(name);
+        String name1="yspbxwjson";
+        mainHandler=new MainHandler();
+        msgNetUtil=new MsgNetUtil(name1,mainHandler,arrayList,brrayList,125);
     }
     /**获取日期与星期**/
     private  void initdata1(){
         arrayList.clear();
         brrayList.clear();
-        String name1="getyyrqandxq";
-        msgNetUtil=new MsgNetUtil(name1,mainHandler,arrayList,brrayList,124);
+        mainHandler2=new MainHandler();
+        msgNetUtil=new MsgNetUtil("getyyrqandxq",mainHandler2,arrayList,brrayList,126);
 
     }
     /**获取早上医生排班信息**/
@@ -146,14 +180,15 @@ public class Yyys_Activity extends BaseActivity {
         arrayList.add("ksbm");
         brrayList.add(name);
         String name1="yspbswjson";
-        msgNetUtil=new MsgNetUtil(name1,mainHandler,arrayList,brrayList,126);
+        mainHandler1=new MainHandler();
+        msgNetUtil=new MsgNetUtil(name1,mainHandler1,arrayList,brrayList,124);
     }
     @Override
     protected int getLayoutId() {
         return (R.layout.yygh_ys_layout);
     }
     /**
-     * 解析json并加载数据
+     * 解析json并加载数据上午
      * @param json
      */
     private void parseJson(String json){
@@ -196,21 +231,93 @@ public class Yyys_Activity extends BaseActivity {
                 ysbccbeanobject.setYyghsj(yyghsj);
                 ysbccbeanobject.setYyyxsj(yyyxsj);
                 ysbcBeans.add(ysbccbeanobject);
-
             }
             yspbAdapter=new YSPBAdapter(Yyys_Activity.this,ysbcBeans);
             mGride.setAdapter(yspbAdapter);
-            /**
-            ksjsadapter=new KSjjAdapter(KsjsActivity.this,ksjjs);
-            mListKsjs.setAdapter(ksjsadapter);
-            mListKsjs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            mGride.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    mListKsjs.setVisibility(View.GONE);
-                    mIncludeKSjs.setVisibility(View.VISIBLE);
-                    mTextKsjs.setText("   "+ksjjs.get(position).getKsjjmx());
+                    Intent intent= new Intent();
+                    intent.setClass(Yyys_Activity.this, Yygh_ysxx.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("yszh",ysbcBeans.get(position).getCzybm());
+                    bundle.putString("djrq",ysbcBeans.get(position).getYydjsj());
+                    bundle.putString("ghrq",ysbcBeans.get(position).getYyghsj());
+                    bundle.putString("yxrq",ysbcBeans.get(position).getYyyxsj());
+                    bundle.putString("ysxm",ysbcBeans.get(position).getCzyxm());
+                    //  Log.e("--->",mdatas.get(position).getYsxm());
+                  //  bundle.putString("yszh", mdatas.get(position).getYszh());
+                    bundle.putString("sbsj", ysbcBeans.get(position).getSbsj());
+                    bundle.putString("xbsj",ysbcBeans.get(position).getXbsj());
+                    bundle.putString("sbrq", ysbcBeans.get(position).getYzrq());
+                    bundle.putString("xq",ysbcBeans.get(position).getXq());
+                    bundle.putString("dd",ysbcBeans.get(position).getMzsbdd());
+                    bundle.putString("ksmc",ysbcBeans.get(position).getKsmc());
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 }
-            });**/
+            });
+
+        }
+        catch (Exception e){
+
+        }
+    }
+
+    /**
+     * 解析json并加载数据下午
+     * @param json
+     */
+    private void parseJson1(String json){
+        try{
+            JSONObject object =new JSONObject(json);
+            final List<YSBCBean> ysbcBeans =new ArrayList<YSBCBean>();
+            JSONArray ysbcData=object.getJSONArray("GetYspb");
+            for(int i=0;i<ysbcData.length();i++){
+                YSBCBean ysbccbeanobject=new YSBCBean();
+                JSONObject ysbc=ysbcData.getJSONObject(i);
+                String Yzrq=ysbc.getString("Yzrq");
+                String sbsj=ysbc.getString("sbsj");
+                String xbsj=ysbc.getString("xbsj");
+                String xhzs=ysbc.getString("xhzs");
+                String xyzs=ysbc.getString("xyzs");
+                String czybm=ysbc.getString("czybm");
+                String czyxm=ysbc.getString("czyxm");
+                String zcmc=ysbc.getString("zcmc");
+                String xq=ysbc.getString("xq");
+                String mzsbdd=ysbc.getString("mzsbdd");
+                String ksmc=ysbc.getString("ksmc");
+                String ksbm=ysbc.getString("ksbm");
+                String yydjsj=ysbc.getString("yydjsj");
+                String yyghsj=ysbc.getString("yyghsj");
+                String yyyxsj=ysbc.getString("yyyxsj");
+                // String Kabm=ksjs.getString("Kabm");
+                ysbccbeanobject.setYzrq(Yzrq);
+                ysbccbeanobject.setSbsj(sbsj);
+                ysbccbeanobject.setXbsj(xbsj);
+                ysbccbeanobject.setXhzs(xhzs);
+                ysbccbeanobject.setXyzs(xyzs);
+                ysbccbeanobject.setCzybm(czybm);
+                ysbccbeanobject.setCzyxm(czyxm);
+                ysbccbeanobject.setZcmc(zcmc);
+                ysbccbeanobject.setXq(xq);
+                ysbccbeanobject.setMzsbdd(mzsbdd);
+                ysbccbeanobject.setKsmc(ksmc);
+                ysbccbeanobject.setKsbm(ksbm);
+                ysbccbeanobject.setYydjsj(yydjsj);
+                ysbccbeanobject.setYyghsj(yyghsj);
+                ysbccbeanobject.setYyyxsj(yyyxsj);
+                ysbcBeans.add(ysbccbeanobject);
+            }
+            yspbAdapter=new YSPBAdapter(Yyys_Activity.this,ysbcBeans);
+            mGride1.setAdapter(yspbAdapter);
+            mGride1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                }
+            });
+
         }
         catch (Exception e){
 

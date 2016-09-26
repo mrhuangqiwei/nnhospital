@@ -38,9 +38,6 @@ public class MsgNetUtil {
                   crrayList = Soap.GetWebServre(funname, arrayList, brrayList);
                   //  Log.e("JBXX2------------>", crrayList.toString());
 
-
-
-
                   Message message=handler.obtainMessage(msg1);
                   message.obj = crrayList;
                   handler.sendMessage(message);
