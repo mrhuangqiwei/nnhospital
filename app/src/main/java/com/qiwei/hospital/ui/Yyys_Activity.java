@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +33,7 @@ import java.util.List;
  * 开发人： 黄启位
  * 功能描述：显示预约挂号科室上班医生
  * **/
-public class Yyys_Activity extends BaseActivity {
+public class Yyys_Activity extends BaseActivity implements  View.OnClickListener {
  /** 星期**/
     private TextView mTvxq1,mTvxq2,mTvxq3,mTvxq4,mTvxq5,mTvxq6,mTvxq7;
 /**日期**/
@@ -48,6 +49,18 @@ public class Yyys_Activity extends BaseActivity {
     private MainHandler mainHandler1;
     private MainHandler mainHandler2;
     private YSPBAdapter yspbAdapter;
+/**返回键**/
+    private ImageButton mImgback;
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.img_mzfy_back:
+                finish();
+                break;
+            default:
+                break;
+        }
+    }
 
 
     private class MainHandler extends Handler {
@@ -146,6 +159,8 @@ public class Yyys_Activity extends BaseActivity {
         rq6=(TextView)findViewById(R.id.tv_ysgh_ys_layout_rq6);
         rq7=(TextView)findViewById(R.id.tv_ysgh_ys_layout_rq7);
         mGride1=(GridView)findViewById(R.id.yspb_gride1);
+        mImgback=(ImageButton)findViewById(R.id.img_mzfy_back);
+        mImgback.setOnClickListener(this);
         initdata1();
        // inintdata();
        // inintdata2();
@@ -240,6 +255,7 @@ public class Yyys_Activity extends BaseActivity {
                     Intent intent= new Intent();
                     intent.setClass(Yyys_Activity.this, Yygh_ysxx.class);
                     Bundle bundle = new Bundle();
+                    bundle.putString("sj","shangwu");
                     bundle.putString("yszh",ysbcBeans.get(position).getCzybm());
                     bundle.putString("djrq",ysbcBeans.get(position).getYydjsj());
                     bundle.putString("ghrq",ysbcBeans.get(position).getYyghsj());
@@ -314,7 +330,25 @@ public class Yyys_Activity extends BaseActivity {
             mGride1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                    Intent intent= new Intent();
+                    intent.setClass(Yyys_Activity.this, Yygh_ysxx.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("sj","xiawu");
+                    bundle.putString("yszh",ysbcBeans.get(position).getCzybm());
+                    bundle.putString("djrq",ysbcBeans.get(position).getYydjsj());
+                    bundle.putString("ghrq",ysbcBeans.get(position).getYyghsj());
+                    bundle.putString("yxrq",ysbcBeans.get(position).getYyyxsj());
+                    bundle.putString("ysxm",ysbcBeans.get(position).getCzyxm());
+                    //  Log.e("--->",mdatas.get(position).getYsxm());
+                    //  bundle.putString("yszh", mdatas.get(position).getYszh());
+                    bundle.putString("sbsj", ysbcBeans.get(position).getSbsj());
+                    bundle.putString("xbsj",ysbcBeans.get(position).getXbsj());
+                    bundle.putString("sbrq", ysbcBeans.get(position).getYzrq());
+                    bundle.putString("xq",ysbcBeans.get(position).getXq());
+                    bundle.putString("dd",ysbcBeans.get(position).getMzsbdd());
+                    bundle.putString("ksmc",ysbcBeans.get(position).getKsmc());
+                    intent.putExtras(bundle);
+                    startActivity(intent);
                 }
             });
 

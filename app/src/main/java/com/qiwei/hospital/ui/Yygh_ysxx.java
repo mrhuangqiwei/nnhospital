@@ -252,11 +252,18 @@ public class Yygh_ysxx extends BaseActivity implements View.OnClickListener{
         djrq=bundle.getString("djrq");
         ghrq=bundle.getString("ghrq");
         yxrq=bundle.getString("yxrq");
+        String sj=bundle.getString("sj");
+        if(sj.equals("shangwu")){
+            sbsj.setText("8:30");
+            xbsj.setText("12:00");
+        }
+       else{ sbsj.setText("14:30");
+            xbsj.setText("17:30");}
         ksmc.setText(ksmc1);
         ysxm.setText(ysxm1);
         jzrq.setText(sbrq1);
-        sbsj.setText(sbs1j);
-        xbsj.setText(xbsj1);
+        //sbsj.setText(sbs1j);
+       // xbsj.setText(xbsj1);
         kswz.setText(sbdd);
         inintdata2();
     }
