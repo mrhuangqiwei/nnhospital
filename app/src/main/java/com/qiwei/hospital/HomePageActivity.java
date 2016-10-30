@@ -22,6 +22,7 @@ import com.qiwei.hospital.ui.HospitalLocationActivity;
 import com.qiwei.hospital.ui.KsAndYsActivity;
 import com.qiwei.hospital.ui.MingYiActivity;
 import com.qiwei.hospital.ui.MyddcxmActivity;
+import com.qiwei.hospital.ui.NavigationActivity;
 import com.qiwei.hospital.ui.QuerySystemActivity;
 import com.qiwei.hospital.ui.UCenterActivity;
 import com.qiwei.hospital.ui.YyKsActivity;
@@ -202,7 +203,7 @@ public class HomePageActivity extends Fragment implements View.OnClickListener {
                 startActivity(intent4);
                 break;
             case R.id.setting_main_root1:
-                Intent intent5=new Intent(contex, HospitalLocationActivity.class);
+                Intent intent5=new Intent(contex,NavigationActivity.class);
                 startActivity(intent5);
                 break;
             default:

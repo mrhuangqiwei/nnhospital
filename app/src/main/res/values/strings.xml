@@ -181,5 +181,11 @@
     <string name="custorm_dialog_have_card">亲，是否有医疗卡，医疗卡是目前医院患者信息标志，若不用医疗卡可能查询到的数据不够完善！</string>
     <string name="custorm_dialog_ok">是</string>
     <string name="custorm_dialog_cancle">否</string>
-
+    <!--导航-->
+    <string name="naviation_location">医院地址：</string>
+    <string name="naviation_ph">电话：</string>
+    <string name="naviation_location1">宁南县金沙大道西段</string>
+    <string name="naviation_phone">0834-4570120</string>
+    <string name="naviation_map">地图导航</string>
+    <string name="naviation_hospital">院内导航</string>
 </resources>
