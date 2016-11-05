@@ -188,4 +188,7 @@
     <string name="naviation_phone">0834-4570120</string>
     <string name="naviation_map">地图导航</string>
     <string name="naviation_hospital">院内导航</string>
+    <string name="naviation_surround">周边</string>
+    <string name="naviation_mylocation">我的位置</string>
+    <string name="naviation">到这里</string>
 </resources>

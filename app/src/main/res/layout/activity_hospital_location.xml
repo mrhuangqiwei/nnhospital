@@ -43,13 +43,13 @@
               android:background="@drawable/map_image_border_white"
               android:clickable="true"
               android:scaleType="fitXY"
-              android:src="@drawable/a04" />
+              android:src="@mipmap/a04" />
 
           <RelativeLayout
               android:layout_width="fill_parent"
               android:layout_height="50dp"
               android:layout_alignParentBottom="true"
-              android:background="@drawable/bg_map_bottom" >
+              android:background="@mipmap/bg_map_bottom" >
 
               <LinearLayout
                   android:layout_width="fill_parent"
@@ -85,7 +85,7 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:onClick="zan"
-                      android:src="@drawable/map_zan" />
+                      android:src="@mipmap/map_zan" />
 
                   <TextView
                       android:id="@+id/info_zan"
@@ -97,6 +97,47 @@
               </LinearLayout>
           </RelativeLayout>
       </RelativeLayout>
-
+<LinearLayout
+    android:background="#271b00"
+    android:layout_alignParentBottom="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:orientation="horizontal">
+<TextView
+    android:background="@drawable/onclick_bottom_tab"
+    android:id="@+id/location_surround"
+    android:text="@string/naviation_surround"
+    android:layout_weight="1"
+    android:layout_width="0dp"
+    android:textSize="20sp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_height="wrap_content" />
+    <TextView
+        android:background="@drawable/onclick_bottom_tab"
+        android:layout_margin="10dp"
+        android:id="@+id/location_navagation"
+        android:text="@string/naviation"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:textSize="20sp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/onclick_bottom_tab"
+        android:layout_margin="10dp"
+        android:id="@+id/location_mylocation"
+        android:text="@string/naviation_mylocation"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:textSize="20sp"
+        android:layout_height="wrap_content" />
+</LinearLayout>
   </RelativeLayout>
 </LinearLayout>

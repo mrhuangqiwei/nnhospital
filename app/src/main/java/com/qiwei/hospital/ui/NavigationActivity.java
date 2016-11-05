@@ -41,8 +41,8 @@ public class NavigationActivity extends BaseActivity implements View.OnClickList
     private  MainHandler mainHandler;
     //返回键
     private ImageButton  mBackBtn;
-    //标题
-    private LinearLayout mIncludeTitle;
+    //标题;地图导航
+    private LinearLayout mIncludeTitle,mMapnav;
     //标题名称；电话
     private TextView mTextTitle,mTextPhone;
     @Override
@@ -56,6 +56,11 @@ switch (v.getId()){
     case  R.id.img_title_back:
         finish();
         break;
+    case  R.id.id_ll_navagation_map:
+        Intent intent=new Intent(NavigationActivity.this,HospitalLocationActivity.class);
+        startActivity(intent);
+        break;
+
     default:
         break;
 }
@@ -97,6 +102,8 @@ switch (v.getId()){
         mBackBtn.setOnClickListener(this);
         mTextPhone=(TextView)findViewById(R.id.id_tv_navigation_phone);
         mTextPhone.setOnClickListener(this);
+        mMapnav=(LinearLayout)findViewById(R.id.id_ll_navagation_map);
+        mMapnav.setOnClickListener(this);
         initdata();
     }
 
