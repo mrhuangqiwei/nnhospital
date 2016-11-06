@@ -87,6 +87,7 @@
         <activity android:name=".ui.MyddcxmActivity" />
         <activity android:name=".ui.MingYiActivity" />
         <activity android:name=".ui.HospitalLocationActivity" />
+        <activity android:name=".ui.BNDemoGuideActivity" />
         <activity android:name=".ui.Bagl_BasyActivity" />
         <activity android:name=".ui.Yyys_Activity" />
         <activity android:name=".ui.NavigationActivity"></activity>

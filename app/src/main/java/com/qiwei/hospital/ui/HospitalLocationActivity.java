@@ -1,7 +1,11 @@
 package com.qiwei.hospital.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Point;
+import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,11 +13,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -34,18 +40,32 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
-import com.qiwei.hospital.ActivityHelper.BaseActivity;
+import com.baidu.navisdk.adapter.BNOuterTTSPlayerCallback;
+import com.baidu.navisdk.adapter.BNRoutePlanNode;
+import com.baidu.navisdk.adapter.BNaviSettingManager;
+import com.baidu.navisdk.adapter.BaiduNaviCommonModule;
+import com.baidu.navisdk.adapter.BaiduNaviManager;
+import com.baidu.navisdk.adapter.BNRoutePlanNode.CoordinateType;
+
 import com.qiwei.hospital.Listener.MyOrientationListener;
 import com.qiwei.hospital.R;
 import com.qiwei.hospital.utils.Bean.Info;
-import com.qiwei.hospital.utils.Dialog.CustormDialog;
-import com.qiwei.hospital.utils.comprehensive.ViewHolder;
 
+import java.io.File;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
     public class HospitalLocationActivity extends Activity implements  View.OnClickListener
     {
+
+        //private final String TAG = BNDemoGuideActivity.class.getName();
+        private BNRoutePlanNode mBNRoutePlanNode = null;
+        private BaiduNaviCommonModule mBaiduNaviCommonModule = null;
+
+
+
         /**
          * 地图控件
          */
@@ -102,7 +122,26 @@ import java.util.List;
          * 详细信息的 布局
          */
         private RelativeLayout mMarkerInfoLy;
+        /**mNavTV:导航按钮，mSurround:周边；mYlocation：我的位置
+         * **/
+private TextView mNavTv,mSurround,mMylocation;
+        //导航部分
+        private static final String APP_FOLDER_NAME = "BNSDKSimpleDemo";
 
+        public static final String ROUTE_PLAN_NODE = "routePlanNode";
+        public static final String SHOW_CUSTOM_ITEM = "showCustomItem";
+        public static final String RESET_END_NODE = "resetEndNode";
+        public static final String VOID_MODE = "voidMode";
+        public static List<Activity> activityList = new LinkedList<Activity>();
+        private Button mWgsNaviBtn = null;
+        private Button mGcjNaviBtn = null;
+        private Button mBdmcNaviBtn = null;
+        private Button mDb06ll = null;
+        private String mSDCardPath = null;
+        //存取当前位置信息
+        private  LatLng  mLastLocationData;
+        //存取目标地点信息
+        private  LatLng mDestLocationData;
         @Override
         protected void onCreate(Bundle savedInstanceState)
         {
@@ -111,6 +150,7 @@ import java.util.List;
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             // 注意该方法要再setContentView方法之前实现
             SDKInitializer.initialize(getApplicationContext());
+            activityList.add(this);
             setContentView(R.layout.activity_hospital_location);
             // 第一次定位
             isFristLocation = false;
@@ -122,6 +162,12 @@ import java.util.List;
             mIconMaker = BitmapDescriptorFactory.fromResource(R.mipmap.maker);
             MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(15.0f);
             mBaiduMap.setMapStatus(msu);
+            mNavTv=(TextView)findViewById(R.id.location_navagation);
+            mSurround=(TextView)findViewById(R.id.location_surround);
+            mMylocation=(TextView)findViewById(R.id.location_mylocation);
+            mNavTv.setOnClickListener(this);
+            mSurround.setOnClickListener(this);
+            mMylocation.setOnClickListener(this);
             //初始化医院位置
             initHospitalLocation();
             // 初始化定位
@@ -131,24 +177,27 @@ import java.util.List;
             initMarkerClickEvent();
             initMapClickEvent();
 
+
+            //初始化导航相关
+            if (initDirs()) {
+                initNavi();
+            }
+
         }
 
 
 
         private void initMapClickEvent()
         {
-            mBaiduMap.setOnMapClickListener(new BaiduMap.OnMapClickListener()
-            {
+            mBaiduMap.setOnMapClickListener(new BaiduMap.OnMapClickListener() {
 
                 @Override
-                public boolean onMapPoiClick(MapPoi arg0)
-                {
+                public boolean onMapPoiClick(MapPoi arg0) {
                     return false;
                 }
 
                 @Override
-                public void onMapClick(LatLng arg0)
-                {
+                public void onMapClick(LatLng arg0) {
                     mMarkerInfoLy.setVisibility(View.GONE);
                     mBaiduMap.hideInfoWindow();
 
@@ -159,11 +208,9 @@ import java.util.List;
         private void initMarkerClickEvent()
         {
             // 对Marker的点击
-            mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener()
-            {
+            mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
                 @Override
-                public boolean onMarkerClick(final Marker marker)
-                {
+                public boolean onMarkerClick(final Marker marker) {
                     // 获得marker中的数据
                     Info info = (Info) marker.getExtraInfo().get("info");
 
@@ -180,7 +227,7 @@ import java.util.List;
                     p.y -= 47;
                     LatLng llInfo = mBaiduMap.getProjection().fromScreenLocation(p);
                     // 为弹出的InfoWindow添加点击事件
-                    mInfoWindow = new InfoWindow(location, llInfo,47);
+                    mInfoWindow = new InfoWindow(location, llInfo, 47);
                     location.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -233,7 +280,17 @@ import java.util.List;
 
         @Override
         public void onClick(View view) {
-            
+            switch (view.getId()){
+                //导航
+                case R.id.location_navagation:
+                    if(mDestLocationData==null){
+                        Toast.makeText(HospitalLocationActivity.this,"目标地点设置失败重新告之",Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    routeplanToNavi(false);
+                    break;
+
+            }
         }
 
 
@@ -260,11 +317,9 @@ import java.util.List;
             myOrientationListener = new MyOrientationListener(
                     getApplicationContext());
             myOrientationListener
-                    .setOnOrientationListener(new MyOrientationListener.OnOrientationListener()
-                    {
+                    .setOnOrientationListener(new MyOrientationListener.OnOrientationListener() {
                         @Override
-                        public void onOrientationChanged(float x)
-                        {
+                        public void onOrientationChanged(float x) {
                             mXDirection = (int) x;
                             // 构造定位数据
                             MyLocationData locData = new MyLocationData.Builder()
@@ -358,12 +413,16 @@ import java.util.List;
                 MyLocationConfiguration config = new MyLocationConfiguration(
                         mCurrentMode, true, mCurrentMarker);
                 mBaiduMap.setMyLocationConfigeration(config);
+                LatLng ll = new LatLng(location.getLatitude(),
+                        location.getLongitude());
+                mLastLocationData=ll;
                 // 第一次定位时，将地图位置移动到当前位置
                 if (isFristLocation)
                 {
                     isFristLocation = false;
-                    LatLng ll = new LatLng(location.getLatitude(),
-                            location.getLongitude());
+                 //   LatLng ll = new LatLng(location.getLatitude(),
+                          //  location.getLongitude());
+
                     MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(ll);
                     mBaiduMap.animateMapStatus(u);
                 }
@@ -477,7 +536,9 @@ import java.util.List;
         private void initHospitalLocation()
         {       OverlayOptions overlayOptions = null;
             Marker marker = null;
-            LatLng ll = new LatLng(23.896121,106.614895); overlayOptions = new MarkerOptions().position(ll)
+            LatLng ll = new LatLng(23.896121,106.614895);
+            mDestLocationData=ll;
+            overlayOptions = new MarkerOptions().position(ll)
                 .icon(mIconMaker).zIndex(5);
             marker = (Marker) (mBaiduMap.addOverlay(overlayOptions));
             MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(ll);
@@ -535,5 +596,183 @@ import java.util.List;
             // 在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理
             mMapView.onPause();
         }
+
+
+
+
+
+        private boolean initDirs() {
+            mSDCardPath = getSdcardDir();
+            if (mSDCardPath == null) {
+                return false;
+            }
+            File f = new File(mSDCardPath, APP_FOLDER_NAME);
+            if (!f.exists()) {
+                try {
+                    f.mkdir();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        String authinfo = null;
+
+        private void initNavi() {
+
+            BNOuterTTSPlayerCallback ttsCallback = null;
+
+            BaiduNaviManager.getInstance().init(this, mSDCardPath, APP_FOLDER_NAME, new BaiduNaviManager.NaviInitListener() {
+                @Override
+                public void onAuthResult(int status, String msg) {
+                    if (0 == status) {
+                        authinfo = "key校验成功!";
+                    } else {
+                        authinfo = "key校验失败, " + msg;
+                    }
+                   HospitalLocationActivity.this.runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            Toast.makeText(  HospitalLocationActivity.this, authinfo, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+
+                public void initSuccess() {
+                    Toast.makeText(  HospitalLocationActivity.this, "百度导航引擎初始化成功", Toast.LENGTH_SHORT).show();
+                    initSetting();
+                }
+
+                public void initStart() {
+                    Toast.makeText(  HospitalLocationActivity.this, "百度导航引擎初始化开始", Toast.LENGTH_SHORT).show();
+                }
+
+                public void initFailed() {
+                    Toast.makeText(  HospitalLocationActivity.this, "百度导航引擎初始化失败", Toast.LENGTH_SHORT).show();
+                }
+
+
+            },  null, ttsHandler, ttsPlayStateListener);
+
+        }
+
+        private String getSdcardDir() {
+            if (Environment.getExternalStorageState().equalsIgnoreCase(Environment.MEDIA_MOUNTED)) {
+                return Environment.getExternalStorageDirectory().toString();
+            }
+            return null;
+        }
+        private void initSetting(){
+            // 设置是否双屏显示
+            BNaviSettingManager.setShowTotalRoadConditionBar(BNaviSettingManager.PreViewRoadCondition.ROAD_CONDITION_BAR_SHOW_ON);
+            // 设置导航播报模式
+            BNaviSettingManager.setVoiceMode(BNaviSettingManager.VoiceMode.Veteran);
+            // 是否开启路况
+            BNaviSettingManager.setRealRoadCondition(BNaviSettingManager.RealRoadCondition.NAVI_ITS_ON);
+        }
+
+//跳转至导航页面
+        private void routeplanToNavi(boolean mock) {
+            BNRoutePlanNode.CoordinateType coType= BNRoutePlanNode.CoordinateType.GCJ02;
+            BNRoutePlanNode sNode = null;
+            BNRoutePlanNode eNode = null;
+
+            //sNode = new BNRoutePlanNode(12947471, 4846474, "百度大厦", null, coType);
+           // eNode = new BNRoutePlanNode(12958160, 4825947, "北京天安门", null, coType);
+            sNode=new BNRoutePlanNode(mLastLocationData.longitude,mLastLocationData.latitude,"宁南",null,coType);
+            eNode=new BNRoutePlanNode(mDestLocationData.longitude,mDestLocationData.latitude,"百色",null,coType);
+            if (sNode != null && eNode != null) {
+                List<BNRoutePlanNode> list = new ArrayList<BNRoutePlanNode>();
+                list.add(sNode);
+                list.add(eNode);
+                BaiduNaviManager.getInstance().launchNavigator(this, list, 1, mock, new DemoRoutePlanListener(sNode));
+            }
+        }
+//导航监听
+        public class DemoRoutePlanListener implements BaiduNaviManager.RoutePlanListener {
+
+            private BNRoutePlanNode mBNRoutePlanNode = null;
+
+            public DemoRoutePlanListener(BNRoutePlanNode node) {
+                mBNRoutePlanNode = node;
+            }
+
+            @Override
+            public void onJumpToNavigator() {
+			/*
+			 * 设置途径点以及resetEndNode会回调该接口
+			 */
+
+                for (Activity ac : activityList) {
+
+                    if (ac.getClass().getName().endsWith("BNDemoGuideActivity")) {
+
+                        return;
+                    }
+                }
+                Intent intent = new Intent(HospitalLocationActivity.this, BNDemoGuideActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(ROUTE_PLAN_NODE, (BNRoutePlanNode) mBNRoutePlanNode);
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onRoutePlanFailed() {
+                // TODO Auto-generated method stub
+                Toast.makeText(HospitalLocationActivity.this, "算路失败", Toast.LENGTH_SHORT).show();
+            }
+        }
+        /**
+         * 内部TTS播报状态回传handler
+         */
+        private Handler ttsHandler = new Handler() {
+            public void handleMessage(Message msg) {
+                int type = msg.what;
+                switch (type) {
+                    case BaiduNaviManager.TTSPlayMsgType.PLAY_START_MSG: {
+                        showToastMsg("Handler : TTS play start");
+                        break;
+                    }
+                    case BaiduNaviManager.TTSPlayMsgType.PLAY_END_MSG: {
+                        showToastMsg("Handler : TTS play end");
+                        break;
+                    }
+                    default :
+                        break;
+                }
+            }
+        };
+
+        /**
+         * 内部TTS播报状态回调接口
+         */
+        private BaiduNaviManager.TTSPlayStateListener ttsPlayStateListener = new BaiduNaviManager.TTSPlayStateListener() {
+
+            @Override
+            public void playEnd() {
+                showToastMsg("TTSPlayStateListener : TTS play end");
+            }
+
+            @Override
+            public void playStart() {
+                showToastMsg("TTSPlayStateListener : TTS play start");
+            }
+        };
+
+        public void showToastMsg(final String msg) {
+            HospitalLocationActivity.this.runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    Toast.makeText(HospitalLocationActivity.this, msg, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
 
     }
