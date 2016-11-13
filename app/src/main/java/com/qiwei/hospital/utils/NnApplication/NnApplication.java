@@ -31,6 +31,9 @@ public class NnApplication extends Application {
 /** 获取所有的用户名和密码**/
 	private ArrayList<String> kcrrayList=null;
 	private  ArrayList<String> crrayList;
+	/**保存常用就诊人信息**/
+	private  ArrayList<String> hrrayList;
+
 /** 保存用户名**/
 	private String userid=null;
 /** 住院费用**/
@@ -76,6 +79,20 @@ public void setuserid(String use){
 		// TODO Auto-generated method stub
 		this.crrayList=crrayList2;
 	}
+/**获取常用就诊人信息**/
+	public ArrayList<String> getHrrayList() {
+		return hrrayList;
+	}
+
+	public void setfriendlist(ArrayList<String> karrylist){
+		this.hrrayList=karrylist;
+
+	}
+
+
+
+
+
 public ArrayList<String> getArrayList(){
 	return crrayList;
 }

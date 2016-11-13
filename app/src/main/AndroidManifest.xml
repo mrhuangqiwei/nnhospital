@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.qiwei.hospital">
+<manifest package="com.qiwei.hospital"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <!-- 百度地图权限 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
-    <uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
 
     <!-- 百度地图权限 -->
     <application
@@ -34,46 +34,46 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="aXsmThQtf5HgPrXavoUXv2xePYuXowt1" />
+            android:value="aXsmThQtf5HgPrXavoUXv2xePYuXowt1"/>
 
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".UCLandingActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.UCenterActivity"
-            android:label="@string/title_activity_main2" />
+            android:label="@string/title_activity_main2"/>
         <activity
             android:name=".ui.QuerySystemActivity"
-            android:label="@string/title_activity_query_system" />
+            android:label="@string/title_activity_query_system"/>
         <activity
             android:name=".ui.ZYFYCXActivity"
-            android:label="@string/title_activity_zyfy" />
-        <activity android:name=".ui.ZYFYZYActivity" />
-        <activity android:name=".ui.ZYFYCYActivity" />
-        <activity android:name=".ui.MZFYCXActivity" />
-        <activity android:name=".ui.MzblActivity" />
-        <activity android:name=".ui.MzXyCfActivity" />
-        <activity android:name=".ui.MzZlczActivity" />
-        <activity android:name=".ui.UccenterFriend" />
-        <activity android:name=".ui.UcInformation" />
-        <activity android:name=".ui.YyKsActivity" />
-        <activity android:name=".ui.YyysActivity" />
-        <activity android:name=".ui.Yygh_ysxx" />
-        <activity android:name=".ui.MyYYInfoActivity" />
-        <activity android:name=".ui.MyyyghMxActivity" />
-        <activity android:name=".ui.MyFriendMxActivity" />
-        <activity android:name=".ui.UserRegisterActivity" />
-        <activity android:name=".ui.KsAndYsActivity" />
-        <activity android:name=".ui.KsjsActivity" />
+            android:label="@string/title_activity_zyfy"/>
+        <activity android:name=".ui.ZYFYZYActivity"/>
+        <activity android:name=".ui.ZYFYCYActivity"/>
+        <activity android:name=".ui.MZFYCXActivity"/>
+        <activity android:name=".ui.MzblActivity"/>
+        <activity android:name=".ui.MzXyCfActivity"/>
+        <activity android:name=".ui.MzZlczActivity"/>
+        <activity android:name=".ui.UccenterFriend"/>
+        <activity android:name=".ui.UcInformation"/>
+        <activity android:name=".ui.YyKsActivity"/>
+        <activity android:name=".ui.YyysActivity"/>
+        <activity android:name=".ui.Yygh_ysxx"/>
+        <activity android:name=".ui.MyYYInfoActivity"/>
+        <activity android:name=".ui.MyyyghMxActivity"/>
+        <activity android:name=".ui.MyFriendMxActivity"/>
+        <activity android:name=".ui.UserRegisterActivity"/>
+        <activity android:name=".ui.KsAndYsActivity"/>
+        <activity android:name=".ui.KsjsActivity"/>
         <activity
             android:name=".ui.YyJs"
             android:label="@string/title_activity_yy_js">
@@ -84,13 +84,15 @@
                 android:value="com.qiwei.hospital.ActivityHelper.BaseActivity" />
             -->
         </activity>
-        <activity android:name=".ui.MyddcxmActivity" />
-        <activity android:name=".ui.MingYiActivity" />
-        <activity android:name=".ui.HospitalLocationActivity" />
-        <activity android:name=".ui.BNDemoGuideActivity" />
-        <activity android:name=".ui.Bagl_BasyActivity" />
-        <activity android:name=".ui.Yyys_Activity" />
-        <activity android:name=".ui.NavigationActivity"></activity>
+        <activity android:name=".ui.MyddcxmActivity"/>
+        <activity android:name=".ui.MingYiActivity"/>
+        <activity android:name=".ui.HospitalLocationActivity"/>
+        <activity android:name=".ui.BNDemoGuideActivity"/>
+        <activity android:name=".ui.Bagl_BasyActivity"/>
+        <activity android:name=".ui.Yyys_Activity"/>
+        <activity android:name=".ui.NavigationActivity"/>
+        <activity android:name=".ui.ReportQueActivity">
+        </activity>
     </application>
 
 </manifest>

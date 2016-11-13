@@ -23,6 +23,7 @@ import com.qiwei.hospital.utils.comprehensive.DBUtil;
 import com.qiwei.hospital.utils.comprehensive.PrefrenceUtils;
 import com.qiwei.hospital.utils.comprehensive.checkutils;
 import com.qiwei.hospital.utils.httplelper.HttpConnSoap;
+import com.qiwei.hospital.utils.httplelper.MsgNetUtil;
 import com.qiwei.hospital.utils.httplelper.NetUtil;
 
 import java.util.ArrayList;
@@ -40,36 +41,64 @@ private ImageButton mImgBackBtn;
     private TextView mNewUser;
     private DBUtil dbUtil;
     private NetUtil netUtil;
+    //带参数返回的MSG
+    private MsgNetUtil msgNetUtil;
+    //Handler
+    private   MainHandler mainHandler;
     private ArrayList<String> arrayList = new ArrayList<String>();
     private ArrayList<String> brrayList = new ArrayList<String>();
     private ArrayList<String> crrayList = new ArrayList<String>();
     private ArrayList<String> drrayList = new ArrayList<String>();
+    private ArrayList<String> frrayList = new ArrayList<String>();
     List<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
     private NnApplication app;
     private HttpConnSoap Soap = new HttpConnSoap();
-private Handler myHandler=new Handler(){
-    @Override
-    public void handleMessage(Message msg) {
-        super.handleMessage(msg);
-        crrayList=(ArrayList<String>)msg.obj;
-        Log.e("-----------crry","222"+crrayList.toString());
-        if(crrayList.size()>1){
-            app.setArrrList(crrayList);
-            if (!checkInputValid()) {
-                return;
-            }
-            if (checkuserinfo(mUserId.getText().toString(), mUserpassword.getText().toString())) {
-                Toast.makeText(UCLandingActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(UCLandingActivity.this, "账号或密码不对请重新检查", Toast.LENGTH_SHORT).show();
-                return;
-            }
-        }
-        else{
 
-        }
-    }
-};
+
+    class MainHandler extends Handler {
+        static final int MSG_GET_USERXX = 145;
+        static final int MSG_GET_USERFRIEND = 146;
+
+
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                /**提交注册申请**/
+                case  MSG_GET_USERXX :
+                    crrayList=(ArrayList<String>)msg.obj;
+                   // Log.e("-----------crry","222"+crrayList.toString());
+                    if(crrayList.size()>1){
+                        app.setArrrList(crrayList);
+                        if (!checkInputValid()) {
+                            return;
+                        }
+                        if (checkuserinfo(mUserId.getText().toString(), mUserpassword.getText().toString())) {
+                            Toast.makeText(UCLandingActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            Toast.makeText(UCLandingActivity.this, "账号或密码不对请重新检查", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                    else{
+
+                    }
+                    break;
+                case MSG_GET_USERFRIEND:
+                    drrayList=(ArrayList<String>)msg.obj;
+                    app.setfriendlist(drrayList);
+                    //Log.e("MSg",drrayList.toString());
+                    break;
+
+                default:
+                    break;
+            }
+        }}
+
+
+
+
+
     @Override
     protected void initEnvironment() {
         arrayList.size();
@@ -105,8 +134,9 @@ private Handler myHandler=new Handler(){
         arrayList.clear();
         brrayList.clear();
         String name="getUserInfo";
-
-        netUtil=new NetUtil(name,myHandler,arrayList,brrayList);
+        mainHandler=new MainHandler();
+        msgNetUtil=new MsgNetUtil(name,  mainHandler,arrayList,brrayList,145);
+       // netUtil=new NetUtil(name,myHandler,arrayList,brrayList);
 
     }
 
@@ -170,6 +200,7 @@ private boolean checkuserinfo(String user,String password){
         if(user.equals( drrayList.get(j))){
             if(password.equals( drrayList.get(j+1))){
                 Istrue=true;
+                chekfriends();
                 app.setuserid(drrayList.get(j));
                 Intent intent=new Intent(UCLandingActivity.this, UCenterActivity.class);
                 startActivity(intent);
@@ -184,6 +215,17 @@ private boolean checkuserinfo(String user,String password){
 return Istrue;
 
 }
+
+    private void chekfriends() {
+
+        arrayList.clear();
+        brrayList.clear();
+        arrayList.add("phone");
+        brrayList.add(mUserId.getText().toString());
+        String name="getkjzr";
+        mainHandler=new MainHandler();
+        msgNetUtil=new MsgNetUtil(name,  mainHandler,arrayList,brrayList,146);
+    }
 
 
 }

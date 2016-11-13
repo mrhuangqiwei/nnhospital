@@ -5,6 +5,7 @@
     <LinearLayout
 
         android:id="@+id/mzzy_ll_list"
+        android:alpha="150"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

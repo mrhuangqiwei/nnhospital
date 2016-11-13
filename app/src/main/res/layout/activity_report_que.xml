@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qiwei.hospital.ui.ReportQueActivity">
+
+    <include
+        android:id="@+id/report_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        layout="@layout/include_title"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:visibility="gone"
+                android:id="@+id/report_list_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                layout="@layout/layout_list_options"
+                />
+        </LinearLayout>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <RelativeLayout
+       android:layout_marginTop="50dp"
+        android:id="@+id/report_query_check"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/toolsactivity_listview_item_bg"
+        >
+        <ImageView
+            android:id="@+id/img_query_system_info"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/img_bg"
+            />
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/tv_query_system_fy"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/report_check"
+            android:layout_marginLeft="10dp"
+            android:paddingBottom="5dp"
+            android:textSize="25sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/actionbar_go_normal" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/report_query_inspect"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/toolsactivity_listview_item_bg"
+        >
+        <ImageView
+            android:id="@+id/img_query_system_zd"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/img_zl"
+            />
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/tv_query_system_zd"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:text="@string/report_inspect"
+            android:layout_marginLeft="10dp"
+            android:paddingBottom="5dp"
+            android:textSize="25sp"
+            android:layout_alignBottom="@+id/view"
+            android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/actionbar_go_normal" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd"
+            android:id="@+id/view"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/report_query_test"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="2dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/toolsactivity_listview_item_bg"
+        >
+        <ImageView
+            android:id="@+id/img_query_system_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/tj"
+            />
+        <TextView
+            android:gravity="center_vertical"
+            android:id="@+id/tv_query_system_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/report_test"
+            android:layout_marginLeft="10dp"
+            android:paddingBottom="5dp"
+            android:textSize="25sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/actionbar_go_normal" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd"
+            />
+    </RelativeLayout>
+</LinearLayout>
+    </FrameLayout>
+</LinearLayout>

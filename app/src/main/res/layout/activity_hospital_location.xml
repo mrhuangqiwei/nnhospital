@@ -101,43 +101,39 @@
     android:background="#271b00"
     android:layout_alignParentBottom="true"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="2dp"
+    android:layout_height="60dp"
     android:orientation="horizontal">
 <TextView
     android:background="@drawable/onclick_bottom_tab"
     android:id="@+id/location_surround"
     android:text="@string/naviation_surround"
+    android:gravity="center"
     android:layout_weight="1"
     android:layout_width="0dp"
     android:textSize="20sp"
-    android:layout_marginLeft="20dp"
-    android:layout_marginBottom="10dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginTop="10dp"
-    android:layout_height="wrap_content" />
+
+    android:layout_height="match_parent" />
     <TextView
         android:background="@drawable/onclick_bottom_tab"
-        android:layout_margin="10dp"
+
         android:id="@+id/location_navagation"
         android:text="@string/naviation"
+        android:gravity="center"
         android:layout_weight="1"
         android:layout_width="0dp"
         android:textSize="20sp"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
     <TextView
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+
         android:background="@drawable/onclick_bottom_tab"
-        android:layout_margin="10dp"
+
         android:id="@+id/location_mylocation"
         android:text="@string/naviation_mylocation"
+        android:gravity="center"
         android:layout_weight="1"
         android:layout_width="0dp"
         android:textSize="20sp"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 </LinearLayout>
   </RelativeLayout>
 </LinearLayout>

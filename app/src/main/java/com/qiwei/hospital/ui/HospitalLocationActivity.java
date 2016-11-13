@@ -40,6 +40,7 @@ import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.navisdk.adapter.BNOuterTTSPlayerCallback;
 import com.baidu.navisdk.adapter.BNRoutePlanNode;
 import com.baidu.navisdk.adapter.BNaviSettingManager;
@@ -289,6 +290,10 @@ private TextView mNavTv,mSurround,mMylocation;
                     }
                     routeplanToNavi(false);
                     break;
+                case  R.id.location_mylocation:
+                    center2myLoc();
+                    break;
+                default:break;
 
             }
         }
@@ -682,6 +687,7 @@ private TextView mNavTv,mSurround,mMylocation;
 
             //sNode = new BNRoutePlanNode(12947471, 4846474, "百度大厦", null, coType);
            // eNode = new BNRoutePlanNode(12958160, 4825947, "北京天安门", null, coType);
+
             sNode=new BNRoutePlanNode(mLastLocationData.longitude,mLastLocationData.latitude,"宁南",null,coType);
             eNode=new BNRoutePlanNode(mDestLocationData.longitude,mDestLocationData.latitude,"百色",null,coType);
             if (sNode != null && eNode != null) {

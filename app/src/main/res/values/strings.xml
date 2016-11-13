@@ -191,4 +191,8 @@
     <string name="naviation_surround">周边</string>
     <string name="naviation_mylocation">我的位置</string>
     <string name="naviation">到这里</string>
+    <!--查询-->
+    <string name="report_check">检验结果</string>
+    <string name="report_inspect">检查结果</string>
+    <string name="report_test">体检结果</string>
 </resources>

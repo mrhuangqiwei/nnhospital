@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageButton;
@@ -14,6 +15,10 @@ import android.widget.ImageButton;
 import com.qiwei.hospital.ActivityHelper.BaseActivity;
 import com.qiwei.hospital.MainActivity;
 import com.qiwei.hospital.R;
+import com.qiwei.hospital.UCLandingActivity;
+import com.qiwei.hospital.utils.NnApplication.NnApplication;
+
+import java.util.ArrayList;
 
 public class QuerySystemActivity extends BaseActivity implements View.OnClickListener{
     //按钮1
@@ -21,11 +26,14 @@ public class QuerySystemActivity extends BaseActivity implements View.OnClickLis
     private static final int dialog2 = 2;
     private View mQueryFy;
     private  View mZDCX;
+    private  View mBGCX;
+    private NnApplication app;
+    private ArrayList<String> drrayList = new ArrayList<String>();
     //返回
 private ImageButton imgback;
     @Override
     protected void initEnvironment() {
-
+        app=(NnApplication)getApplication();
     }
 
     @Override
@@ -36,6 +44,8 @@ private ImageButton imgback;
         mZDCX.setOnClickListener(this);
         imgback=(ImageButton)findViewById(R.id.img_query_system_back);
         imgback.setOnClickListener(this);
+        mBGCX=(View)findViewById(R.id.re_query_system_bg);
+        mBGCX.setOnClickListener(this);
     }
 
     @Override
@@ -65,11 +75,31 @@ private ImageButton imgback;
                 Intent intent=new Intent(QuerySystemActivity.this, MainActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.re_query_system_bg:
+                checkfrindens();
+
+                break;
 
             default:
                 break;
         }
 
+    }
+
+    private void checkfrindens() {
+        drrayList=app.getHrrayList();
+        if(drrayList.toString().length()>80){
+                Intent intent=new Intent(QuerySystemActivity.this, ReportQueActivity.class);
+            startActivity(intent);
+        }
+
+        else {
+
+
+
+            dialog();}
+        //if(drrayList.size())
+       // Log.e("APP",drrayList.toString().length()+"");
     }
 
 
@@ -131,4 +161,32 @@ private ImageButton imgback;
         }
         return  dialog;
     }
+
+    protected void dialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("您没添加就诊人不能查询相关信息！确认前去添加吗？");
+
+        builder.setTitle("提示");
+
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Intent intent2=new Intent(QuerySystemActivity.this,UccenterFriend.class);
+                startActivity(intent2);
+            }
+        });
+
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.create().show();
+    }
+
 }
