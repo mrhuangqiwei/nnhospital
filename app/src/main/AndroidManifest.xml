@@ -93,6 +93,8 @@
         <activity android:name=".ui.NavigationActivity"/>
         <activity android:name=".ui.ReportQueActivity">
         </activity>
+        <activity android:name=".ui.AddFriendByYlkhActivity">
+        </activity>
     </application>
 
 </manifest>

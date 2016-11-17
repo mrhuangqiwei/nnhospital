@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.qiwei.hospital.ui.AddFriendByYlkhActivity">
+    <include
+        android:id="@+id/friend_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        layout="@layout/include_title"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="vertical">
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_ucenter_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/common_layout_padding"
+        android:paddingRight="@dimen/common_layout_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/register_uc_myfriend_ylkh" />
+
+            <EditText
+                android:id="@+id/edit_friend_ylkh"
+                style="@style/commonEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_uc_myfriend_ylkh_hint"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_dddddd" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/common_text_field_height"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/commonTextViewBlue"
+                android:layout_width="@dimen/common_login_tip_width"
+                android:layout_height="wrap_content"
+                android:text="@string/zyfy_tv_sf" />
+
+            <EditText
+                android:id="@+id/edit_friend_sfzh"
+                style="@style/commonPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/uc_info_hint_sh" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="22dp"
+        >
+
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/login_button_login"
+        style="@style/commonLargeButtonBlue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_large_button_height"
+        android:layout_margin="@dimen/common_layout_padding"
+        android:text="@string/uc_info_hint_tj" />
+
+</LinearLayout>

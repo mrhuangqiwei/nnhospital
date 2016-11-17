@@ -139,6 +139,8 @@
     <string name="tv_mz_null_point">  &#160;&#160;&#160;&#160;&#160;亲，数据查询的这种方式没有找到您需要的数据，请直接与医院病案室联系查询。可能是您诊断时基本信息没有输入完全，也可能是您根本就没有开此处方。</string>
     <!--病人注册-->
     <string name="register_uc_myfriend_hzxm">姓名:</string>
+    <string name="register_uc_myfriend_ylkh">医疗卡号:</string>
+    <string name="register_uc_myfriend_ylkh_hint">请输入您的医疗卡号</string>
     <string name="register_uc_myfriend_title">用户注册</string>
     <string name="register_uc_myfriend_pass">密码：</string>
     <!--医院介绍-->
