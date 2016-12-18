@@ -58,9 +58,8 @@ private ImageButton mImgBackBtn;
     class MainHandler extends Handler {
         static final int MSG_GET_USERXX = 145;
         static final int MSG_GET_USERFRIEND = 146;
-
-
-        @Override
+        static final int MSG_GET_USERFRIENDMX = 147;
+    @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 /**提交注册申请**/
@@ -88,6 +87,12 @@ private ImageButton mImgBackBtn;
                     drrayList=(ArrayList<String>)msg.obj;
                     app.setfriendlist(drrayList);
                     //Log.e("MSg",drrayList.toString());
+                    break;
+                case MSG_GET_USERFRIENDMX:
+                    drrayList=(ArrayList<String>)msg.obj;
+                    Log.e("MSg",drrayList.toString());
+                    app.setfriendxm(drrayList);
+
                     break;
 
                 default:
@@ -202,6 +207,7 @@ private boolean checkuserinfo(String user,String password){
                 Istrue=true;
                 chekfriends();
                 app.setuserid(drrayList.get(j));
+                chekfriends1();
                 Intent intent=new Intent(UCLandingActivity.this, UCenterActivity.class);
                 startActivity(intent);
                 break;
@@ -225,7 +231,16 @@ return Istrue;
         String name="getkjzr";
         mainHandler=new MainHandler();
         msgNetUtil=new MsgNetUtil(name,  mainHandler,arrayList,brrayList,146);
-    }
+    }//获取病人信息于医疗卡号等信息
+    private void chekfriends1() {
 
+        arrayList.clear();
+        brrayList.clear();
+        arrayList.add("ph");
+        brrayList.add(mUserId.getText().toString());
+        String name="getbrxx1";
+        mainHandler=new MainHandler();
+        msgNetUtil=new MsgNetUtil(name,  mainHandler,arrayList,brrayList,147);
+    }
 
 }

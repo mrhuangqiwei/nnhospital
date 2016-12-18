@@ -87,7 +87,7 @@ private ImageButton imgback;
     }
 
     private void checkfrindens() {
-        drrayList=app.getHrrayList();
+        drrayList=app.getFriendList();
         if(drrayList.toString().length()>80){
                 Intent intent=new Intent(QuerySystemActivity.this, ReportQueActivity.class);
             startActivity(intent);

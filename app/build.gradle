@@ -23,6 +23,12 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+    packagingOptions {
+
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/LICENSE.txt'
+    }
 }
 
 dependencies {
@@ -31,4 +37,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile files('libs/BaiduLBS_Android.jar')
     compile files('libs/BaiduNaviSDK_3.2.0.jar')
+    compile files('libs/fastjson-1.2.22.jar')
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }

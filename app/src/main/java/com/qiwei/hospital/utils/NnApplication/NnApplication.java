@@ -38,7 +38,8 @@ public class NnApplication extends Application {
 	private String userid=null;
 /** 住院费用**/
 	private ArrayList<String> zyfyList=null;
-
+	/** 常用就诊人信息mx**/
+	private ArrayList<String> friendList=null;
 	/******************************
 	 * InnerClass <br>
 	 ******************************/
@@ -88,6 +89,12 @@ public void setuserid(String use){
 		this.hrrayList=karrylist;
 
 	}
+
+	public ArrayList<String> getFriendList() {
+		return friendList;
+	}
+
+	public void setfriendxm(ArrayList<String> karrylist){this.friendList=karrylist;}
 
 
 

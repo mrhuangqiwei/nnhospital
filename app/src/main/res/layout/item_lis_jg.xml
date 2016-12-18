@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+<TextView
+    android:layout_gravity="center_vertical"
+    android:layout_width="300dp"
+    android:layout_margin="5dp"
+    android:id="@+id/lis_item_xmmc"
+    android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="100dp"
+        android:id="@+id/lis_item_jc"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/lis_item_zt"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp"
+        android:layout_width="35dp"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="100dp"
+        android:id="@+id/lis_item_jg"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="50dp"
+        android:id="@+id/lis_item_dw"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_margin="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="110dp"
+        android:id="@+id/lis_item_ckfw"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
