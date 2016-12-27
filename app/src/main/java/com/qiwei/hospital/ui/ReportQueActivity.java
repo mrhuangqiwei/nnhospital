@@ -18,9 +18,11 @@ import com.alibaba.fastjson.JSON;
 import com.qiwei.hospital.ActivityHelper.BaseActivity;
 import com.qiwei.hospital.AdapterManger.FriendmxAdapter;
 import com.qiwei.hospital.AdapterManger.TimeAdapter;
+import com.qiwei.hospital.AdapterManger.TjsjAdapter;
 import com.qiwei.hospital.R;
 import com.qiwei.hospital.utils.Bean.FriendmxBean;
 import com.qiwei.hospital.utils.Bean.TimeBean;
+import com.qiwei.hospital.utils.Bean.TjglbhBean;
 import com.qiwei.hospital.utils.NnApplication.NnApplication;
 import com.qiwei.hospital.utils.httplelper.MsgNetUtil;
 import com.qiwei.hospital.utils.httplelper.MsgNetUtilwitharg1;
@@ -49,17 +51,18 @@ public class ReportQueActivity extends BaseActivity implements View.OnClickListe
     private FriendmxAdapter friendAdapter;
     //带参数返回的MSG
     private MsgNetUtilwitharg1 msgNetUtil;
+    private  MsgNetUtil msgNetUtil1;
     private BaseActivity activity;
     //Handler
     private MainHandler mainHandler;
     private ArrayList<String> arrayList = new ArrayList<String>();
     private ArrayList<String> brrayList = new ArrayList<String>();
     private ArrayList<String> drrayList = new ArrayList<String>();
-
+    private ArrayList<String> errayList = new ArrayList<String>();
 
     class MainHandler extends Handler {
         static final int MSG_GET_GHXH = 160;
-
+        static final int MSG_GET_TJBH = 161;
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -72,11 +75,52 @@ public class ReportQueActivity extends BaseActivity implements View.OnClickListe
                     parseJson1(json,q);
                     //Log.e("TAG",crrayList.toString());
                     break;
-
+                case MSG_GET_TJBH:
+                    errayList=(ArrayList<String>) msg.obj;
+                  //  Log.e("----->",errayList.toString());
+                    String str1 =errayList.toString();
+                    String json1 = str1.substring(1, str1.length() - 1);
+                    parseJson2( json1);
+                    break;
                 default:
                     break;
             }
         }
+    }
+
+    private void parseJson2(String json1) {
+        mTimeList.setVisibility(View.VISIBLE);
+        try {
+        JSONObject object = new JSONObject(json1);
+        final List<TjglbhBean> tjglbhBeans = new ArrayList<TjglbhBean>();
+        JSONArray friendData = object.getJSONArray("GetTjjbxx");
+        for (int i = 0; i < friendData.length(); i++) {
+            //   TimeBean friendBean=new TimeBean();
+            JSONObject friends = friendData.getJSONObject(i);
+            TjglbhBean tjglbhBean = JSON.parseObject(friends.toString(), TjglbhBean.class);
+           tjglbhBeans.add(tjglbhBean);
+        }
+           // Log.e("-------->",tjglbhBeans.get(0).getTjrq());
+ TjsjAdapter timeAdapter = new TjsjAdapter(ReportQueActivity.this, tjglbhBeans);
+        mTimeList.setAdapter(timeAdapter);
+       mTimeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+              String tjbh=tjglbhBeans.get(i).getTjbh();
+               Intent intent = new Intent();
+               intent.setClass(ReportQueActivity.this,ExamnitionActivity.class);
+               Bundle bundle = new Bundle();
+               bundle.putString("tjbh", tjbh);
+
+               intent.putExtras(bundle);
+               startActivity(intent);
+           }
+       });
+    }
+
+    catch (Exception e) {
+
+    }
     }
 
     @Override
@@ -139,6 +183,8 @@ public class ReportQueActivity extends BaseActivity implements View.OnClickListe
                 parseJson(json, 2);
                 break;
             case R.id.report_query_test:
+                String str2=app.getFriendList().toString();
+                parseJson(str2.substring(1, str2.length() - 1),3);
                 break;
             default:
                 break;
@@ -195,7 +241,11 @@ public class ReportQueActivity extends BaseActivity implements View.OnClickListe
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     String sfzh = friendBeans.get(i).getSfzh();
                     int j = k;
-                    Getxh(sfzh, k);
+                    if(k==3){
+                     Getxh1(sfzh);
+                    }
+                    else {
+                    Getxh(sfzh, k);}
                 }
             });
             /**
@@ -209,6 +259,16 @@ public class ReportQueActivity extends BaseActivity implements View.OnClickListe
         } catch (Exception e) {
 
         }
+    }
+
+    private void Getxh1(String sfzh) {
+        arrayList.clear();
+        brrayList.clear();
+        arrayList.add("sfzh");
+        brrayList.add(sfzh);
+        String name="getTjjbxx";
+        mainHandler=new MainHandler();
+        msgNetUtil1=new MsgNetUtil(name,  mainHandler,arrayList,brrayList,161);
     }
 
     private void Getxh(String sfzh, int i) {

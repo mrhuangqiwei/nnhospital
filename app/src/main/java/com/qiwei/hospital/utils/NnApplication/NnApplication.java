@@ -36,6 +36,9 @@ public class NnApplication extends Application {
 
 /** 保存用户名**/
 	private String userid=null;
+	/**保存医院名称**/
+	private String yymc=null;
+
 /** 住院费用**/
 	private ArrayList<String> zyfyList=null;
 	/** 常用就诊人信息mx**/
@@ -88,6 +91,12 @@ public void setuserid(String use){
 	public void setfriendlist(ArrayList<String> karrylist){
 		this.hrrayList=karrylist;
 
+	}
+	public void setYymc(String yymc){
+		this.yymc=yymc;
+	}
+	public  String getYymc(){
+		return yymc;
 	}
 
 	public ArrayList<String> getFriendList() {

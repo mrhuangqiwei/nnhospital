@@ -3,10 +3,13 @@ package com.qiwei.hospital;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -15,6 +18,9 @@ import android.widget.TextView;
 
 import com.qiwei.hospital.ui.UCenterActivity;
 import com.qiwei.hospital.utils.NnApplication.NnApplication;
+import com.qiwei.hospital.utils.httplelper.MsgNetUtil;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
@@ -33,6 +39,45 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private Fragment mTab02;
     private Fragment mTab03;
     private NnApplication app;
+    //带参数返回的MSG
+    private MsgNetUtil msgNetUtil;
+    //Handler
+    private   MainHandler mainHandler;
+    private ArrayList<String> arrayList = new ArrayList<String>();
+    private ArrayList<String> brrayList = new ArrayList<String>();
+    private ArrayList<String> crrayList = new ArrayList<String>();
+
+    class MainHandler extends Handler {
+        static final int MSG_GET_YYMC= 81;
+        static final int MSG_GET_LISID = 177;
+        static final int MSG_GET_LISMX = 178;
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                /**提交注册申请**/
+                case  MSG_GET_YYMC :
+                    crrayList=(ArrayList<String>)msg.obj;
+                  String  yymc=crrayList.get(0);
+                    //;mHostname.setText(yymc +"检验报告单");
+                    //  GetPacxId();;
+                    //Log.e("TAG",crrayList.toString());
+                    break;
+                case MSG_GET_LISID:
+
+                    break;
+                case  MSG_GET_LISMX:
+
+
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -61,7 +106,16 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mPageText2.setOnClickListener(this);
         mPageText3.setOnClickListener(this);
         setselect(0);
+        initdata();
 
+    }
+
+    private void initdata() {
+        arrayList.clear();
+        brrayList.clear();
+        String name="gethosname";
+        mainHandler=new MainHandler();
+        msgNetUtil=new MsgNetUtil(name,  mainHandler,arrayList,brrayList,81);
     }
 
     @Override

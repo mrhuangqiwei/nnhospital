@@ -1,6 +1,5 @@
 package com.qiwei.hospital.utils.httplelper;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +19,7 @@ public class HttpConnSoap {
 	public ArrayList<String> GetWebServre(String methodName,ArrayList<String> Parameters,ArrayList<String>ParValues)
 	{
 		ArrayList<String> Values=new ArrayList<String>();
-		String ServerUrl="http://182.141.186.113:8998/Service1.asmx";
+		String ServerUrl="http://192.168.101.250:8998/Service1.asmx";
 		//String soapAction="http://tempuri.org/LongUserId1";
 		String soapAction="http://tempuri.org/"+methodName;
 		String data="";
@@ -55,7 +54,7 @@ public class HttpConnSoap {
 			con.setDoInput(true);
 			con.setDoOutput(true);
 			con.setUseCaches(false);
-			con.setConnectTimeout(6000);// ���ó�ʱʱ��
+			con.setConnectTimeout(60000);// ���ó�ʱʱ��
 			con.setRequestMethod("POST");
 			con.setRequestProperty("Content-Type", "text/xml;charset=utf-8");
 			con.setRequestProperty("SOAPAction",soapAction);
@@ -86,7 +85,7 @@ public class HttpConnSoap {
 		StringBuffer   out   =   new   StringBuffer();
 		BufferedReader reader=new BufferedReader(new InputStreamReader(in));
 		String s1="";
-		byte[]   b   =   new   byte[10240];
+		byte[]   b   =   new   byte[1024*1024];
 		ArrayList<String> Values=new ArrayList<String>();
 		Values.clear();
 
@@ -101,16 +100,17 @@ public class HttpConnSoap {
 
 		//Log.e("这是s1", s1);
 		System.out.println(out);
-		// Log.e("这里是out值", out.toString());
-		String s23=String.format(out.toString());
-	//	Log.e("这是s23",s23);
+//	Log.e("这里是out值", out.toString());
+		String s23=out.toString();
+		// String s23=String.format(out.toString());
+		//Log.e("这是s23",s23);
 		//Log.e("这里是out值", out.toString());
 		String[ ] s13=s23.split("><");
 
 		//Log.e("这是S13",s13.toString());
 
 		String ifString=MonthsName+"Result";
-	Log.e("ifString",ifString);
+	//Log.e("ifString",ifString);
 		String TS="";
 		String vs="";
 
@@ -163,7 +163,8 @@ public class HttpConnSoap {
 			}
 
 		}
-//Log.e("后面一个Values",Values.toString());
+Log.e("后面一个Values",Values.toString());
+
 		return   Values;
 	}
 

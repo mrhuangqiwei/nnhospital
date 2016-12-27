@@ -236,4 +236,13 @@
     <string name="pacx_yxts">提示：</string>
     <string name="pacx_bgsj">报告时间：</string>
     <string name="pacx_xts">注意：  此报告只反映受检者当次所见，只供临床参考，不作证明材料。</string>
+    <string name="tjgl_dah">档案号：</string>
+    <string name="tjgl_tjbh">体检编号：</string>
+    <string name="tjgl_lxdh">联系电话：</string>
+    <string name="tjgl_bgrq">报告日期：</string>
+    <string name="tjgl_ssdw">所属单位：</string>
+    <string name="tjgl_jcxmmc">检查项目名称</string>
+    <string name="tjgl_ts">提示</string>
+    <string name="tjgl_tjrxm">体检人姓名</string>
+
 </resources>

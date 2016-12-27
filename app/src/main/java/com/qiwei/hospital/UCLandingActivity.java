@@ -90,7 +90,7 @@ private ImageButton mImgBackBtn;
                     break;
                 case MSG_GET_USERFRIENDMX:
                     drrayList=(ArrayList<String>)msg.obj;
-                    Log.e("MSg",drrayList.toString());
+                  //  Log.e("MSg",drrayList.toString());
                     app.setfriendxm(drrayList);
 
                     break;

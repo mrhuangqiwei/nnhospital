@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <TextView
+          android:textColor="@color/color_4da1ff"
+          android:textSize="18sp"
+          android:id="@+id/tjgl_ksmc"
+          android:layout_width="150dp"
+          android:layout_height="wrap_content"/>
+      <TextView
+          android:textColor="@color/color_4da1ff"
+          android:textSize="18sp"
+          android:layout_toRightOf="@+id/tjgl_ksmc"
+          android:id="@+id/tjgl_zhmc"
+          android:layout_width="150dp"
+          android:layout_height="wrap_content"/>
+      <TextView
+          android:textColor="@color/color_4da1ff"
+          android:textSize="18sp"
+          android:layout_toRightOf="@+id/tjgl_zhmc"
+          android:id="@+id/tjgl_jcys"
+          android:layout_width="80dp"
+          android:layout_height="wrap_content"/>
+      <TextView
+          android:textColor="@color/color_4da1ff"
+          android:textSize="18sp"
+          android:layout_toRightOf="@+id/tjgl_jcys"
+          android:id="@+id/tjgl_tjysxm"
+          android:layout_width="53dp"
+          android:layout_height="wrap_content"/>
+  </RelativeLayout>
+<ListView
+    android:id="@+id/list_tjgl_inner"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"></ListView>
+</LinearLayout>

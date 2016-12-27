@@ -45,7 +45,7 @@ public class PacxActivity extends BaseActivity implements View.OnClickListener {
     private ArrayList<String> errayList = new ArrayList<String>();
     private Pacxadapter pacxadapter;
     private LinearLayout mLxmmc;
-private Bitmap bmp;
+
     class MainHandler extends Handler {
         static final int MSG_GET_GHXH = 172;
         static final int MSG_GET_LISID = 173;

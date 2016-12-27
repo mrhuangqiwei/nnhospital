@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<TextView
+    android:id="@+id/tv_tjgl_xmmc"
+    android:layout_width="150dp"
+    android:text="尿酸"
+    android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_toRightOf="@id/tv_tjgl_xmmc"
+        android:id="@+id/tv_tjgl_tjjg"
+        android:layout_width="80dp"
+        android:text="403.9"
+        android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_toRightOf="@id/tv_tjgl_tjjg"
+            android:id="@+id/tv_tjgl_tjdw"
+            android:layout_width="70dp"
+            android:text="mmol/L"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_toRightOf="@id/tv_tjgl_tjdw"
+            android:id="@+id/tv_tjgl_ckfw"
+            android:layout_width="100dp"
+            android:text="45/6-78.8"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_toRightOf="@id/tv_tjgl_ckfw"
+            android:id="@+id/tv_tjgl_ts"
+            android:layout_width="38dp"
+            android:textColor="@color/red"
+            android:text="偏高"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</LinearLayout>
